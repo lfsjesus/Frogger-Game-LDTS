@@ -15,6 +15,10 @@ public interface GUI {
 
     void drawText(Position position, String text, String foregroundColor, String backgroundColor);
 
+    void drawCharacter(Position position, char c, String foreGroundColor);
+
+    void drawCharacter(Position position, char c, String foreGroundColor, String backGroundColor);
+
     void clear();
 
     void refresh() throws IOException;

@@ -84,28 +84,28 @@ public class LanternaGUI implements GUI{
         switch (direction){
 
             case 0:
-                drawCharacter(position.getX(), position.getY(), 'ē', "#009900");
+                drawCharacter(position, 'ē', "#009900");
                 break;
             case 1:
-                drawCharacter(position.getX(), position.getY(), 'Ĕ', "#009900");
+                drawCharacter(position, 'Ĕ', "#009900");
                 break;
             case 2:
-                drawCharacter(position.getX(), position.getY(), 'ĕ', "#009900");
+                drawCharacter(position, 'ĕ', "#009900");
                 break;
             case 3:
-                drawCharacter(position.getX(), position.getY(), 'Ĩ', "#009900");
+                drawCharacter(position, 'Ĩ', "#009900");
                 break;
             case 4:
-                drawCharacter(position.getX(), position.getY(), 'ħ', "#009900");
+                drawCharacter(position, 'ħ', "#009900");
                 break;
             case 5:
-                drawCharacter(position.getX(), position.getY(), 'Ħ', "#009900");
+                drawCharacter(position, 'Ħ', "#009900");
                 break;
             case 6:
-                drawCharacter(position.getX(), position.getY(), 'ĥ', "#009900");
+                drawCharacter(position, 'ĥ', "#009900");
                 break;
             case 7:
-                drawCharacter(position.getX(), position.getY(), 'Ē', "#009900");
+                drawCharacter(position, 'Ē', "#009900");
                 break;
         }
     }
@@ -138,17 +138,21 @@ public class LanternaGUI implements GUI{
         tg.setForegroundColor(TextColor.Factory.fromString(foregroundColor));
         tg.putString(position.getX(), position.getY(), text);
     }
-    private void drawCharacter(int x, int y, char c, String foreGroundColor) {
+    @Override
+    public void drawCharacter(Position position, char c, String foreGroundColor) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(foreGroundColor));
-        tg.putString(x, y + 1, "" + c);
+        tg.putString(position.getX(), position.getY(), "" + c);
     }
-    private void drawCharacter(int x, int y, char c, String foreGroundColor, String backGroundColor) {
+    @Override
+    public void drawCharacter(Position position, char c, String foreGroundColor, String backGroundColor) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setBackgroundColor(TextColor.Factory.fromString(backGroundColor));
         tg.setForegroundColor(TextColor.Factory.fromString(foreGroundColor));
-        tg.putString(x, y + 1, "" + c);
+        tg.putString(position.getX(), position.getY(), "" + c);
     }
+
+
     @Override
     public void clear() {
         screen.clear();
