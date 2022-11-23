@@ -84,28 +84,28 @@ public class LanternaGUI implements GUI{
         switch (direction){
 
             case 0:
-                drawCharacter(position, 'ē', "#009900");
+                drawText(position, "ē", "#009900");
                 break;
             case 1:
-                drawCharacter(position, 'Ĕ', "#009900");
+                drawText(position, "Ĕ", "#009900");
                 break;
             case 2:
-                drawCharacter(position, 'ĕ', "#009900");
+                drawText(position, "ĕ", "#009900");
                 break;
             case 3:
-                drawCharacter(position, 'Ĩ', "#009900");
+                drawText(position, "Ĩ", "#009900");
                 break;
             case 4:
-                drawCharacter(position, 'ħ', "#009900");
+                drawText(position, "ħ", "#009900");
                 break;
             case 5:
-                drawCharacter(position, 'Ħ', "#009900");
+                drawText(position, "Ħ", "#009900");
                 break;
             case 6:
-                drawCharacter(position, 'ĥ', "#009900");
+                drawText(position, "ĥ", "#009900");
                 break;
             case 7:
-                drawCharacter(position, 'Ē', "#009900");
+                drawText(position, "Ē", "#009900");
                 break;
         }
     }

@@ -37,7 +37,7 @@ public class GameViewer extends Viewer<Arena> {
     private void drawLives(GUI gui){
         gui.drawText(new Position(0, 0), "LIVES:", "#FFFFFF");
         for(int i = 0; i < getModel().getFrog().getLives(); i++){
-            gui.drawCharacter(new Position(i+6,0),'♥', "#ff0000");
+            gui.drawText(new Position(i+6,0),"♥", "#ff0000");
         }
     }
 }
