@@ -80,6 +80,7 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawFrog(Position position, int direction) {
+        //string color = getcolorbject(position);
         switch (direction){
 
             case 0:
@@ -118,11 +119,23 @@ public class LanternaGUI implements GUI{
     public void drawMovingObject(Position position) {
 
     }
-
+    @Override
+    public void drawBackground(Position position, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setBackgroundColor(TextColor.Factory.fromString(color));
+        tg.putString(position.getX(), position.getY(), " ");
+    }
     @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.putString(position.getX(), position.getY(), text);
+    }
+    @Override
+    public void drawText(Position position, String text, String foregroundColor, String backgroundColor) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setBackgroundColor(TextColor.Factory.fromString(backgroundColor));
+        tg.setForegroundColor(TextColor.Factory.fromString(foregroundColor));
         tg.putString(position.getX(), position.getY(), text);
     }
     private void drawCharacter(int x, int y, char c, String foreGroundColor) {

@@ -18,7 +18,9 @@ public class GameViewer extends Viewer<Arena> {
 
         //drawElements(gui, getModel().getWalls(), new TreeViewer());
         //drawElements(gui, getModel().getMonsters(), new MonsterViewer());
+        gui.drawBackground(new Position(5, 5),"#ffffff");
         drawElement(gui, getModel().getFrog(), new FrogViewer());
+
 
         /*
         gui.drawText(new Position(0, 0), "ENERGY: " + getModel().getHero().getEnergy(), "#FFD700");
