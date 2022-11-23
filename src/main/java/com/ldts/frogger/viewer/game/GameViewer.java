@@ -15,16 +15,14 @@ public class GameViewer extends Viewer<Arena> {
 
     @Override
     public void drawElements(GUI gui) {
-
-        //drawElements(gui, getModel().getWalls(), new TreeViewer());
-        //drawElements(gui, getModel().getMonsters(), new MonsterViewer());
         gui.drawBackground(new Position(5, 5),"#ffffff");
+        drawLives(gui);
         drawElement(gui, getModel().getFrog(), new FrogViewer());
 
+        //drawElements(gui, getModel().getWalls(), new TreeViewer());
 
-        /*
-        gui.drawText(new Position(0, 0), "ENERGY: " + getModel().getHero().getEnergy(), "#FFD700");
-        */
+        //gui.drawText(new Position(0, 0), "ENERGY: " + getModel().getFrog().getLives(), "#FFD700");
+
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
@@ -34,5 +32,12 @@ public class GameViewer extends Viewer<Arena> {
 
     private <T extends Element> void drawElement(GUI gui, T element, ElementViewer<T> viewer) {
         viewer.draw(element, gui);
+    }
+
+    private void drawLives(GUI gui){
+        gui.drawText(new Position(0, 0), "LIVES:", "#FFFFFF");
+        for(int i = 0; i < getModel().getFrog().getLives(); i++){
+            gui.drawCharacter(new Position(i+6,0),'♥', "#ff0000");
+        }
     }
 }
