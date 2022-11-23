@@ -8,7 +8,12 @@ public interface GUI {
     void drawFrog(Position position, int direction);
     void drawObstacle(Position position);
     void drawMovingObject(Position position);
+
+    void drawBackground(Position position, String color);
+
     void drawText(Position position, String text, String color);
+
+    void drawText(Position position, String text, String foregroundColor, String backgroundColor);
 
     void clear();
 
