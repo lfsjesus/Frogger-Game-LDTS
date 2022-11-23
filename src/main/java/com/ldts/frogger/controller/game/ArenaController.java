@@ -10,19 +10,22 @@ import java.io.IOException;
 
 public class ArenaController extends GameController {
     private final FrogController frogController;
+    private final CarController carController;
 
     public ArenaController(Arena arena) {
         super(arena);
         this.frogController = new FrogController(arena);
+        this.carController = new CarController(arena);
 
     }
 
-    @Override
+
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.QUIT || getModel().getFrog().getLives() == 0)
             game.setState(new MenuState(new Menu()));
         else {
             frogController.step(game, action, time);
+            carController.step(game,action,time);
 
         }
     }

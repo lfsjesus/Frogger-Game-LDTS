@@ -18,7 +18,7 @@ public interface GUI {
     void drawCharacter(Position position, char c, String foreGroundColor);
 
     void drawCharacter(Position position, char c, String foreGroundColor, String backGroundColor);
-
+    void drawCar(Position position);
     void clear();
 
     void refresh() throws IOException;

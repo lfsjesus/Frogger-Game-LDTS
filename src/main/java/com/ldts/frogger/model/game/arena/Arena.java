@@ -1,6 +1,7 @@
 package com.ldts.frogger.model.game.arena;
 
 import com.ldts.frogger.model.Position;
+import com.ldts.frogger.model.game.elements.Car;
 import com.ldts.frogger.model.game.elements.Frog;
 import com.sun.source.tree.Tree;
 
@@ -11,6 +12,15 @@ public class Arena {
     private final int height;
 
     private Frog frog;
+    private List<Car> cars;
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
 
     public Arena(int width, int height) {
         this.width = width;
@@ -36,4 +46,11 @@ public class Arena {
 
         return true;
     }
+    public boolean isCar(Position position) {
+        for (Car car : cars)
+            if (car.getPosition().equals(position))
+                return true;
+        return false;
+    }
+
 }
