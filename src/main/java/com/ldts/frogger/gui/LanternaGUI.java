@@ -152,6 +152,11 @@ public class LanternaGUI implements GUI{
         tg.putString(position.getX(), position.getY(), "" + c);
     }
 
+    @Override
+    public void drawCar(Position position) {
+        drawText(position, "ė", "#CC0000");
+    }
+
 
     @Override
     public void clear() {

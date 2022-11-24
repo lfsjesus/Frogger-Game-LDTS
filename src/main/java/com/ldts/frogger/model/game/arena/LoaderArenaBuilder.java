@@ -1,5 +1,6 @@
 package com.ldts.frogger.model.game.arena;
 
+import com.ldts.frogger.model.game.elements.Car;
 import com.ldts.frogger.model.game.elements.Frog;
 
 import java.io.BufferedReader;
@@ -27,6 +28,19 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         for (String line; (line = br.readLine()) != null; )
             lines.add(line);
         return lines;
+    }
+
+    @Override
+    protected List<Car> createCars() {
+        List<Car> cars = new ArrayList<>();
+
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'M') cars.add(new Car(x, y));
+        }
+
+        return cars;
     }
 
     @Override
