@@ -1,5 +1,7 @@
 package com.ldts.frogger.model.game.elements;
 
+import com.ldts.frogger.model.Position;
+
 public class Car extends MoveableElement{
     private String type = "car";
     private int direction = 0;
@@ -18,4 +20,5 @@ public class Car extends MoveableElement{
     public void setDirection(int direction) {
         this.direction = direction;
     }
+
 }

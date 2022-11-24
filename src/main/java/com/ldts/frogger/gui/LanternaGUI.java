@@ -154,7 +154,7 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawCar(Position position) {
-        drawText(position, "ė", "#CC0000");
+        drawText(position, "ėĘ", "#CC0000");
     }
 
 
