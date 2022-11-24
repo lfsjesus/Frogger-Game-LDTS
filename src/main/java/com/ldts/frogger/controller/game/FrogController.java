@@ -7,6 +7,7 @@ import com.ldts.frogger.model.game.arena.Arena;
 
 public class FrogController extends GameController {
     private boolean changeDir = true;
+
     public FrogController(Arena arena) {
         super(arena);
     }
@@ -27,16 +28,30 @@ public class FrogController extends GameController {
         moveFrog(getModel().getFrog().getPosition().getDown());
     }
 
-    private void moveFrog(Position position) {
-        if (getModel().isEmpty(position)) {
+    public void checkCrash(){
+        Position frogPosition = getModel().getFrog().getPosition();
+        if(getModel().isCar(frogPosition)){
+            getModel().getFrog().resetPostion();
+            getModel().getFrog().decreaseLives();
+
+        }
+    }
+    private void moveFrog(Position position) { //estamos a ver a nova posicao
+        checkCrash();
+        if (getModel().isEmpty(position) &&
+                !(position.getY() < 1 || position.getY() > 19) &&
+                !(position.getX() < 0 || position.getX() > 19)
+        ) {
             getModel().getFrog().setPosition(position);
         }
+        checkCrash();
+
     }
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-
         if (action == GUI.ACTION.UP) {
+            //getModel().isCar(getModel().getFrog().getPosition());
             moveFrogUp();
             if (changeDir) {
                 getModel().getFrog().setDirection(1);
@@ -48,7 +63,7 @@ public class FrogController extends GameController {
             }
         }
 
-        if (action == GUI.ACTION.RIGHT){
+        else if (action == GUI.ACTION.RIGHT){
             moveFrogRight();
             if (changeDir) {
                 getModel().getFrog().setDirection(2);
@@ -60,7 +75,7 @@ public class FrogController extends GameController {
             }
         }
 
-        if (action == GUI.ACTION.DOWN){
+        else if (action == GUI.ACTION.DOWN){
             moveFrogDown();
             if (changeDir) {
                 getModel().getFrog().setDirection(4);
@@ -72,7 +87,7 @@ public class FrogController extends GameController {
             }
         }
 
-        if (action == GUI.ACTION.LEFT){
+        else if (action == GUI.ACTION.LEFT){
             moveFrogLeft();
             if (changeDir) {
                 getModel().getFrog().setDirection(6);
@@ -83,5 +98,6 @@ public class FrogController extends GameController {
                 changeDir = true;
             }
         }
+
     }
 }

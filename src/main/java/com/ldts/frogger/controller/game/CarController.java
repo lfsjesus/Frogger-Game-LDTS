@@ -30,6 +30,7 @@ public class CarController extends GameController {
             for (Car car : getModel().getCars()) {
                 checkCrash(car);
                 moveCar(car, car.getPosition().getRight());
+                checkCrash(car);
             }
             this.lastMovement = time;
         }
