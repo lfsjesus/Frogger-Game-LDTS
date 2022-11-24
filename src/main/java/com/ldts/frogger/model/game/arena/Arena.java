@@ -47,9 +47,11 @@ public class Arena {
         return true;
     }
     public boolean isCar(Position position) {
-        for (Car car : cars)
-            if (car.getPosition().equals(position))
+        for (Car car : cars){
+            if (car.getPosition().equals(position) || car.getPosition().getRight().equals(position)){
                 return true;
+            }
+        }
         return false;
     }
 
