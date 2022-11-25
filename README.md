@@ -1,4 +1,4 @@
-## LDTS_<2LEIC01>GR04 - Frogger
+## LDTS_GR04 - Frogger
 
 The objective of this game is to move the frog through a path of static and moving obstacles, reaching the end of
 the levels without dying with the highest score possible. 
@@ -13,9 +13,9 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 
 - [X] **Menu Interface**: the application starts by showing a simple menu that is able to start the game.
 - [X] **Keyboard Control:** the keyboard inputs are received and an action is taken according the current state of the application. The used inputs are the Arrow keys and the letter 'q' to go back to the menu. 
-- [X] **Arena:** the arena and the elements are created at the beginning of the game while reading different files that describe different levels, using different characters. Example: 'F' represents the frog.
+- [X] **Arena:** the arena and the elements are created at the beginning of the game while reading different files that describe each level, using different characters. Example: 'F' represents the frog.
 - [X] **Collisions**: collisions between the frog, the cars and the limit walls are detected.
-- [X] **Lives**: the frog has 3 lives and they are shown on the screen, represented by three hearts.
+- [X] **Lives**: the frog has 3 lives, which are shown on the screen represented by three hearts.
 - [X] **Vehicle Movement:** so far, there's only one type of car and they move at the same speed in the same direction.
 
 ### PLANNED FEATURES
@@ -30,14 +30,19 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
  
 ### DESIGN
 
-> This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
+**General Structure**
 
-- **Problem in Context.** The description of the design context and the concrete problem that motivated the instantiation of the pattern. Someone else other than the original developer should be able to read and understand all the motivations for the decisions made. When refering to the implementation before the pattern was applied, don’t forget to [link to the relevant lines of code](https://help.github.com/en/articles/creating-a-permanent-link-to-a-code-snippet) in the appropriate version.
-- **The Pattern.** Identify the design pattern to be applied, why it was selected and how it is a good fit considering the existing design context and the problem at hand.
-- **Implementation.** Show how the pattern roles, operations and associations were mapped to the concrete design classes. Illustrate it with a UML class diagram, and refer to the corresponding source code with links to the relevant lines (these should be [relative links](https://help.github.com/en/articles/about-readmes#relative-links-and-image-paths-in-readme-files). When doing this, always point to the latest version of the code.
-- **Consequences.** Benefits and liabilities of the design after the pattern instantiation, eventually comparing these consequences with those of alternative solutions.
+- **Problem in Context.**  In order to easily add new features and test them, we needed to find a way to structure our code accordingly. Since our application also uses a GUI, we taught that the MVC (Model-View-Controller) pattern would be a great choice.
+- **The Pattern.** The Model-View-Controller pattern is an **Architectural** pattern in which the code is split up into three parts: the model, the controller and the view.
+- **Implementation.**  The model is responsible for storing the data, the controller is responsible for mutating the model and controlling the logic of the game and the view is responsible for rendering the model on the screen.
+- **Consequences.** Using this pattern allows us to easily introduce new features and enforces the **Single Responsibility Principle**. However, this pattern creates a class for each model, which leads to the creation of classes that can't do anything on their own.
 
-**Example of one of such subsections**:
+------
+
+- **Problem in Context.**  In order to easily add new features and test them, we needed to find a way to structure our code accordingly. Since our application also uses a GUI, we taught that the MVC (Model-View-Controller) pattern would be a great choice.
+- **The Pattern.** The Model-View-Controller pattern is an **Architectural** pattern in which the code is split up into three parts: the model, the controller and the view.
+- **Implementation.**  The model is responsible for storing the data, the controller is responsible for mutating the model and controlling the logic of the game and the view is responsible for rendering the model on the screen.
+- **Consequences.** Using this pattern allows us to easily introduce new features and enforces the **Single Responsibility Principle**. However, this pattern creates a class for each model, which leads to the creation of classes that can't do anything on their own.
 
 ------
 
