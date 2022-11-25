@@ -38,11 +38,11 @@ public class CarController extends GameController {
     private void moveCar(Car car, Position position) {
 
         if (getModel().isEmpty(position)) {
-            if(position.getX() == 20){ //se sair do lado direto voltar para a esquerda
+            if(position.getX() > getModel().getWidth() - 1){ //se sair do lado direto voltar para a esquerda
                 car.setPosition(new Position(-1,position.getY()));
             }
             else if(position.getX() == -1){
-                car.setPosition(new Position(20,position.getY()));
+                car.setPosition(new Position(getModel().getWidth(),position.getY()));
             }
             else {
                 car.setPosition(position);

@@ -20,6 +20,6 @@ public abstract class ArenaBuilder {
 
     protected abstract int getHeight();
 
-
     protected abstract Frog createFrog();
+
 }

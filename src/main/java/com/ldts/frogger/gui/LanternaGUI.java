@@ -39,7 +39,7 @@ public class LanternaGUI implements GUI{
         return screen;
     }
     private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
-        TerminalSize terminalSize = new TerminalSize(width, height + 1);
+        TerminalSize terminalSize = new TerminalSize(width, height);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory()
                 .setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
@@ -56,7 +56,7 @@ public class LanternaGUI implements GUI{
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN, 50);
+        Font loadedFont = font.deriveFont(Font.PLAIN, 45);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfig;
     }

@@ -39,8 +39,8 @@ public class FrogController extends GameController {
     private void moveFrog(Position position) { //estamos a ver a nova posicao
         checkCrash();
         if (getModel().isEmpty(position) &&
-                !(position.getY() < 1 || position.getY() > 19) &&
-                !(position.getX() < 0 || position.getX() > 19)
+                !(position.getY() < 1 || position.getY() > getModel().getHeight()) &&
+                !(position.getX() < 0 || position.getX() > getModel().getWidth() - 1)
         ) {
             getModel().getFrog().setPosition(position);
         }
