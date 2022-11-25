@@ -1,26 +1,33 @@
-## LPOO_<T><G> - <PROJECT NAME>
+## LDTS_<2LEIC01>GR04 - Frogger
 
-> Include here one or two paragraphs explaining the main idea of the project, followed by a sentence identifying who the authors are.
+The objective of this game is to move the frog through a path of static and moving obstacles, reaching the end of
+the levels without dying with the highest score possible. 
 
-**Example**:
+The character is a frog that must cross a series of busy roads, rivers, train tracks and lava. He has 3 lives and every time he loses one, his position is reseted.
 
-In this exciting platform game you can help KangarooBoy save the world, by collecting all the coins throughout ten different levels in which you will […].
+This game is based on a mix of two well-known games: Crossy Road and Frogger.
 
-This project was developed by *John Doe* (*john.doe*@fe.up.pt) and *Jane Doe* (*jane.doe*@fe.up.pt) for LPOO 2018⁄19.
+This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Miguel Rocha](https://github.com/r00cha).
 
 ### IMPLEMENTED FEATURES
 
-> This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
-
-**Examples**:
-
-- **Jumping** - The game character will jump when the space bar key is pressed.
-- **Getting hidden coins** - When the game character hits a platform from below (by jumping beneath it) it will smash that segment of the platform and will get any coins that may exist hidden there.
+- [X] **Menu Interface**: the application starts by showing a simple menu that is able to start the game.
+- [X] **Keyboard Control:** the keyboard inputs are received and an action is taken according the current state of the application. The used inputs are the Arrow keys and the letter 'q' to go back to the menu. 
+- [X] **Arena:** the arena and the elements are created at the beginning of the game while reading different files that describe different levels, using different characters. Example: 'F' represents the frog.
+- [X] **Collisions**: collisions between the frog, the cars and the limit walls are detected.
+- [X] **Lives**: the frog has 3 lives and they are shown on the screen, represented by three hearts.
+- [X] **Vehicle Movement:** so far, there's only one type of car and they move at the same speed in the same direction.
 
 ### PLANNED FEATURES
 
-> This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
-
+- [ ] **Elements:** the elements are divided into two types: movable and non-movable. Specific elements inherit properties from one of these two parent classes.
+- [ ] **Collisions:** collisions between the remaining entities (trunks, trees, etc) have to be implemented.
+- [ ] **Levels:** different levels with different environments (road, forest, river, lava, etc).
+- [ ] **Score:** the score will increase along with the time and picking up coins increases it even more. 
+- [ ] **Score Farming Prevention:** if the frog stays in the same position for a long time, it loses a life, in order to prevent unfair high scores.
+- [ ] **Vehicle Movement**: different types of vehicles (trains, trucks, etc) will move at different speeds both to the left and right.
+- [ ] **Sound Effects**: background music and crashing/collisions/etc sounds.
+ 
 ### DESIGN
 
 > This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
