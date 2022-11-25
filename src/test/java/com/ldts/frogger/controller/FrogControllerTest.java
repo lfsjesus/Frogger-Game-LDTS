@@ -1,5 +1,6 @@
-package com.ldts.frogger;
+package com.ldts.frogger.controller;
 
+import com.ldts.frogger.Game;
 import com.ldts.frogger.controller.game.CarController;
 import com.ldts.frogger.controller.game.FrogController;
 import com.ldts.frogger.gui.GUI;

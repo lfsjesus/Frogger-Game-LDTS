@@ -111,15 +111,6 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
-    public void drawObstacle(Position position) {
-
-    }
-
-    @Override
-    public void drawMovingObject(Position position) {
-
-    }
-    @Override
     public void drawBackground(Position position, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setBackgroundColor(TextColor.Factory.fromString(color));
@@ -137,19 +128,6 @@ public class LanternaGUI implements GUI{
         tg.setBackgroundColor(TextColor.Factory.fromString(backgroundColor));
         tg.setForegroundColor(TextColor.Factory.fromString(foregroundColor));
         tg.putString(position.getX(), position.getY(), text);
-    }
-    @Override
-    public void drawCharacter(Position position, char c, String foreGroundColor) {
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString(foreGroundColor));
-        tg.putString(position.getX(), position.getY(), "" + c);
-    }
-    @Override
-    public void drawCharacter(Position position, char c, String foreGroundColor, String backGroundColor) {
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setBackgroundColor(TextColor.Factory.fromString(backGroundColor));
-        tg.setForegroundColor(TextColor.Factory.fromString(foreGroundColor));
-        tg.putString(position.getX(), position.getY(), "" + c);
     }
 
     @Override
