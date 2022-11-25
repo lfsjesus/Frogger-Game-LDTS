@@ -60,6 +60,14 @@ public class CarControllerTest {
     }
 
     @Test
+    void checkCrashWithFrogMovingRight() throws IOException {
+        Car car = new Car(6, 5);
+        arena.setCars(Arrays.asList(car));
+        FrogController frogController = new FrogController(arena);
+        frogController.step(game, GUI.ACTION.RIGHT, 2000);
+        assertTrue(frog.getLives() < 3);
+    }
+    @Test
     void checkCrashWithFrogMovingLeft() throws IOException {
         Car car = new Car(2, 5);
         arena.setCars(Arrays.asList(car));
