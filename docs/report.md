@@ -17,6 +17,7 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
   <br>
   <img src="/docs/menu.jpeg" width="300"> 
 - [X] **Keyboard Control:** the keyboard inputs are received and an action is taken according the current state of the application. The used inputs are the Arrow keys and the letter 'q' to go back to the menu.
+  <br>
   <img src="/docs/frogger1.gif" width="300">
 - [X] **Arena:** the arena and the elements are created at the beginning of the game while reading different files that describe each level, using different characters. Example: 'F' represents the frog.
 - [X] **Collisions**: collisions between the frog, the cars and the limit walls are detected.
