@@ -68,17 +68,10 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 
 ------
 
-#### MOTION OF OBJECTS (vehicles, trunks, etc)
-
-- **Problem in Context.** There are several kinds of objects that have the same behavior when it comes to their motion. Cars and other vehicles, trunks, etc move either to the left or right (very simple motion). There is no need to complicate and repeat code everywhere to make them move.
-- **The Pattern.** To be decided when we implement more vehicles and movable objects in the game (maybe Command Pattern).
-- **Implementation.** Not implemented yet.
-- **Consequences.** ---
-
 #### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
 - There are several kinds of objects that have the same behavior when it comes to their motion. Cars and other vehicles, trunks, etc move either to the left or right (very simple motion). There is no need to complicate and repeat code everywhere to make them move.
-- **A design pattern is yet being decided, because we will have more vehicles and movable objects in the game (maybe Command Pattern will be a good choice).
+- A design pattern is yet being decided, because we will have more vehicles and movable objects in the game (maybe Command Pattern will be a good choice).
 
 ------
 ### TESTING
