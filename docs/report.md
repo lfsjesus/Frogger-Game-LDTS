@@ -15,7 +15,7 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 
 - [X] **Menu Interface**: the application starts by showing a simple menu that is able to start the game.
   <br>
-  <img src="/docs/menu.jpeg" width="300"> 
+  <img src="/docs/menu.gif" width="300"> 
 - [X] **Keyboard Control:** the keyboard inputs are received and an action is taken according the current state of the application. The used inputs are the Arrow keys and the letter 'q' to go back to the menu.
   <br>
   <img src="/docs/frogger1.gif" width="300">
