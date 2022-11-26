@@ -7,7 +7,7 @@ The character is a frog that must cross a series of busy roads, rivers, train tr
 
 This game is based on a mix of two well-known games: Crossy Road and Frogger.
 
-<img src="./docs/mockup.jpeg" width="500"> 
+<img src="/docs/mockup.jpeg" width="500"> 
 
 This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Miguel Rocha](https://github.com/r00cha).
 
@@ -15,9 +15,9 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 
 - [X] **Menu Interface**: the application starts by showing a simple menu that is able to start the game.
   <br>
-  <img src="./docs/menu.jpeg" width="300"> 
+  <img src="/docs/menu.jpeg" width="300"> 
 - [X] **Keyboard Control:** the keyboard inputs are received and an action is taken according the current state of the application. The used inputs are the Arrow keys and the letter 'q' to go back to the menu.
-  <img src="./docs/frogger1.gif" width="300">
+  <img src="/docs/frogger1.gif" width="300">
 - [X] **Arena:** the arena and the elements are created at the beginning of the game while reading different files that describe each level, using different characters. Example: 'F' represents the frog.
 - [X] **Collisions**: collisions between the frog, the cars and the limit walls are detected.
 - [X] **Lives**: the frog has 3 lives, which are shown on the screen represented by three hearts.
