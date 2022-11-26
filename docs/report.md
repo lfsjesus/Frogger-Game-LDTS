@@ -67,6 +67,13 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 - **Consequences.** It allows the game to run smoothly regardless of a user's input, or lack thereof.
 
 ------
+#### UML
+**Note:** this diagram is just a simplified draft of what we want to implement. It will be changed and completed in the future.
+
+<br>
+<img src="/docs/UML_Frogger.png"> 
+
+------
 
 #### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
