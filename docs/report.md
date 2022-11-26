@@ -80,13 +80,11 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 - There are several kinds of objects that have the same behavior when it comes to their motion. Cars and other vehicles, trunks, etc move either to the left or right (very simple motion). There is no need to complicate and repeat code everywhere to make them move.
 - **A design pattern is yet being decided, because we will have more vehicles and movable objects in the game (maybe Command Pattern will be a good choice).
 
-**Example of such a subsection**:
-
 ------
 ### TESTING
 
-![](./docs/testcoverage.jpeg)
-- [Mutation Testing]()
+![](/docs/testcoverage.jpeg)
+- [Mutation Testing](https://github.com/FEUP-LDTS-2022/project-l01gr04/blob/main/docs/Pitest/index.html): we had a problem using pitest with GUI tests, so we had to comment them before running pitest. Because of this, we lost significant coverage. We'll try to solve it later.
 
 ### SELF-EVALUATION
 
