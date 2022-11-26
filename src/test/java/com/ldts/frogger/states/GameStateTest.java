@@ -2,7 +2,6 @@ package com.ldts.frogger.states;
 
 import com.ldts.frogger.Game;
 import com.ldts.frogger.controller.game.ArenaController;
-import com.ldts.frogger.controller.game.GameController;
 import com.ldts.frogger.controller.menu.MenuController;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.game.arena.Arena;

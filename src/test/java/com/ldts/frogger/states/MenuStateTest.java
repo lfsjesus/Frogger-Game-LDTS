@@ -2,10 +2,8 @@ package com.ldts.frogger.states;
 
 import com.ldts.frogger.Game;
 import com.ldts.frogger.controller.game.ArenaController;
-import com.ldts.frogger.controller.game.GameController;
 import com.ldts.frogger.controller.menu.MenuController;
 import com.ldts.frogger.gui.GUI;
-import com.ldts.frogger.gui.LanternaGUI;
 import com.ldts.frogger.model.game.arena.Arena;
 import com.ldts.frogger.model.menu.Menu;
 import com.ldts.frogger.viewer.game.GameViewer;
@@ -28,7 +26,6 @@ public class MenuStateTest {
     private Arena arena;
     private GUI gui;
     private MenuController controller;
-
 
     @BeforeEach
     void setUp() throws IOException, URISyntaxException, FontFormatException {
@@ -55,6 +52,5 @@ public class MenuStateTest {
         controller.step(game, GUI.ACTION.SELECT, 300);
         assertTrue(game.getState().getController() instanceof ArenaController && game.getState().getViewer() instanceof GameViewer);
     }
-
 
 }

@@ -12,14 +12,13 @@ public class MenuViewer extends Viewer<Menu> {
 
     @Override
     public void drawElements(GUI gui) {
-
         drawMenuBackground(gui);
         drawMenuBorder(gui);
         drawMenuText(gui);
 
     }
 
-    private void drawMenuBackground(GUI gui) {
+    public void drawMenuBackground(GUI gui) {
         for(int i = 0; i < 20; i++){
             for(int j = 0; j< 20; j++){
                 gui.drawBackground(new Position(i,j),"#32a852");
@@ -27,7 +26,7 @@ public class MenuViewer extends Viewer<Menu> {
         }
     }
 
-    private void drawMenuBorder(GUI gui) {
+    public void drawMenuBorder(GUI gui) {
         //border
         //horizontal
         gui.drawText(new Position(3,2),"┌","#47ed74", "#000000");
