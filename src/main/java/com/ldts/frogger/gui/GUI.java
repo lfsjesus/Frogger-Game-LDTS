@@ -6,6 +6,7 @@ import java.io.IOException;
 public interface GUI {
     ACTION getNextAction() throws IOException;
     void drawFrog(Position position, int direction);
+    void drawFrog(Position position, int direction, String backgroundColor);
 
     void drawBackground(Position position, String color);
 

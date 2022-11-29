@@ -3,6 +3,7 @@ package com.ldts.frogger.model.game.arena;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.elements.Car;
 import com.ldts.frogger.model.game.elements.Frog;
+import com.ldts.frogger.model.game.elements.Sidewalk;
 import com.sun.source.tree.Tree;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class Arena {
 
     private Frog frog;
     private List<Car> cars;
+    private List<Sidewalk> sidewalks;
 
     public List<Car> getCars() {
         return cars;
@@ -54,5 +56,20 @@ public class Arena {
         }
         return false;
     }
+    public boolean isSidewalk(Position position) {
+        for (Sidewalk sidewalk : sidewalks){
+            if (sidewalk.getPosition().equals(position)){
+                return true;
+            }
+        }
+        return false;
+    }
 
+    public List<Sidewalk> getSidewalks() {
+        return this.sidewalks;
+    }
+
+    public void setSidewalks(List<Sidewalk> sidewalks) {
+        this.sidewalks = sidewalks;
+    }
 }

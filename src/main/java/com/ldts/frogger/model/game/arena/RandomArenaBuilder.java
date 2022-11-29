@@ -2,6 +2,7 @@ package com.ldts.frogger.model.game.arena;
 
 import com.ldts.frogger.model.game.elements.Car;
 import com.ldts.frogger.model.game.elements.Frog;
+import com.ldts.frogger.model.game.elements.Sidewalk;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,12 @@ public class RandomArenaBuilder extends ArenaBuilder {
             cars.add(new Car(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
 
         return cars;
+    }
+
+    @Override
+    protected List<Sidewalk> createSidewalks() {
+
+        return null;
     }
 
     @Override

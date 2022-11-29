@@ -3,6 +3,7 @@ package com.ldts.frogger.model.game.arena;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.elements.Car;
 import com.ldts.frogger.model.game.elements.Frog;
+import com.ldts.frogger.model.game.elements.Sidewalk;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,7 +11,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.EnumSet;
 import java.util.List;
 import java.lang.Math;
 
@@ -49,6 +49,19 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
 
         return cars;
+    }
+    @Override
+    protected List<Sidewalk> createSidewalks() {
+        List<Sidewalk> sidewalks = new ArrayList<>();
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++){
+                if (line.charAt(x) == 'S') sidewalks.add(new Sidewalk(new Position(x,y)));
+
+            }
+        }
+
+        return sidewalks;
     }
 
     @Override

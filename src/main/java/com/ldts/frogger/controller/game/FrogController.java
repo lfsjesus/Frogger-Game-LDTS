@@ -28,22 +28,36 @@ public class FrogController extends GameController {
         moveFrog(getModel().getFrog().getPosition().getDown());
     }
 
-    public void checkCrash(){
+    public boolean checkCrash(){
         Position frogPosition = getModel().getFrog().getPosition();
         if(getModel().isCar(frogPosition)){
             getModel().getFrog().resetPostion();
             getModel().getFrog().decreaseLives();
+            return true;
 
         }
+        return false;
     }
+
     private void moveFrog(Position position) { //estamos a ver a nova posicao
+
+        if(getModel().isSidewalk(position)){ //ver a cor do background
+            getModel().getFrog().setBackgroundColor("#acacac");
+        }
+        else {
+            getModel().getFrog().setBackgroundColor("#000000");
+        }
+
+
         checkCrash();
+        //can move?
         if (getModel().isEmpty(position) &&
                 !(position.getY() < 1 || position.getY() > getModel().getHeight()) &&
                 !(position.getX() < 0 || position.getX() > getModel().getWidth() - 1)
         ) {
             getModel().getFrog().setPosition(position);
         }
+
         checkCrash();
 
     }
