@@ -24,7 +24,7 @@ public class OverallViewertest {
         gui = Mockito.mock(GUI.class);
         viewer = new GameViewer(arena);
 
-        arena.setCars(Arrays.asList(new Car(4, 5), new Car(5, 6)));
+        arena.setCars(Arrays.asList(new Car(new Position(4, 5), 0, "#ffffff"), new Car(new Position(5, 6), 1, "#000000")));
         arena.setFrog(new Frog(5, 8));
     }
 
@@ -40,8 +40,8 @@ public class OverallViewertest {
     void drawCars() throws IOException {
         viewer.draw(gui);
 
-        Mockito.verify(gui, Mockito.times(1)).drawCar(new Position(4, 5),"#ffffff",1);
-        Mockito.verify(gui, Mockito.times(1)).drawCar(new Position(5, 6),"#ffffff", 1);
+        Mockito.verify(gui, Mockito.times(1)).drawCar(new Position(4, 5),"#ffffff",0);
+        Mockito.verify(gui, Mockito.times(1)).drawCar(new Position(5, 6),"#000000", 1);
         Mockito.verify(gui, Mockito.times(2)).drawCar(Mockito.any(Position.class), Mockito.anyString(), Mockito.anyInt());
     }
 
