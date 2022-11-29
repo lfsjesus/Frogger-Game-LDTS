@@ -91,7 +91,7 @@ public class FrogControllerTest {
     void checkCollisionWithCar() throws IOException {
         Game game = Mockito.mock(Game.class);
         CarController carController = new CarController(arena);
-        Car car = new Car(3, 5);
+        Car car = new Car(new Position(3,5),1);
         arena.setCars(Arrays.asList(car));
         carController.step(game, GUI.ACTION.NONE, 1000);
         assertTrue(frog.getLives() < 3);

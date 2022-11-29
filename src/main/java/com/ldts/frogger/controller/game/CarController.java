@@ -29,25 +29,21 @@ public class CarController extends GameController {
         if (time - lastMovement > 200) {
             for (Car car : getModel().getCars()) {
                 checkCrash(car);
-                moveCar(car, car.getPosition().getRight());
+                if(car.getDirection() == 1){
+                    moveCar(car, new MoveRight());
+                }
+                else {
+                    moveCar(car, new MoveLeft());
+                }
                 checkCrash(car);
             }
             this.lastMovement = time;
         }
     }
-    private void moveCar(Car car, Position position) {
+    private void moveCar(Car car, Command command) {
+        car.setPosition(command.execute(car.getPosition(),getModel())); //o command precisa da posição atual do carro e de uma arena (getModel())
 
-        if (getModel().isEmpty(position)) {
-            if(position.getX() > getModel().getWidth() - 1){ //se sair do lado direto voltar para a esquerda
-                car.setPosition(new Position(-1,position.getY()));
-            }
-            else if(position.getX() == -1){
-                car.setPosition(new Position(getModel().getWidth(),position.getY()));
-            }
-            else {
-                car.setPosition(position);
-            }
-        }
+
     }
 
 }

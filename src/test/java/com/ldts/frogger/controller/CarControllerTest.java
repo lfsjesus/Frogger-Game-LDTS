@@ -38,7 +38,7 @@ public class CarControllerTest {
 
     @Test
     void moveCars() throws IOException {
-        Car car = new Car(5,5);
+        Car car = new Car(new Position(5,5),1);
         arena.setCars(Arrays.asList(car));
         controller.step(game, GUI.ACTION.NONE, 1000);
         assertNotEquals(new Position(5,5), car.getPosition());
@@ -46,15 +46,16 @@ public class CarControllerTest {
 
     @Test
     void moveCarAgainstWall() throws IOException {
-        Car car = new Car(9,5);
+        Car car = new Car(new Position(9,5),1);
         arena.setCars(Arrays.asList(car));
         controller.step(game, GUI.ACTION.NONE, 2000);
+        System.out.println(car.getPosition().getX());
         assertEquals(new Position(-1,5), car.getPosition());
     }
 
     @Test
     void checkCrashWithFrogNotMoving() throws IOException {
-        Car car = new Car(4, 5);
+        Car car = new Car(new Position(4, 5),1);
         arena.setCars(Arrays.asList(car));
         controller.step(game, GUI.ACTION.NONE, 2000);
         assertTrue(frog.getLives() < 3);
@@ -62,7 +63,7 @@ public class CarControllerTest {
 
     @Test
     void checkCrashWithFrogMovingRight() throws IOException {
-        Car car = new Car(6, 5);
+        Car car = new Car(new Position(6, 5),1);
         arena.setCars(Arrays.asList(car));
         FrogController frogController = new FrogController(arena);
         frogController.step(game, GUI.ACTION.RIGHT, 2000);
@@ -70,7 +71,7 @@ public class CarControllerTest {
     }
     @Test
     void checkCrashWithFrogMovingLeft() throws IOException {
-        Car car = new Car(2, 5);
+        Car car = new Car(new Position(2, 5),1);
         arena.setCars(Arrays.asList(car));
         controller.step(game, GUI.ACTION.NONE, 2000);
         FrogController frogController = new FrogController(arena);
@@ -80,7 +81,7 @@ public class CarControllerTest {
 
     @Test
     void checkCrashWithFrogMovingUp() throws IOException {
-        Car car = new Car(3, 4);
+        Car car = new Car(new Position(3, 4),1);
         arena.setCars(Arrays.asList(car));
         controller.step(game, GUI.ACTION.NONE, 2000);
         FrogController frogController = new FrogController(arena);
@@ -90,7 +91,7 @@ public class CarControllerTest {
 
     @Test
     void checkCrashWithFrogMovingDown() throws IOException {
-        Car car = new Car(3, 6);
+        Car car = new Car(new Position(3, 6),1);
         arena.setCars(Arrays.asList(car));
         controller.step(game, GUI.ACTION.NONE, 2000);
         FrogController frogController = new FrogController(arena);

@@ -14,11 +14,16 @@ public interface GUI {
     void drawText(Position position, String text, String foregroundColor, String backgroundColor);
 
     void drawCar(Position position);
+
+    void drawCar(Position position, String color, int direction);
+
     void clear();
 
     void refresh() throws IOException;
 
     void close() throws IOException;
+
+
 
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
