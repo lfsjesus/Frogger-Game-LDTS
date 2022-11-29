@@ -1,5 +1,6 @@
 package com.ldts.frogger.model.game.arena;
 
+import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.elements.Car;
 import com.ldts.frogger.model.game.elements.Frog;
 
@@ -8,7 +9,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EnumSet;
 import java.util.List;
+import java.lang.Math;
 
 public class LoaderArenaBuilder extends ArenaBuilder {
     private final int level;
@@ -33,11 +37,15 @@ public class LoaderArenaBuilder extends ArenaBuilder {
     @Override
     protected List<Car> createCars() {
         List<Car> cars = new ArrayList<>();
-
+        List<String> colors = Arrays.asList("#ff8a00","#ffffff","#4fb72e","#c8b510","#2b8aba","#ca01fb","#0909c9","#fe0003");
+        int index = 0;
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'M') cars.add(new Car(x, y));
+            for (int x = 0; x < line.length(); x++){
+                index = (int)(Math.random()*colors.size());
+                if (line.charAt(x) == 'D') cars.add(new Car(new Position(x,y),1,colors.get(index)));
+                else if (line.charAt(x) == 'E') cars.add(new Car(new Position(x,y),0,colors.get(index)));
+            }
         }
 
         return cars;

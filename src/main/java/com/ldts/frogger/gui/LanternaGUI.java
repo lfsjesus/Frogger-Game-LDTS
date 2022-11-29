@@ -135,6 +135,16 @@ public class LanternaGUI implements GUI{
         drawText(position, "ėĘ", "#CC0000");
     }
 
+    @Override
+    public void drawCar(Position position, String color, int direction) {
+        if(direction == 1){
+            drawText(position, "ėĘ", color);
+        }
+        else {
+            drawText(position, "Īī", color);
+        }
+
+    }
 
     @Override
     public void clear() {

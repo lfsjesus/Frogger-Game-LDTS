@@ -1,6 +1,7 @@
 package com.ldts.frogger.viewer;
 
 import com.ldts.frogger.gui.GUI;
+import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.elements.Car;
 import com.ldts.frogger.model.game.elements.Frog;
 import com.ldts.frogger.viewer.game.CarViewer;
@@ -16,7 +17,7 @@ public class CarViewerTest {
 
     @BeforeEach
     void setUp() {
-        car = new Car(10, 10);
+        car = new Car(new Position(10,10),1);
         viewer = new CarViewer();
         gui = Mockito.mock(GUI.class);
     }
@@ -24,6 +25,6 @@ public class CarViewerTest {
     @Test
     void drawElement() {
         viewer.draw(car, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawCar(car.getPosition());
+        Mockito.verify(gui, Mockito.times(1)).drawCar(car.getPosition(), car.getColor(), car.getDirection());
     }
 }
