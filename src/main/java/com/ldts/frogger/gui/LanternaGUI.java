@@ -111,6 +111,38 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
+    public void drawFrog(Position position, int direction, String backgroundColor) {
+        //string color = getcolorbject(position);
+        switch (direction){
+
+            case 0:
+                drawText(position, "ē", "#009900", backgroundColor);
+                break;
+            case 1:
+                drawText(position, "Ĕ", "#009900", backgroundColor);
+                break;
+            case 2:
+                drawText(position, "ĕ", "#009900", backgroundColor);
+                break;
+            case 3:
+                drawText(position, "Ĩ", "#009900", backgroundColor);
+                break;
+            case 4:
+                drawText(position, "ħ", "#009900", backgroundColor);
+                break;
+            case 5:
+                drawText(position, "Ħ", "#009900", backgroundColor);
+                break;
+            case 6:
+                drawText(position, "ĥ", "#009900", backgroundColor);
+                break;
+            case 7:
+                drawText(position, "Ē", "#009900", backgroundColor);
+                break;
+        }
+    }
+
+    @Override
     public void drawBackground(Position position, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setBackgroundColor(TextColor.Factory.fromString(color));

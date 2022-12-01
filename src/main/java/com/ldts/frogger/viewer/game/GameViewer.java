@@ -16,6 +16,7 @@ public class GameViewer extends Viewer<Arena> {
     @Override
     public void drawElements(GUI gui) {
         drawLives(gui);
+        drawElements(gui,getModel().getSidewalks(),new SidewalkViewer());
         drawElement(gui, getModel().getFrog(), new FrogViewer());
         drawElements(gui, getModel().getCars(), new CarViewer());
         //drawElements(gui, getModel().getWalls(), new TreeViewer());

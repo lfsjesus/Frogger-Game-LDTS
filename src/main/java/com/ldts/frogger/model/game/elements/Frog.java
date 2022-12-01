@@ -5,6 +5,15 @@ import com.ldts.frogger.model.Position;
 public class Frog extends Element{
     private int lives = 3;
     private int direction = 0;
+    private String backgroundColor = "#000000";
+
+    public String getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
 
     public Frog(int x, int y) {
         super(x, y);
