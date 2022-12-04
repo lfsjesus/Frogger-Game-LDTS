@@ -32,6 +32,6 @@ public class MenuViewerTest {
     @Test
     void drawMenuText() {
         viewer.drawMenuText(gui);
-        Mockito.verify(gui, Mockito.times(2)).drawText(Mockito.any(), Mockito.anyString(), Mockito.anyString());
+        Mockito.verify(gui, Mockito.times(3)).drawText(Mockito.any(), Mockito.anyString(), Mockito.anyString());
     }
 }
