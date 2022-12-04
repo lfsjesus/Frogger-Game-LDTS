@@ -8,6 +8,7 @@ import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
 import com.ldts.frogger.model.game.elements.Car;
 import com.ldts.frogger.model.game.elements.Frog;
+import com.ldts.frogger.model.game.elements.Sidewalk;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -29,8 +30,7 @@ public class CarControllerTest {
         arena = new Arena(10,10);
         frog = new Frog(5,5);
         arena.setFrog(frog);
-
-        arena.setCars(Arrays.asList());
+        arena.setSidewalks(Arrays.asList(new Sidewalk(3,4)));
         controller = new CarController(arena);
 
         game = Mockito.mock(Game.class);

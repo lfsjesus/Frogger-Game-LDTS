@@ -14,6 +14,7 @@ public class RandomArenaBuilder extends ArenaBuilder {
     private final int width;
     private final int height;
     private final int numberOfCars;
+    private final int numberOfSideWalks = 5;
 
     public RandomArenaBuilder(int width, int height, int numberOfCars) {
         this.rng = new Random();
@@ -45,8 +46,12 @@ public class RandomArenaBuilder extends ArenaBuilder {
 
     @Override
     protected List<Sidewalk> createSidewalks() {
+        List<Sidewalk> sidewalks = new ArrayList<>();
 
-        return null;
+        while (sidewalks.size() < numberOfSideWalks)
+            sidewalks.add(new Sidewalk(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
+
+        return sidewalks;
     }
 
     @Override

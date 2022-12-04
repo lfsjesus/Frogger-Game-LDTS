@@ -1,6 +1,7 @@
 package com.ldts.frogger.viewer;
 
 import com.ldts.frogger.gui.GUI;
+import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.elements.Frog;
 import com.ldts.frogger.viewer.game.FrogViewer;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,6 +23,6 @@ public class FrogViewerTest {
     @Test
     void drawElement() {
         viewer.draw(frog, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawFrog(frog.getPosition(), 0);
+        Mockito.verify(gui, Mockito.times(1)).drawFrog(frog.getPosition(), 0, frog.getBackgroundColor());
     }
 }
