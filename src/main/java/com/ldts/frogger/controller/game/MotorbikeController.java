@@ -40,6 +40,6 @@ public class MotorbikeController extends GameController {
         }
     }
     private void moveMotorbike(Motorbike motorbike, Command command) {
-        motorbike.setPosition(command.execute(motorbike.getPosition(), getModel())); //o command precisa da posição atual do motorbike e de uma arena (getModel())
+        motorbike.setPosition(command.execute(motorbike.getPosition(), getModel())); //o command precisa da posição atual da motorbike e de uma arena (getModel())
     }
 }

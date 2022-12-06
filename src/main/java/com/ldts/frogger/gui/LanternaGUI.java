@@ -84,28 +84,28 @@ public class LanternaGUI implements GUI{
         switch (direction){
 
             case 0:
-                drawText(position, "ē", "#009900");
+                drawText(position, "ē", "#3e592a");
                 break;
             case 1:
-                drawText(position, "Ĕ", "#009900");
+                drawText(position, "Ĕ", "#3e592a");
                 break;
             case 2:
-                drawText(position, "ĕ", "#009900");
+                drawText(position, "ĕ", "#3e592a");
                 break;
             case 3:
-                drawText(position, "Ĩ", "#009900");
+                drawText(position, "Ĩ", "#3e592a");
                 break;
             case 4:
-                drawText(position, "ħ", "#009900");
+                drawText(position, "ħ", "#3e592a");
                 break;
             case 5:
-                drawText(position, "Ħ", "#009900");
+                drawText(position, "Ħ", "#3e592a");
                 break;
             case 6:
-                drawText(position, "ĥ", "#009900");
+                drawText(position, "ĥ", "#3e592a");
                 break;
             case 7:
-                drawText(position, "Ē", "#009900");
+                drawText(position, "Ē", "#3e592a");
                 break;
         }
     }
@@ -116,28 +116,28 @@ public class LanternaGUI implements GUI{
         switch (direction){
 
             case 0:
-                drawText(position, "ē", "#009900", backgroundColor);
+                drawText(position, "ē", "#3e592a", backgroundColor);
                 break;
             case 1:
-                drawText(position, "Ĕ", "#009900", backgroundColor);
+                drawText(position, "Ĕ", "#3e592a", backgroundColor);
                 break;
             case 2:
-                drawText(position, "ĕ", "#009900", backgroundColor);
+                drawText(position, "ĕ", "#3e592a", backgroundColor);
                 break;
             case 3:
-                drawText(position, "Ĩ", "#009900", backgroundColor);
+                drawText(position, "Ĩ", "#3e592a", backgroundColor);
                 break;
             case 4:
-                drawText(position, "ħ", "#009900", backgroundColor);
+                drawText(position, "ħ", "#3e592a", backgroundColor);
                 break;
             case 5:
-                drawText(position, "Ħ", "#009900", backgroundColor);
+                drawText(position, "Ħ", "#3e592a", backgroundColor);
                 break;
             case 6:
-                drawText(position, "ĥ", "#009900", backgroundColor);
+                drawText(position, "ĥ", "#3e592a", backgroundColor);
                 break;
             case 7:
-                drawText(position, "Ē", "#009900", backgroundColor);
+                drawText(position, "Ē", "#3e592a", backgroundColor);
                 break;
         }
     }
@@ -175,7 +175,24 @@ public class LanternaGUI implements GUI{
         else {
             drawText(position, "Āā", color);
         }
-
+    }
+    @Override
+    public void drawMotorbike(Position position, String color, int direction) {
+        if(direction == 1){
+            drawText(position, "ĸĹ", color);
+        }
+        else {
+            drawText(position, "ļĽ", color);
+        }
+    }
+    @Override
+    public void drawVan(Position position, String color, int direction) {
+        if(direction == 1){
+            drawText(position, "Ķķ", color);
+        }
+        else {
+            drawText(position, "ģĤ", color);
+        }
     }
     @Override
     public void drawCar(Position position, String color, int direction) {
@@ -203,13 +220,5 @@ public class LanternaGUI implements GUI{
         screen.close();
     }
 
-    @Override
-    public void drawMotorbike(Position position, String color, int direction) {
-        if(direction == 1){
-            drawText(position, "ĸĹ", color);
-        }
-        else {
-            drawText(position, "ļĽ", color);
-        }
-    }
+
 }

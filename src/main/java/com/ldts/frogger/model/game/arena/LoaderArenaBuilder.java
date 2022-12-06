@@ -81,6 +81,22 @@ public class LoaderArenaBuilder extends ArenaBuilder {
 
         return motorbikes;
     }
+    @Override
+    protected List<Van> createVans() {
+        List<Van> vans = new ArrayList<>();
+        List<String> colors = Arrays.asList("#ff8a00","#ffffff","#4fb72e","#c8b510","#2b8aba","#ca01fb","#0909c9","#fe0003");
+        int index = 0;
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++){
+                index = (int)(Math.random()*colors.size());
+                if (line.charAt(x) == 'B') vans.add(new Van(new Position(x,y),1,colors.get(index)));
+                else if (line.charAt(x) == 'V') vans.add(new Van(new Position(x,y),0,colors.get(index)));
+            }
+        }
+
+        return vans;
+    }
 
     @Override
     protected List<Sidewalk> createSidewalks() {
@@ -94,6 +110,19 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
 
         return sidewalks;
+    }
+    @Override
+    protected List<Grass> createGrasses() {
+        List<Grass> grasses = new ArrayList<>();
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++){
+                if (line.charAt(x) == 'G') grasses.add(new Grass(new Position(x,y)));
+
+            }
+        }
+
+        return grasses;
     }
 
     @Override

@@ -12,6 +12,7 @@ public class ArenaController extends GameController {
     private final FrogController frogController;
     private final CarController carController;
     private final TruckController truckController;
+    private final VanController vanController;
     private final MotorbikeController motorbikeController;
 
     public ArenaController(Arena arena) {
@@ -20,6 +21,7 @@ public class ArenaController extends GameController {
         this.carController = new CarController(arena);
         this.truckController = new TruckController(arena);
         this.motorbikeController = new MotorbikeController(arena);
+        this.vanController = new VanController(arena);
 
     }
 
@@ -32,6 +34,7 @@ public class ArenaController extends GameController {
             carController.step(game,action,time);
             truckController.step(game,action,time);
             motorbikeController.step(game,action,time);
+            vanController.step(game, action,time);
 
         }
     }

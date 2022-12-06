@@ -14,6 +14,8 @@ public class Arena {
     private List<Sidewalk> sidewalks;
     private List<Truck> trucks;
     private List<Motorbike> motorbikes;
+    private List<Van> vans;
+    private List<Grass> grasses;
 
     public Arena(int width, int height) {
         this.width = width;
@@ -55,9 +57,27 @@ public class Arena {
         }
         return false;
     }
+    public void setFrogBackgroundColor(Position position){
+        if (isSidewalk(position)){
+            getFrog().setBackgroundColor("#acacac");
+        }
+        else if(isGrass(position)){
+            getFrog().setBackgroundColor("#488f17");
+        }
+        else getFrog().setBackgroundColor("#000000");
+    }
     public boolean isSidewalk(Position position) {
         for (Sidewalk sidewalk : sidewalks){
             if (sidewalk.getPosition().equals(position)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isGrass(Position position) {
+        for (Grass grass : grasses){
+            if (grass.getPosition().equals(position)){
                 return true;
             }
         }
@@ -93,5 +113,21 @@ public class Arena {
 
     public void setMotorbikes(List<Motorbike> motorbikes) {
         this.motorbikes = motorbikes;
+    }
+
+    public List<Van> getVans() {
+        return vans;
+    }
+
+    public void setVans(List<Van> vans) {
+        this.vans = vans;
+    }
+
+    public List<Grass> getGrasses() {
+        return grasses;
+    }
+
+    public void setGrasses(List<Grass> grasses) {
+        this.grasses = grasses;
     }
 }

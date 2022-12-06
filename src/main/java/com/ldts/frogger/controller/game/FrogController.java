@@ -39,15 +39,10 @@ public class FrogController extends GameController {
         return false;
     }
 
+
     private void moveFrog(Position position) { //estamos a ver a nova posicao
 
-        if(getModel().isSidewalk(position)){ //ver a cor do background
-            getModel().getFrog().setBackgroundColor("#acacac");
-        }
-        else {
-            getModel().getFrog().setBackgroundColor("#000000");
-        }
-
+        getModel().setFrogBackgroundColor(position); //checks if the frog is stepping on sidewalk/grass/etc and changes its background color
 
         checkCrash();
         //can move?
@@ -57,8 +52,9 @@ public class FrogController extends GameController {
         ) {
             getModel().getFrog().setPosition(position);
         }
-
+        getModel().setFrogBackgroundColor(position); //checks if the frog is stepping on sidewalk/grass/etc and changes its background color
         checkCrash();
+
 
     }
 
