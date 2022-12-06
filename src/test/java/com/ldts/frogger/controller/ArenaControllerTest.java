@@ -15,7 +15,7 @@ import java.util.List;
 public class ArenaControllerTest {
     @Property
     void allArenasAreClosed(@ForAll @IntRange(min = 3, max = 20) int width, @ForAll @IntRange(min = 3, max = 20) int height, @ForAll List<GUI.@From("moveActions") ACTION> actions) throws IOException {
-        RandomArenaBuilder rab = new RandomArenaBuilder(width, height, 0,0,0);
+        RandomArenaBuilder rab = new RandomArenaBuilder(width, height, 0,0,0, 0);
         Arena arena = rab.createArena();
         ArenaController controller = new ArenaController(arena);
 

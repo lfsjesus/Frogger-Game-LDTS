@@ -16,20 +16,18 @@ public class GameViewer extends Viewer<Arena> {
     @Override
     public void drawElements(GUI gui) {
         drawLives(gui);
+        drawElements(gui,getModel().getGrasses(),new GrassViewer());
         drawElements(gui,getModel().getSidewalks(),new SidewalkViewer());
         drawElement(gui, getModel().getFrog(), new FrogViewer());
         drawElements(gui, getModel().getCars(), new CarViewer());
         drawElements(gui, getModel().getTrucks(), new TruckViewer());
         drawElements(gui, getModel().getMotorbikes(), new MotorbikeViewer());
-        //drawElements(gui, getModel().getWalls(), new TreeViewer());
-
-        //gui.drawText(new Position(0, 0), "ENERGY: " + getModel().getFrog().getLives(), "#FFD700");
-
+        drawElements(gui, getModel().getVans(), new VanViewer());
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
         for (T element : elements)
-            drawElement(gui, element, viewer); //aqui para ter carros de cores diferentes, cada carro tem de ter uma cor como atributo e ao ler o nivel devo usar caracteres diferentes
+            drawElement(gui, element, viewer);
     }
 
     private <T extends Element> void drawElement(GUI gui, T element, ElementViewer<T> viewer) {

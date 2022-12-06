@@ -13,13 +13,18 @@ public abstract class ArenaBuilder {
         arena.setSidewalks(createSidewalks());
         arena.setTrucks(createTrucks());
         arena.setMotorbikes(createMotorbikes());
+        arena.setVans(createVans());
+        arena.setGrasses(createGrasses());
         return arena;
     }
 
     protected abstract List<Car> createCars();
     protected abstract List<Truck> createTrucks();
+    protected abstract List<Van> createVans();
 
     protected abstract List<Sidewalk> createSidewalks();
+
+    protected abstract List<Grass> createGrasses();
 
     protected abstract int getWidth();
 
