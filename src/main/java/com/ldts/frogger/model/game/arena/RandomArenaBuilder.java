@@ -1,9 +1,6 @@
 package com.ldts.frogger.model.game.arena;
 
-import com.ldts.frogger.model.game.elements.Car;
-import com.ldts.frogger.model.game.elements.Frog;
-import com.ldts.frogger.model.game.elements.Sidewalk;
-import com.ldts.frogger.model.game.elements.Truck;
+import com.ldts.frogger.model.game.elements.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +13,17 @@ public class RandomArenaBuilder extends ArenaBuilder {
     private final int height;
     private final int numberOfCars;
     private final int numberOfTrucks;
+    private final int numberOfMotorbikes;
     private final int numberOfSideWalks = 5;
 
-    public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks) {
+    public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes) {
         this.rng = new Random();
 
         this.width = width;
         this.height = height;
         this.numberOfCars = numberOfCars;
         this.numberOfTrucks = numberOfTrucks;
+        this.numberOfMotorbikes = numberOfMotorbikes;
     }
 
     @Override
@@ -69,5 +68,15 @@ public class RandomArenaBuilder extends ArenaBuilder {
     @Override
     protected Frog createFrog() {
         return new Frog(width / 2, height / 2);
+    }
+
+    @Override
+    protected List<Motorbike> createMotorbikes() {
+        List<Motorbike> motorbikes = new ArrayList<>();
+
+        while (motorbikes.size() < numberOfMotorbikes)
+            motorbikes.add(new Motorbike(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
+
+        return motorbikes;
     }
 }

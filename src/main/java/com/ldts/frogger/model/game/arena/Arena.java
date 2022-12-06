@@ -1,11 +1,7 @@
 package com.ldts.frogger.model.game.arena;
 
 import com.ldts.frogger.model.Position;
-import com.ldts.frogger.model.game.elements.Car;
-import com.ldts.frogger.model.game.elements.Frog;
-import com.ldts.frogger.model.game.elements.Sidewalk;
-import com.ldts.frogger.model.game.elements.Truck;
-import com.sun.source.tree.Tree;
+import com.ldts.frogger.model.game.elements.*;
 
 import java.util.List;
 
@@ -17,6 +13,7 @@ public class Arena {
     private List<Car> cars;
     private List<Sidewalk> sidewalks;
     private List<Truck> trucks;
+    private List<Motorbike> motorbikes;
 
     public Arena(int width, int height) {
         this.width = width;
@@ -90,4 +87,11 @@ public class Arena {
         this.cars = cars;
     }
 
+    public List<Motorbike> getMotorbikes() {
+        return motorbikes;
+    }
+
+    public void setMotorbikes(List<Motorbike> motorbikes) {
+        this.motorbikes = motorbikes;
+    }
 }
