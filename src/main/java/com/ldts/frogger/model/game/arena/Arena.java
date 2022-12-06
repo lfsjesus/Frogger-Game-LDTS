@@ -4,6 +4,7 @@ import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.elements.Car;
 import com.ldts.frogger.model.game.elements.Frog;
 import com.ldts.frogger.model.game.elements.Sidewalk;
+import com.ldts.frogger.model.game.elements.Truck;
 import com.sun.source.tree.Tree;
 
 import java.util.List;
@@ -15,14 +16,7 @@ public class Arena {
     private Frog frog;
     private List<Car> cars;
     private List<Sidewalk> sidewalks;
-
-    public List<Car> getCars() {
-        return cars;
-    }
-
-    public void setCars(List<Car> cars) {
-        this.cars = cars;
-    }
+    private List<Truck> trucks;
 
     public Arena(int width, int height) {
         this.width = width;
@@ -56,6 +50,14 @@ public class Arena {
         }
         return false;
     }
+    public boolean isTruck(Position position) {
+        for (Truck truck : trucks){
+            if (truck.getPosition().equals(position) || truck.getPosition().getRight().equals(position)){
+                return true;
+            }
+        }
+        return false;
+    }
     public boolean isSidewalk(Position position) {
         for (Sidewalk sidewalk : sidewalks){
             if (sidewalk.getPosition().equals(position)){
@@ -72,4 +74,20 @@ public class Arena {
     public void setSidewalks(List<Sidewalk> sidewalks) {
         this.sidewalks = sidewalks;
     }
+    public List<Truck> getTrucks() {
+        return trucks;
+    }
+
+    public void setTrucks(List<Truck> trucks) {
+        this.trucks = trucks;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
 }

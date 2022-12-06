@@ -18,6 +18,8 @@ public interface GUI {
 
     void drawCar(Position position, String color, int direction);
 
+    void drawTruck(Position position, String color, int direction);
+
     void clear();
 
     void refresh() throws IOException;

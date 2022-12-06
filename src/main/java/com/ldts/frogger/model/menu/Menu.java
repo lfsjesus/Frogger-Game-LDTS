@@ -8,7 +8,7 @@ public class Menu {
     private int currentEntry = 0;
 
     public Menu() {
-        this.entries = Arrays.asList("START", "RANKING", "LEAVE");
+        this.entries = Arrays.asList("START", "SCORE", "LEAVE");
     }
 
     public void nextEntry() {
