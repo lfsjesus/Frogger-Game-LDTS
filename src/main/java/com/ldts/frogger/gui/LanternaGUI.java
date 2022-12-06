@@ -202,4 +202,14 @@ public class LanternaGUI implements GUI{
     public void close() throws IOException {
         screen.close();
     }
+
+    @Override
+    public void drawMotorbike(Position position, String color, int direction) {
+        if(direction == 1){
+            drawText(position, "ĸĹ", color);
+        }
+        else {
+            drawText(position, "ļĽ", color);
+        }
+    }
 }

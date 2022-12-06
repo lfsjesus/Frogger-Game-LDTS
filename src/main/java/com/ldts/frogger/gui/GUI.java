@@ -26,7 +26,7 @@ public interface GUI {
 
     void close() throws IOException;
 
-
+    void drawMotorbike(Position position, String color, int direction);
 
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}

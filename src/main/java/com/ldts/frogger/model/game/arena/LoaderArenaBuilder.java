@@ -1,10 +1,7 @@
 package com.ldts.frogger.model.game.arena;
 
 import com.ldts.frogger.model.Position;
-import com.ldts.frogger.model.game.elements.Car;
-import com.ldts.frogger.model.game.elements.Frog;
-import com.ldts.frogger.model.game.elements.Sidewalk;
-import com.ldts.frogger.model.game.elements.Truck;
+import com.ldts.frogger.model.game.elements.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -67,6 +64,22 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
 
         return trucks;
+    }
+    @Override
+    protected List<Motorbike> createMotorbikes() {
+        List<Motorbike> motorbikes = new ArrayList<>();
+        List<String> colors = Arrays.asList("#ff8a00","#ffffff","#4fb72e","#c8b510","#2b8aba","#ca01fb","#0909c9","#fe0003");
+        int index = 0;
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++){
+                index = (int)(Math.random()*colors.size());
+                if (line.charAt(x) == 'M') motorbikes.add(new Motorbike(new Position(x,y),1,colors.get(index)));
+                else if (line.charAt(x) == 'N') motorbikes.add(new Motorbike(new Position(x,y),0,colors.get(index)));
+            }
+        }
+
+        return motorbikes;
     }
 
     @Override
