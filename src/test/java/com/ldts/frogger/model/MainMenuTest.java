@@ -26,6 +26,6 @@ public class MainMenuTest {
 
     @Test
     public void numberEntries() {
-        assertTrue(menu.getNumberEntries() == 2);
+        assertTrue(menu.getNumberEntries() == 3);
     }
 }
