@@ -63,13 +63,13 @@ public class MenuViewer extends Viewer<Menu> {
                 StringBuilder s = new StringBuilder(">");
                 s.append(getModel().getEntry(i));
                 s.append("<");
-                gui.drawText(new Position(6, 9 + i), s.toString(), "#a84c32");
+                gui.drawText(new Position(5, 9 + i), s.toString(), "#a84c32", "#32A852");
             }
             else{
                 StringBuilder s = new StringBuilder(" ");
                 s.append(getModel().getEntry(i));
                 s.append(" ");
-                gui.drawText(new Position(6, 9 + i), s.toString(), "#FFFFFF");
+                gui.drawText(new Position(5, 9 + i), s.toString(), "#FFFFFF", "#32A852");
             }
         }
     }
