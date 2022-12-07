@@ -16,14 +16,9 @@ public class RandomArenaBuilder extends ArenaBuilder {
     private final int numberOfGrasses;
     private final int numberOfMotorbikes;
     private final int numberOfVans;
-<<<<<<< HEAD
-    private final int numberOfTrees = 5;
-    private final int numberOfSideWalks = 5;
-    private final int numebrOfWaters = 5;
-=======
     private final int numberOfTrees;
     private final int numberOfSideWalks;
->>>>>>> tests_static
+
 
     public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes, int numberOfVans, int numberOfGrasses, int numberOfTrees, int numberOfSideWalks) {
         this.rng = new Random();
