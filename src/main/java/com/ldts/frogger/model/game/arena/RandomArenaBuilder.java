@@ -99,11 +99,6 @@ public class RandomArenaBuilder extends ArenaBuilder {
     }
 
     @Override
-    protected Frog createFrog() {
-        return new Frog(width / 2, height / 2);
-    }
-
-    @Override
     protected List<Motorbike> createMotorbikes() {
         List<Motorbike> motorbikes = new ArrayList<>();
 
