@@ -16,6 +16,7 @@ public class RandomArenaBuilder extends ArenaBuilder {
     private final int numberOfGrasses = 5;
     private final int numberOfMotorbikes;
     private final int numberOfVans;
+    private final int numberOfTrees = 5;
     private final int numberOfSideWalks = 5;
 
     public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes, int numberOfVans) {
@@ -81,10 +82,20 @@ public class RandomArenaBuilder extends ArenaBuilder {
     protected List<Grass> createGrasses() {
         List<Grass> grasses = new ArrayList<>();
 
-        while (grasses.size() < numberOfSideWalks)
+        while (grasses.size() < numberOfGrasses)
             grasses.add(new Grass(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
 
         return grasses;
+    }
+
+    @Override
+    protected List<Tree> createTrees() {
+        List<Tree> trees = new ArrayList<>();
+
+        while (trees.size() < numberOfTrees)
+            trees.add(new Tree(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
+
+        return trees;
     }
 
     @Override

@@ -18,6 +18,7 @@ public class GameViewer extends Viewer<Arena> {
         drawLives(gui);
         drawElements(gui,getModel().getGrasses(),new GrassViewer());
         drawElements(gui,getModel().getSidewalks(),new SidewalkViewer());
+        drawElements(gui,getModel().getTrees(),new TreeViewer());
         drawElement(gui, getModel().getFrog(), new FrogViewer());
         drawElements(gui, getModel().getCars(), new CarViewer());
         drawElements(gui, getModel().getTrucks(), new TruckViewer());

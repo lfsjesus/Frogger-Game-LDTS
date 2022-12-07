@@ -185,6 +185,7 @@ public class LanternaGUI implements GUI{
             drawText(position, "ļĽ", color);
         }
     }
+
     @Override
     public void drawVan(Position position, String color, int direction) {
         if(direction == 1){

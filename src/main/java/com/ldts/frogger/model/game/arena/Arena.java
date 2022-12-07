@@ -16,6 +16,7 @@ public class Arena {
     private List<Motorbike> motorbikes;
     private List<Van> vans;
     private List<Grass> grasses;
+    private List<Tree> trees;
 
     public Arena(int width, int height) {
         this.width = width;
@@ -39,11 +40,33 @@ public class Arena {
     }
     public boolean isEmpty(Position position) {
 
-        return true;
+        if(!(position.getY() < 1 || position.getY() > height-1) && !(position.getX() < 0 || position.getX() > width - 1) && !isTree(position)){
+            return true;
+        }
+        return false;
+    }
+    public boolean isMoveableObstacle(Position position) {
+        return isCar(position) || isTruck(position) || isVan(position) || isMotorbike(position);
     }
     public boolean isCar(Position position) {
         for (Car car : cars){
             if (car.getPosition().equals(position) || car.getPosition().getRight().equals(position)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean isVan(Position position){
+        for (Van van : vans){
+            if (van.getPosition().equals(position) || van.getPosition().getRight().equals(position)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean isMotorbike(Position position){
+        for (Motorbike motorbike : motorbikes){
+            if (motorbike.getPosition().equals(position) || motorbike.getPosition().getRight().equals(position)){
                 return true;
             }
         }
@@ -78,6 +101,15 @@ public class Arena {
     public boolean isGrass(Position position) {
         for (Grass grass : grasses){
             if (grass.getPosition().equals(position)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isTree(Position position) {
+        for (Tree tree : trees){
+            if (tree.getPosition().equals(position)){
                 return true;
             }
         }
@@ -129,5 +161,13 @@ public class Arena {
 
     public void setGrasses(List<Grass> grasses) {
         this.grasses = grasses;
+    }
+
+    public List<Tree> getTrees() {
+        return trees;
+    }
+
+    public void setTrees(List<Tree> trees) {
+        this.trees = trees;
     }
 }

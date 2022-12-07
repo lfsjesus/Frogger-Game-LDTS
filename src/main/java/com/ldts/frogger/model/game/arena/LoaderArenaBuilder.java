@@ -124,6 +124,25 @@ public class LoaderArenaBuilder extends ArenaBuilder {
 
         return grasses;
     }
+    @Override
+    protected List<Tree> createTrees() {
+        List<Tree> trees = new ArrayList<>();
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++){
+                if (line.charAt(x) == 'P') {
+                    int random = (int) (Math.random() * 2);
+                    if(random == 0) {
+                        trees.add(new Tree(new Position(x, y), "đ"));
+                    }
+                    else {
+                        trees.add(new Tree(new Position(x, y), "Đ"));
+                    }
+                }
+            }
+        }
+        return trees;
+    }
 
     @Override
     protected int getWidth() {

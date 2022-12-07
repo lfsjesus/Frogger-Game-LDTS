@@ -30,7 +30,6 @@ public interface GUI {
 
     void drawMotorbike(Position position, String color, int direction);
 
-
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
 }
 
