@@ -7,9 +7,11 @@ import com.ldts.frogger.model.game.arena.Arena;
 
 public class FrogController extends GameController {
     private boolean changeDir = true;
+    private long lastMovement;
 
     public FrogController(Arena arena) {
         super(arena);
+        this.lastMovement = System.currentTimeMillis();
     }
 
     public void moveFrogLeft() {
@@ -54,6 +56,11 @@ public class FrogController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
+        if(time - lastMovement > 7000){
+            getModel().getFrog().decreaseLives();
+            lastMovement = time;
+        }
+
         if (action == GUI.ACTION.UP) {
             //getModel().isCar(getModel().getFrog().getPosition());
             moveFrogUp();
@@ -65,6 +72,7 @@ public class FrogController extends GameController {
                 getModel().getFrog().setDirection(0);
                 changeDir = true;
             }
+            this.lastMovement = time;
         }
 
         else if (action == GUI.ACTION.RIGHT){
@@ -77,6 +85,7 @@ public class FrogController extends GameController {
                 getModel().getFrog().setDirection(3);
                 changeDir = true;
             }
+            this.lastMovement = time;
         }
 
         else if (action == GUI.ACTION.DOWN){
@@ -89,6 +98,7 @@ public class FrogController extends GameController {
                 getModel().getFrog().setDirection(5);
                 changeDir = true;
             }
+            this.lastMovement = time;
         }
 
         else if (action == GUI.ACTION.LEFT){
@@ -101,6 +111,7 @@ public class FrogController extends GameController {
                 getModel().getFrog().setDirection(7);
                 changeDir = true;
             }
+            this.lastMovement = time;
         }
 
     }
