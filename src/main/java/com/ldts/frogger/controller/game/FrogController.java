@@ -30,26 +30,29 @@ public class FrogController extends GameController {
         moveFrog(getModel().getFrog().getPosition().getDown());
     }
 
-    public boolean checkCrash(){
+    public void checkCollisions(){
         Position frogPosition = getModel().getFrog().getPosition();
-        if(getModel().isMoveableObstacle(frogPosition) || getModel().isNonMoveableObstacle(frogPosition)){
-            getModel().getFrog().resetPostion();
-            getModel().getFrog().decreaseLives();
-            return true;
-        }
-        return false;
-    }
 
+        //Obstacles
+        if(getModel().isMoveableObstacle(frogPosition) || getModel().isNonMoveableObstacle(frogPosition)){
+            getModel().getFrog().resetPosition();
+            getModel().getFrog().decreaseLives();
+        }
+
+        //Coins
+        getModel().catchCoin(frogPosition);
+
+    }
 
     private void moveFrog(Position position) { //estamos a ver a nova posicao
 
-        checkCrash();
+        checkCollisions();
         //can move?
         if (getModel().isEmpty(position)) {
             getModel().getFrog().setPosition(position);
-            //getModel().setFrogBackgroundColor(position); //checks if the frog is stepping on sidewalk/grass/etc and changes its background color
+
         }
-        checkCrash();
+        checkCollisions();
 
 
     }

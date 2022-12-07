@@ -38,9 +38,9 @@ public class Frog extends Element{
     public void decreaseLives(){
         this.lives--;
     }
-    public void resetPostion(){
+    public void resetPosition(){
         this.direction = 0;
-        setPosition(new Position(8,18));
+        setPosition(new Position(9,18));
 
     }
 }

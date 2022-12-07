@@ -17,7 +17,7 @@ public class TruckController extends GameController{
     public void checkCrash(Truck truck){
         if (getModel().getFrog().getPosition().equals(truck.getPosition()) || getModel().getFrog().getPosition().equals(truck.getPosition().getRight())) {
             getModel().getFrog().decreaseLives();
-            getModel().getFrog().resetPostion();
+            getModel().getFrog().resetPosition();
         }
     }
 

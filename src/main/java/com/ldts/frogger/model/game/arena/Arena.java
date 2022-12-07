@@ -42,16 +42,10 @@ public class Arena {
         this.frog = frog;
     }
     public boolean isEmpty(Position position) {
-        if(!(position.getY() < 1 || position.getY() > height-1) && !(position.getX() < 0 || position.getX() > width - 1) && !isTree(position)){
-            return true;
-        }
-        return false;
+        return !(position.getY() < 1 || position.getY() > height - 1) && !(position.getX() < 0 || position.getX() > width - 1) && !isTree(position);
     }
     public boolean canPlaceCoin(Position position){
-        if(isEmpty(position) && !isWater(position) /* && !isLava(position) && !isLog(position) */){
-            return true;
-        }
-        return false;
+        return isEmpty(position) && !isWater(position) /* && !isLava(position) && !isLog(position) */;
     }
     public boolean isMoveableObstacle(Position position) {
         return isCar(position) || isTruck(position) || isVan(position) || isMotorbike(position);
@@ -59,8 +53,6 @@ public class Arena {
     public boolean isNonMoveableObstacle(Position frogPosition) {
         return isWater(frogPosition) /* || isLava(frogPosition) */ ;
     }
-
-
 
     public boolean isCar(Position position) {
         for (Car car : cars){
@@ -152,6 +144,15 @@ public class Arena {
             }
         }
         return false;
+    }
+    public void catchCoin(Position position){
+        for (Coin coin : coins){
+            if (coin.getPosition().equals(position)){
+                coins.remove(coin);
+                points+=5;
+                break;
+            }
+        }
     }
 
     public List<Sidewalk> getSidewalks() {

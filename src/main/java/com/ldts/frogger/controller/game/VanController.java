@@ -17,7 +17,7 @@ public class VanController extends GameController{
     public void checkCrash(Van van){
         if (getModel().getFrog().getPosition().equals(van.getPosition()) || getModel().getFrog().getPosition().equals(van.getPosition().getRight())) {
             getModel().getFrog().decreaseLives();
-            getModel().getFrog().resetPostion();
+            getModel().getFrog().resetPosition();
         }
     }
 

@@ -20,7 +20,7 @@ public class MotorbikeController extends GameController {
     public void checkCrash(Motorbike motorbike) {
         if (getModel().getFrog().getPosition().equals(motorbike.getPosition()) || getModel().getFrog().getPosition().equals(motorbike.getPosition().getRight())) {
             getModel().getFrog().decreaseLives();
-            getModel().getFrog().resetPostion();
+            getModel().getFrog().resetPosition();
         }
     }
 
