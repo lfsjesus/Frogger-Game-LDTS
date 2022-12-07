@@ -18,6 +18,7 @@ public abstract class ArenaBuilder {
         arena.setGrasses(createGrasses());
         arena.setTrees(createTrees());
         arena.setWaters(createWaters());
+        arena.setCoins(arena.createCoins());
         return arena;
     }
 
@@ -37,5 +38,6 @@ public abstract class ArenaBuilder {
 
     protected abstract int getHeight();
     protected abstract Frog createFrog();
+
 
 }

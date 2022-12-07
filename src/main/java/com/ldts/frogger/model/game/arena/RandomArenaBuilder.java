@@ -20,9 +20,10 @@ public class RandomArenaBuilder extends ArenaBuilder {
     private final int numberOfSideWalks;
 
     private final int numberOfWaters;
+    private final int numberOfCoins;
 
 
-    public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes, int numberOfVans, int numberOfGrasses, int numberOfTrees, int numberOfSideWalks, int numberOfWaters) {
+    public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes, int numberOfVans, int numberOfGrasses, int numberOfTrees, int numberOfSideWalks, int numberOfWaters, int numberOfCoins) {
         this.rng = new Random();
         this.numberOfGrasses = numberOfGrasses;
         this.numberOfTrees = numberOfTrees;
@@ -34,6 +35,7 @@ public class RandomArenaBuilder extends ArenaBuilder {
         this.numberOfMotorbikes = numberOfMotorbikes;
         this.numberOfVans = numberOfVans;
         this.numberOfWaters = numberOfWaters;
+        this.numberOfCoins = numberOfCoins;
     }
 
     @Override
@@ -126,5 +128,6 @@ public class RandomArenaBuilder extends ArenaBuilder {
     protected Frog createFrog() {
         return new Frog(width / 2 - 1, height -2);
     }
+
 
 }

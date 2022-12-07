@@ -19,7 +19,7 @@ public class Arena {
     private List<Grass> grasses;
     private List<Tree> trees;
     private List<Water> waters;
-    private List<Coin> coins = new ArrayList<>();
+    private List<Coin> coins;
 
     public Arena(int width, int height) {
         this.width = width;
@@ -43,6 +43,12 @@ public class Arena {
     }
     public boolean isEmpty(Position position) {
         if(!(position.getY() < 1 || position.getY() > height-1) && !(position.getX() < 0 || position.getX() > width - 1) && !isTree(position)){
+            return true;
+        }
+        return false;
+    }
+    public boolean canPlaceCoin(Position position){
+        if(isEmpty(position) && !isWater(position) /* && !isLava(position) && !isLog(position) */){
             return true;
         }
         return false;
@@ -96,6 +102,15 @@ public class Arena {
             getFrog().setBackgroundColor("#488f17");
         }
         else getFrog().setBackgroundColor("#000000");
+    }
+    public String getCoinBackgroundColor(Position position){
+        if (isSidewalk(position)){
+            return "#acacac";
+        }
+        else if(isGrass(position)){
+            return "#488f17";
+        }
+        else return "#000000";
     }
     public boolean isSidewalk(Position position) {
         for (Sidewalk sidewalk : sidewalks){
@@ -216,6 +231,24 @@ public class Arena {
 
     public void setCoins(List<Coin> coins) {
         this.coins = coins;
+    }
+
+    public List<Coin> createCoins(){
+        List<Coin> coins = new ArrayList<>();
+
+        do{
+            //create random position for coin
+            int x = (int)(Math.random()*getWidth());
+            int y = (int)(Math.random()*getHeight());
+            //check if the position is valid
+            Position position = new Position(x,y);
+            if (canPlaceCoin(position)){
+                coins.add(new Coin(position, getCoinBackgroundColor(position)));
+            }
+
+        } while(coins.size() < 10);
+
+        return coins;
     }
 
 }
