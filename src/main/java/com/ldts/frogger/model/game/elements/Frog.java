@@ -3,7 +3,7 @@ package com.ldts.frogger.model.game.elements;
 import com.ldts.frogger.model.Position;
 
 public class Frog extends Element{
-    private int lives = 3;
+    private static int lives = 3;
     private int direction = 0;
     private String backgroundColor = "#000000";
 

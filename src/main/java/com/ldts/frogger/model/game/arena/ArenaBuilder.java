@@ -9,6 +9,7 @@ import java.util.List;
 public abstract class ArenaBuilder {
     public Arena createArena() {
         Arena arena = new Arena(getWidth(), getHeight());
+        arena.setFrog(createFrog());
         arena.setCars(createCars());
         arena.setSidewalks(createSidewalks());
         arena.setTrucks(createTrucks());
@@ -35,5 +36,6 @@ public abstract class ArenaBuilder {
     protected abstract int getWidth();
 
     protected abstract int getHeight();
+    protected abstract Frog createFrog();
 
 }

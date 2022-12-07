@@ -13,22 +13,27 @@ public class RandomArenaBuilder extends ArenaBuilder {
     private final int height;
     private final int numberOfCars;
     private final int numberOfTrucks;
-    private final int numberOfGrasses = 5;
+    private final int numberOfGrasses;
     private final int numberOfMotorbikes;
     private final int numberOfVans;
-    private final int numberOfTrees = 5;
-    private final int numberOfSideWalks = 5;
-    private final int numebrOfWaters = 5;
+    private final int numberOfTrees;
+    private final int numberOfSideWalks;
 
-    public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes, int numberOfVans) {
+    private final int numberOfWaters;
+
+
+    public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes, int numberOfVans, int numberOfGrasses, int numberOfTrees, int numberOfSideWalks, int numberOfWaters) {
         this.rng = new Random();
-
+        this.numberOfGrasses = numberOfGrasses;
+        this.numberOfTrees = numberOfTrees;
+        this.numberOfSideWalks = numberOfSideWalks;
         this.width = width;
         this.height = height;
         this.numberOfCars = numberOfCars;
         this.numberOfTrucks = numberOfTrucks;
         this.numberOfMotorbikes = numberOfMotorbikes;
         this.numberOfVans = numberOfVans;
+        this.numberOfWaters = numberOfWaters;
     }
 
     @Override
@@ -63,7 +68,7 @@ public class RandomArenaBuilder extends ArenaBuilder {
     protected List<Van> createVans() {
         List<Van> vans = new ArrayList<>();
 
-        while (vans.size() < numberOfTrucks)
+        while (vans.size() < numberOfVans)
             vans.add(new Van(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
 
         return vans;
@@ -111,10 +116,15 @@ public class RandomArenaBuilder extends ArenaBuilder {
     protected List<Water> createWaters() {
         List<Water> waters = new ArrayList<>();
 
-        while (waters.size() < numebrOfWaters)
+        while (waters.size() < numberOfWaters)
             waters.add(new Water(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
 
         return waters;
+    }
+
+    @Override
+    protected Frog createFrog() {
+        return new Frog(width / 2 - 1, height -2);
     }
 
 }

@@ -26,7 +26,7 @@ public class LanternaGUITest {
     @Test
     void drawFrog() {
         gui.drawFrog(new Position(2,2), 0);
-        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(0, 153, 0));
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(62, 89, 42));
         Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "ē");
     }
 
