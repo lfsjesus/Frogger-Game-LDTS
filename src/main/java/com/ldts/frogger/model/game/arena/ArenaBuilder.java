@@ -1,6 +1,7 @@
 package com.ldts.frogger.model.game.arena;
 
 
+import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.elements.*;
 
 import java.util.List;

@@ -41,5 +41,6 @@ public class Frog extends Element{
     public void resetPostion(){
         this.direction = 0;
         setPosition(new Position(8,18));
+
     }
 }
