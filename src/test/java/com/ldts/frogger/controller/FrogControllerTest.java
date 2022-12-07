@@ -32,9 +32,10 @@ public class FrogControllerTest {
         arena.setMotorbikes(Arrays.asList(new Motorbike(8, 7)));
         arena.setTrucks(Arrays.asList(new Truck(8, 7)));
         arena.setVans(Arrays.asList(new Van(8, 7)));
-        arena.setTrees(Arrays.asList(new Tree(9, 7)));
+        arena.setTrees(Arrays.asList());
         arena.setFrog(frog);
         arena.setCars(Arrays.asList());
+        arena.setWaters(Arrays.asList());
 
         controller = new FrogController(arena);
     }

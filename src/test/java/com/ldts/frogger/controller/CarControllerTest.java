@@ -34,6 +34,7 @@ public class CarControllerTest {
         arena.setTrucks(Arrays.asList(new Truck(8, 7)));
         arena.setVans(Arrays.asList(new Van(8, 7)));
         arena.setTrees(Arrays.asList(new Tree(9, 7)));
+        arena.setWaters(Arrays.asList());
         controller = new CarController(arena);
 
         game = Mockito.mock(Game.class);

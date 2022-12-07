@@ -28,6 +28,7 @@ public class OverallViewertest {
         arena.setTrucks(Arrays.asList(new Truck(8, 7)));
         arena.setVans(Arrays.asList(new Van(8, 7)));
         arena.setTrees(Arrays.asList(new Tree(9, 7)));
+        arena.setWaters(Arrays.asList());
         arena.setCars(Arrays.asList(new Car(new Position(4, 5), 0, "#ffffff"), new Car(new Position(5, 6), 1, "#000000")));
         arena.setFrog(new Frog(5, 8));
     }
