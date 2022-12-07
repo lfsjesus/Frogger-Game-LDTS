@@ -157,4 +157,9 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return lines.size();
     }
 
+    @Override
+    protected Frog createFrog() {
+        return new Frog (getWidth()/2 - 1, getHeight() - 2);
+    }
+
 }

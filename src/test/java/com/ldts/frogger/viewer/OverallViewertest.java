@@ -3,9 +3,7 @@ package com.ldts.frogger.viewer;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
-import com.ldts.frogger.model.game.elements.Car;
-import com.ldts.frogger.model.game.elements.Frog;
-import com.ldts.frogger.model.game.elements.Sidewalk;
+import com.ldts.frogger.model.game.elements.*;
 import com.ldts.frogger.viewer.game.GameViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,7 +22,12 @@ public class OverallViewertest {
         arena = new Arena(10, 10);
         gui = Mockito.mock(GUI.class);
         viewer = new GameViewer(arena);
-        arena.setSidewalks(Arrays.asList(new Sidewalk(1,1)));
+        arena.setSidewalks(Arrays.asList(new Sidewalk(3,4)));
+        arena.setGrasses(Arrays.asList(new Grass(7,8)));
+        arena.setMotorbikes(Arrays.asList(new Motorbike(8, 7)));
+        arena.setTrucks(Arrays.asList(new Truck(8, 7)));
+        arena.setVans(Arrays.asList(new Van(8, 7)));
+        arena.setTrees(Arrays.asList(new Tree(9, 7)));
         arena.setCars(Arrays.asList(new Car(new Position(4, 5), 0, "#ffffff"), new Car(new Position(5, 6), 1, "#000000")));
         arena.setFrog(new Frog(5, 8));
     }
