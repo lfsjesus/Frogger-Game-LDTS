@@ -17,6 +17,7 @@ public abstract class ArenaBuilder {
         arena.setVans(createVans());
         arena.setGrasses(createGrasses());
         arena.setTrees(createTrees());
+        arena.setWaters(createWaters());
         return arena;
     }
 
@@ -30,6 +31,7 @@ public abstract class ArenaBuilder {
     protected abstract List<Grass> createGrasses();
 
     protected abstract List<Tree> createTrees();
+    protected abstract List<Water> createWaters();
 
 
     protected abstract int getWidth();

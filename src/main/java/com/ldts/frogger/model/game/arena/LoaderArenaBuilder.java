@@ -143,6 +143,19 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return trees;
     }
+    @Override
+    protected List<Water> createWaters() {
+        List<Water> waters = new ArrayList<>();
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++){
+                if (line.charAt(x) == 'W') {
+                    waters.add(new Water(new Position(x, y)));
+                }
+            }
+        }
+        return waters;
+    }
 
     @Override
     protected int getWidth() {

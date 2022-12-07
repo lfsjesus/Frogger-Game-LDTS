@@ -18,6 +18,7 @@ public class RandomArenaBuilder extends ArenaBuilder {
     private final int numberOfVans;
     private final int numberOfTrees = 5;
     private final int numberOfSideWalks = 5;
+    private final int numebrOfWaters = 5;
 
     public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes, int numberOfVans) {
         this.rng = new Random();
@@ -67,7 +68,15 @@ public class RandomArenaBuilder extends ArenaBuilder {
 
         return vans;
     }
+    @Override
+    protected List<Motorbike> createMotorbikes() {
+        List<Motorbike> motorbikes = new ArrayList<>();
 
+        while (motorbikes.size() < numberOfMotorbikes)
+            motorbikes.add(new Motorbike(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
+
+        return motorbikes;
+    }
     @Override
     protected List<Sidewalk> createSidewalks() {
         List<Sidewalk> sidewalks = new ArrayList<>();
@@ -99,17 +108,19 @@ public class RandomArenaBuilder extends ArenaBuilder {
     }
 
     @Override
+    protected List<Water> createWaters() {
+        List<Water> waters = new ArrayList<>();
+
+        while (waters.size() < numebrOfWaters)
+            waters.add(new Water(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
+
+        return waters;
+    }
+
+    @Override
     protected Frog createFrog() {
         return new Frog(width / 2, height / 2);
     }
 
-    @Override
-    protected List<Motorbike> createMotorbikes() {
-        List<Motorbike> motorbikes = new ArrayList<>();
 
-        while (motorbikes.size() < numberOfMotorbikes)
-            motorbikes.add(new Motorbike(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
-
-        return motorbikes;
-    }
 }

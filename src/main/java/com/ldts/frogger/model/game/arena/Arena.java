@@ -17,6 +17,7 @@ public class Arena {
     private List<Van> vans;
     private List<Grass> grasses;
     private List<Tree> trees;
+    private List<Water> waters;
 
     public Arena(int width, int height) {
         this.width = width;
@@ -48,6 +49,12 @@ public class Arena {
     public boolean isMoveableObstacle(Position position) {
         return isCar(position) || isTruck(position) || isVan(position) || isMotorbike(position);
     }
+    public boolean isNonMoveableObstacle(Position frogPosition) {
+        return isWater(frogPosition) /* || isLava(frogPosition) */ ;
+    }
+
+
+
     public boolean isCar(Position position) {
         for (Car car : cars){
             if (car.getPosition().equals(position) || car.getPosition().getRight().equals(position)){
@@ -106,7 +113,14 @@ public class Arena {
         }
         return false;
     }
-
+    private boolean isWater(Position frogPosition) {
+        for (Water water : waters){
+            if (water.getPosition().equals(frogPosition)){
+                return true;
+            }
+        }
+        return false;
+    }
     public boolean isTree(Position position) {
         for (Tree tree : trees){
             if (tree.getPosition().equals(position)){
@@ -170,4 +184,14 @@ public class Arena {
     public void setTrees(List<Tree> trees) {
         this.trees = trees;
     }
+
+    public List<Water> getWaters() {
+        return waters;
+    }
+
+    public void setWaters(List<Water> waters) {
+        this.waters = waters;
+    }
+
+
 }

@@ -4,6 +4,7 @@ import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
 import com.ldts.frogger.model.game.elements.Element;
+import com.ldts.frogger.model.game.elements.Water;
 import com.ldts.frogger.viewer.Viewer;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class GameViewer extends Viewer<Arena> {
     public void drawElements(GUI gui) {
         drawLives(gui);
         drawElements(gui,getModel().getGrasses(),new GrassViewer());
+        drawElements(gui,getModel().getWaters(),new WaterViewer());
         drawElements(gui,getModel().getSidewalks(),new SidewalkViewer());
         drawElements(gui,getModel().getTrees(),new TreeViewer());
         drawElement(gui, getModel().getFrog(), new FrogViewer());

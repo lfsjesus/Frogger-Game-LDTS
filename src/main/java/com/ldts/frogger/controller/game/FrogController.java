@@ -30,7 +30,7 @@ public class FrogController extends GameController {
 
     public boolean checkCrash(){
         Position frogPosition = getModel().getFrog().getPosition();
-        if(getModel().isMoveableObstacle(frogPosition)){
+        if(getModel().isMoveableObstacle(frogPosition) || getModel().isNonMoveableObstacle(frogPosition)){
             getModel().getFrog().resetPostion();
             getModel().getFrog().decreaseLives();
             return true;
