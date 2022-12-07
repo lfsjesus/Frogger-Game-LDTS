@@ -9,6 +9,7 @@ import com.ldts.frogger.states.MenuState;
 import java.io.IOException;
 
 public class ArenaController extends GameController {
+    private long arenaTime;
     private final FrogController frogController;
     private final CarController carController;
     private final TruckController truckController;
@@ -17,6 +18,7 @@ public class ArenaController extends GameController {
 
     public ArenaController(Arena arena) {
         super(arena);
+        this.arenaTime = 0;
         this.frogController = new FrogController(arena);
         this.carController = new CarController(arena);
         this.truckController = new TruckController(arena);
@@ -38,6 +40,10 @@ public class ArenaController extends GameController {
 
             //change frog background color after each step
             getModel().setFrogBackgroundColor(getModel().getFrog().getPosition());
+            if (time - arenaTime > 2000) {
+                Arena.setPoints(Arena.getPoints() + 1);
+                this.arenaTime = time;
+            }
 
         }
     }

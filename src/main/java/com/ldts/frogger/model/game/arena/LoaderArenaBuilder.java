@@ -170,9 +170,4 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return lines.size();
     }
 
-    @Override
-    protected Frog createFrog() {
-        //change frog background color
-        return new Frog(8,18);
-    }
 }

@@ -117,10 +117,5 @@ public class RandomArenaBuilder extends ArenaBuilder {
         return waters;
     }
 
-    @Override
-    protected Frog createFrog() {
-        return new Frog(width / 2, height / 2);
-    }
-
 
 }

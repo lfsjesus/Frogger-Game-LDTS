@@ -8,8 +8,8 @@ import java.util.List;
 public class Arena {
     private final int width;
     private final int height;
-
-    private Frog frog;
+    private static int points = 0;
+    private static Frog frog = new Frog(9,18);
     private List<Car> cars;
     private List<Sidewalk> sidewalks;
     private List<Truck> trucks;
@@ -40,7 +40,6 @@ public class Arena {
         this.frog = frog;
     }
     public boolean isEmpty(Position position) {
-
         if(!(position.getY() < 1 || position.getY() > height-1) && !(position.getX() < 0 || position.getX() > width - 1) && !isTree(position)){
             return true;
         }
@@ -193,5 +192,11 @@ public class Arena {
         this.waters = waters;
     }
 
+    public static int getPoints() {
+        return points;
+    }
 
+    public static void setPoints(int points) {
+        Arena.points = points;
+    }
 }
