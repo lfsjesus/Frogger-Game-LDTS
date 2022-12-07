@@ -36,6 +36,9 @@ public class ArenaController extends GameController {
             motorbikeController.step(game,action,time);
             vanController.step(game, action,time);
 
+            //change frog background color after each step
+            getModel().setFrogBackgroundColor(getModel().getFrog().getPosition());
+
         }
     }
 }

@@ -140,11 +140,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
 
     @Override
     protected Frog createFrog() {
-        for (int y = 0; y < lines.size(); y++) {
-            String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'F') return new Frog(x, y);
-        }
-        return null;
+        //change frog background color
+        return new Frog(8,18);
     }
 }

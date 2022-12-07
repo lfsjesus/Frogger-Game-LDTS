@@ -32,6 +32,7 @@ public class FrogController extends GameController {
         Position frogPosition = getModel().getFrog().getPosition();
         if(getModel().isCar(frogPosition)){
             getModel().getFrog().resetPostion();
+            //getModel().setFrogBackgroundColor(getModel().getFrog().getPosition());
             getModel().getFrog().decreaseLives();
             return true;
 
@@ -42,17 +43,16 @@ public class FrogController extends GameController {
 
     private void moveFrog(Position position) { //estamos a ver a nova posicao
 
-        getModel().setFrogBackgroundColor(position); //checks if the frog is stepping on sidewalk/grass/etc and changes its background color
-
         checkCrash();
         //can move?
         if (getModel().isEmpty(position) &&
-                !(position.getY() < 1 || position.getY() > getModel().getHeight()) &&
+                !(position.getY() < 1 || position.getY() > getModel().getHeight()-1) &&
                 !(position.getX() < 0 || position.getX() > getModel().getWidth() - 1)
+
         ) {
             getModel().getFrog().setPosition(position);
+            //getModel().setFrogBackgroundColor(position); //checks if the frog is stepping on sidewalk/grass/etc and changes its background color
         }
-        getModel().setFrogBackgroundColor(position); //checks if the frog is stepping on sidewalk/grass/etc and changes its background color
         checkCrash();
 
 
