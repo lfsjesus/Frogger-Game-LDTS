@@ -32,7 +32,6 @@ public abstract class ArenaBuilder {
     protected abstract List<Tree> createTrees();
     protected abstract List<Water> createWaters();
 
-
     protected abstract int getWidth();
 
     protected abstract int getHeight();

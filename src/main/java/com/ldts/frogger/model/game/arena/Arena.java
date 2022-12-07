@@ -3,6 +3,7 @@ package com.ldts.frogger.model.game.arena;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.elements.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Arena {
@@ -18,6 +19,7 @@ public class Arena {
     private List<Grass> grasses;
     private List<Tree> trees;
     private List<Water> waters;
+    private List<Coin> coins = new ArrayList<>();
 
     public Arena(int width, int height) {
         this.width = width;
@@ -128,6 +130,14 @@ public class Arena {
         }
         return false;
     }
+    public boolean isCoin(Position position) {
+        for (Coin coin : coins){
+            if (coin.getPosition().equals(position)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public List<Sidewalk> getSidewalks() {
         return this.sidewalks;
@@ -199,4 +209,13 @@ public class Arena {
     public static void setPoints(int points) {
         Arena.points = points;
     }
+
+    public List<Coin> getCoins() {
+        return coins;
+    }
+
+    public void setCoins(List<Coin> coins) {
+        this.coins = coins;
+    }
+
 }
