@@ -18,12 +18,13 @@ public class RandomArenaBuilder extends ArenaBuilder {
     private final int numberOfVans;
     private final int numberOfTrees;
     private final int numberOfSideWalks;
-
-    private final int numberOfWaters;
     private final int numberOfCoins;
+    private final int numberOfWaters;
+    private final int numberOfSmallLogs;
+    private final int numberOfBigLogs;
 
 
-    public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes, int numberOfVans, int numberOfGrasses, int numberOfTrees, int numberOfSideWalks, int numberOfWaters, int numberOfCoins) {
+    public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes, int numberOfVans, int numberOfGrasses, int numberOfTrees, int numberOfSideWalks, int numberOfWaters, int numberOfCoins, int numberOfSmallLogs, int numberOfBigLogs) {
         this.rng = new Random();
         this.numberOfGrasses = numberOfGrasses;
         this.numberOfTrees = numberOfTrees;
@@ -36,6 +37,8 @@ public class RandomArenaBuilder extends ArenaBuilder {
         this.numberOfVans = numberOfVans;
         this.numberOfWaters = numberOfWaters;
         this.numberOfCoins = numberOfCoins;
+        this.numberOfSmallLogs = numberOfSmallLogs;
+        this.numberOfBigLogs = numberOfBigLogs;
     }
 
     @Override
@@ -122,6 +125,16 @@ public class RandomArenaBuilder extends ArenaBuilder {
             waters.add(new Water(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
 
         return waters;
+    }
+
+    @Override
+    protected List<BigLog> createBigLogs() {
+        return null;
+    }
+
+    @Override
+    protected List<SmallLog> createSmallLogs() {
+        return null;
     }
 
     @Override

@@ -39,8 +39,6 @@ public class CarController extends GameController {
     }
     private void moveCar(Car car, Command command) {
         car.setPosition(command.execute(car.getPosition(),getModel())); //o command precisa da posição atual do carro e de uma arena (getModel())
-
-
     }
 
 }

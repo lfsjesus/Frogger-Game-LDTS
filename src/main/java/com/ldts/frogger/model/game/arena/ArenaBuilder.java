@@ -1,7 +1,6 @@
 package com.ldts.frogger.model.game.arena;
 
 
-import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.elements.*;
 
 import java.util.List;
@@ -12,6 +11,8 @@ public abstract class ArenaBuilder {
         arena.setFrog(createFrog());
         arena.setCars(createCars());
         arena.setSidewalks(createSidewalks());
+        arena.setBigLogs(createBigLogs());
+        arena.setSmallLogs(createSmallLogs());
         arena.setTrucks(createTrucks());
         arena.setMotorbikes(createMotorbikes());
         arena.setVans(createVans());
@@ -22,6 +23,7 @@ public abstract class ArenaBuilder {
         return arena;
     }
 
+    protected abstract Frog createFrog();
     protected abstract List<Car> createCars();
     protected abstract List<Truck> createTrucks();
     protected abstract List<Van> createVans();
@@ -33,11 +35,12 @@ public abstract class ArenaBuilder {
 
     protected abstract List<Tree> createTrees();
     protected abstract List<Water> createWaters();
+    protected abstract List<BigLog> createBigLogs();
+    protected abstract List<SmallLog> createSmallLogs();
 
     protected abstract int getWidth();
-
     protected abstract int getHeight();
-    protected abstract Frog createFrog();
+
 
 
 }

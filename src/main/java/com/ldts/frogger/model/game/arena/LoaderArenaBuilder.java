@@ -156,6 +156,37 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return waters;
     }
+    @Override
+    protected List<BigLog> createBigLogs(){
+        List<BigLog> bigLogs = new ArrayList<>();
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++){
+                if (line.charAt(x) == 'L') {
+                    bigLogs.add(new BigLog(new Position(x, y), 1));
+                }
+                else if (line.charAt(x) == 'O') {
+                    bigLogs.add(new BigLog(new Position(x, y), 0));
+                }
+            }
+        }
+        return bigLogs;
+    }
+    protected List<SmallLog> createSmallLogs(){
+        List<SmallLog> smallLogs = new ArrayList<>();
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++){
+                if (line.charAt(x) == 'J') {
+                    smallLogs.add(new SmallLog(new Position(x, y), 1));
+                }
+                else if (line.charAt(x) == 'K') {
+                    smallLogs.add(new SmallLog(new Position(x, y), 0));
+                }
+            }
+        }
+        return smallLogs;
+    }
 
     @Override
     protected int getWidth() {

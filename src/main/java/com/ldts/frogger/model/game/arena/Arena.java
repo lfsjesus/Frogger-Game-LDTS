@@ -20,6 +20,8 @@ public class Arena {
     private List<Tree> trees;
     private List<Water> waters;
     private List<Coin> coins;
+    private List<BigLog> bigLogs;
+    private List<SmallLog> smallLogs;
 
     public Arena(int width, int height) {
         this.width = width;
@@ -44,8 +46,21 @@ public class Arena {
     public boolean isEmpty(Position position) {
         return !(position.getY() < 1 || position.getY() > height - 1) && !(position.getX() < 0 || position.getX() > width - 1) && !isTree(position);
     }
+    public boolean isLog(Position position){
+        for (BigLog bigLog : bigLogs) {
+            if (bigLog.getPosition().equals(position) || bigLog.getPosition().getRight().equals(position) || bigLog.getPosition().getRight().getRight().equals(position)) {
+                return true;
+            }
+        }
+        for (SmallLog smallLog : smallLogs) {
+            if (smallLog.getPosition().equals(position) || smallLog.getPosition().getRight().equals(position)) {
+                return true;
+            }
+        }
+        return false;
+    }
     public boolean canPlaceCoin(Position position){
-        return isEmpty(position) && !isWater(position) /* && !isLava(position) && !isLog(position) */;
+        return isEmpty(position) && !isWater(position) && !isLog(position) /* && !isLava(position) */;
     }
     public boolean isMoveableObstacle(Position position) {
         return isCar(position) || isTruck(position) || isVan(position) || isMotorbike(position);
@@ -121,7 +136,7 @@ public class Arena {
         }
         return false;
     }
-    private boolean isWater(Position frogPosition) {
+    public boolean isWater(Position frogPosition) {
         for (Water water : waters){
             if (water.getPosition().equals(frogPosition)){
                 return true;
@@ -153,6 +168,23 @@ public class Arena {
                 break;
             }
         }
+    }
+    public List<Coin> createCoins(){
+        List<Coin> coins = new ArrayList<>();
+
+        do{
+            //create random position for coin
+            int x = (int)(Math.random()*getWidth());
+            int y = (int)(Math.random()*getHeight());
+            //check if the position is valid
+            Position position = new Position(x,y);
+            if (canPlaceCoin(position)){
+                coins.add(new Coin(position, getCoinBackgroundColor(position)));
+            }
+
+        } while(coins.size() < 10);
+
+        return coins;
     }
 
     public List<Sidewalk> getSidewalks() {
@@ -234,22 +266,11 @@ public class Arena {
         this.coins = coins;
     }
 
-    public List<Coin> createCoins(){
-        List<Coin> coins = new ArrayList<>();
+    public List<BigLog> getBigLogs() {return bigLogs;}
 
-        do{
-            //create random position for coin
-            int x = (int)(Math.random()*getWidth());
-            int y = (int)(Math.random()*getHeight());
-            //check if the position is valid
-            Position position = new Position(x,y);
-            if (canPlaceCoin(position)){
-                coins.add(new Coin(position, getCoinBackgroundColor(position)));
-            }
+    public void setBigLogs(List<BigLog> bigLogs) {this.bigLogs = bigLogs;}
 
-        } while(coins.size() < 10);
+    public List<SmallLog> getSmallLogs() {return smallLogs;}
 
-        return coins;
-    }
-
+    public void setSmallLogs(List<SmallLog> smallLogs) {this.smallLogs = smallLogs;}
 }

@@ -15,6 +15,8 @@ public class ArenaController extends GameController {
     private final TruckController truckController;
     private final VanController vanController;
     private final MotorbikeController motorbikeController;
+    private final SmallLogController smallLogController;
+    private final BigLogController bigLogController;
 
     public ArenaController(Arena arena) {
         super(arena);
@@ -24,6 +26,8 @@ public class ArenaController extends GameController {
         this.truckController = new TruckController(arena);
         this.motorbikeController = new MotorbikeController(arena);
         this.vanController = new VanController(arena);
+        this.smallLogController = new SmallLogController(arena);
+        this.bigLogController = new BigLogController(arena);
 
     }
 
@@ -37,6 +41,9 @@ public class ArenaController extends GameController {
             truckController.step(game,action,time);
             motorbikeController.step(game,action,time);
             vanController.step(game, action,time);
+            smallLogController.step(game,action,time);
+            bigLogController.step(game,action,time);
+
 
             //change frog background color after each step
             getModel().setFrogBackgroundColor(getModel().getFrog().getPosition());
