@@ -146,14 +146,27 @@ public class LoaderArenaBuilder extends ArenaBuilder {
     @Override
     protected List<Water> createWaters() {
         List<Water> waters = new ArrayList<>();
+        Position initialPosition = new Position(0,0);
+        Position finalPosition = new Position(0,0);
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++){
                 if (line.charAt(x) == 'W') {
-                    waters.add(new Water(new Position(x, y)));
+                    initialPosition = new Position(x,y);
+                }
+                else if(line.charAt(x) == 'F') {
+                    finalPosition = new Position(x,y);
+                    break;
                 }
             }
         }
+
+         for(int y = initialPosition.getY(); y <= finalPosition.getY(); y++){
+             for(int x = initialPosition.getX(); x <= finalPosition.getX(); x++){
+                 waters.add(new Water(new Position(x,y)));
+             }
+         }
+
         return waters;
     }
     @Override

@@ -33,23 +33,8 @@ public class SmallLogController extends GameController{
     }
     private void moveSmallLog(SmallLog smallLog, Command command) {
         Position oldPosition = smallLog.getPosition();
-        Position newPosition = command.execute(smallLog.getPosition(),getModel()); //o command precisa da posição atual do log e de uma arena (getModel())
-
-        for(Water water : getModel().getWaters()){
-            if(water.getPosition().equals(oldPosition) || water.getPosition().equals(oldPosition.getRight())){
-                getModel().getWaters().remove(water);
-                break;
-            }
-        }
-
-
-        //getModel().getWaters().removeIf(water -> water.getPosition().equals(oldPosition));
-        //getModel().getWaters().removeIf(water -> water.getPosition().equals(oldPosition.getRight()));
-
+        Position newPosition = command.execute(oldPosition,getModel()); //o command precisa da posição atual do log e de uma arena (getModel())
         smallLog.setPosition(newPosition);
-
-        getModel().getWaters().add(new Water(oldPosition));
-        getModel().getWaters().add(new Water(oldPosition.getRight()));
 
     }
 

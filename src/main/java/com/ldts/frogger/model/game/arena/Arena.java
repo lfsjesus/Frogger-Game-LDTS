@@ -66,7 +66,9 @@ public class Arena {
         return isCar(position) || isTruck(position) || isVan(position) || isMotorbike(position);
     }
     public boolean isNonMoveableObstacle(Position frogPosition) {
-        return isWater(frogPosition) /* || isLava(frogPosition) */ ;
+        Position intialPosition = waters.get(0).getPosition();
+        Position finalPosition = waters.get(waters.size() - 1).getPosition();
+        return (frogPosition.greaterOrEqual(intialPosition) && frogPosition.lessOrEqual(finalPosition) && !isLog(frogPosition));
     }
 
     public boolean isCar(Position position) {
@@ -108,6 +110,12 @@ public class Arena {
         else if(isGrass(position)){
             getFrog().setBackgroundColor("#488f17");
         }
+        else if(isLog(position)){
+            getFrog().setBackgroundColor("#694b25");
+        }
+        else if(isWater(position)){
+            getFrog().setBackgroundColor("#1651b3");
+        }
         else getFrog().setBackgroundColor("#000000");
     }
     public String getCoinBackgroundColor(Position position){
@@ -116,6 +124,9 @@ public class Arena {
         }
         else if(isGrass(position)){
             return "#488f17";
+        }
+        else if(isLog(position)){
+            return "#694b25";
         }
         else return "#000000";
     }

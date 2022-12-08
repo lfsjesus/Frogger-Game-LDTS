@@ -45,6 +45,7 @@ public class ArenaController extends GameController {
             bigLogController.step(game,action,time);
 
 
+            frogController.checkCollisions();
             //change frog background color after each step
             getModel().setFrogBackgroundColor(getModel().getFrog().getPosition());
             if (time - arenaTime > 2000) {

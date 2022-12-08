@@ -46,13 +46,13 @@ public class FrogController extends GameController {
 
     private void moveFrog(Position position) { //estamos a ver a nova posicao
 
-        checkCollisions();
+        //checkCollisions();
         //can move?
         if (getModel().isEmpty(position)) {
             getModel().getFrog().setPosition(position);
 
         }
-        checkCollisions();
+        //checkCollisions();
 
 
     }

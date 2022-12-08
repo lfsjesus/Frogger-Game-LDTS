@@ -23,8 +23,8 @@ public class Frog extends Element{
         return lives;
     }
 
-    public void setLives(int lives) {
-        this.lives = lives;
+    public static void setLives(int lives) {
+        Frog.lives = lives;
     }
 
     public int getDirection() {

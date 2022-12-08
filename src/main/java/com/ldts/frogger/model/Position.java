@@ -40,4 +40,10 @@ public class Position {
         Position position = (Position) o;
         return x == position.x && y == position.y;
     }
+    public boolean lessOrEqual(Position position) {
+        return x <= position.x && y <= position.y;
+    }
+    public boolean greaterOrEqual(Position position) {
+        return x >= position.x && y >= position.y;
+    }
 }
