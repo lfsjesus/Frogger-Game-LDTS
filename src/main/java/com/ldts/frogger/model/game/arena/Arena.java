@@ -108,10 +108,10 @@ public class Arena {
             getFrog().setBackgroundColor("#acacac");
         }
         else if(isGrass(position)){
-            getFrog().setBackgroundColor("#488f17");
+            getFrog().setBackgroundColor("#41a000");
         }
         else if(isLog(position)){
-            getFrog().setBackgroundColor("#694b25");
+            getFrog().setBackgroundColor("#624219");
         }
         else if(isWater(position)){
             getFrog().setBackgroundColor("#1651b3");
@@ -123,7 +123,7 @@ public class Arena {
             return "#acacac";
         }
         else if(isGrass(position)){
-            return "#488f17";
+            return "#41a000";
         }
         else if(isLog(position)){
             return "#694b25";

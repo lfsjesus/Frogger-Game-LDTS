@@ -7,6 +7,6 @@ public class BigLogViewer implements ElementViewer<BigLog> {
 
     @Override
     public void draw(BigLog bigLog, GUI gui) {
-        gui.drawText(bigLog.getPosition(), "ĻĻĻ", "#624219", "#694b25");
+        gui.drawText(bigLog.getPosition(), "ĻĻĻ", "#523715", "#624219");
     }
 }

@@ -19,7 +19,7 @@ public class SmallLogController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMovement > 200) {
+        if (time - lastMovement > 300) {
             for (SmallLog smallLog : getModel().getSmallLogs()) {
                 if(smallLog.getDirection() == 1){
                     moveSmallLog(smallLog, new MoveRight());
@@ -34,6 +34,9 @@ public class SmallLogController extends GameController{
     private void moveSmallLog(SmallLog smallLog, Command command) {
         Position oldPosition = smallLog.getPosition();
         Position newPosition = command.execute(oldPosition,getModel()); //o command precisa da posição atual do log e de uma arena (getModel())
+        if(getModel().getFrog().getPosition().equals(oldPosition)) {
+            getModel().getFrog().setPosition(newPosition);
+        }
         smallLog.setPosition(newPosition);
 
     }

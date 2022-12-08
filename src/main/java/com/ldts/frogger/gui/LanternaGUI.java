@@ -84,28 +84,28 @@ public class LanternaGUI implements GUI{
         switch (direction){
 
             case 0:
-                drawText(position, "ē", "#3e592a");
+                drawText(position, "ē", "#507436");
                 break;
             case 1:
-                drawText(position, "Ĕ", "#3e592a");
+                drawText(position, "Ĕ", "#507436");
                 break;
             case 2:
-                drawText(position, "ĕ", "#3e592a");
+                drawText(position, "ĕ", "#507436");
                 break;
             case 3:
-                drawText(position, "Ĩ", "#3e592a");
+                drawText(position, "Ĩ", "#507436");
                 break;
             case 4:
-                drawText(position, "ħ", "#3e592a");
+                drawText(position, "ħ", "#507436");
                 break;
             case 5:
-                drawText(position, "Ħ", "#3e592a");
+                drawText(position, "Ħ", "#507436");
                 break;
             case 6:
-                drawText(position, "ĥ", "#3e592a");
+                drawText(position, "ĥ", "#507436");
                 break;
             case 7:
-                drawText(position, "Ē", "#3e592a");
+                drawText(position, "Ē", "#507436");
                 break;
         }
     }
@@ -116,28 +116,28 @@ public class LanternaGUI implements GUI{
         switch (direction){
 
             case 0:
-                drawText(position, "ē", "#3e592a", backgroundColor);
+                drawText(position, "ē", "#507436", backgroundColor);
                 break;
             case 1:
-                drawText(position, "Ĕ", "#3e592a", backgroundColor);
+                drawText(position, "Ĕ", "#507436", backgroundColor);
                 break;
             case 2:
-                drawText(position, "ĕ", "#3e592a", backgroundColor);
+                drawText(position, "ĕ", "#507436", backgroundColor);
                 break;
             case 3:
-                drawText(position, "Ĩ", "#3e592a", backgroundColor);
+                drawText(position, "Ĩ", "#507436", backgroundColor);
                 break;
             case 4:
-                drawText(position, "ħ", "#3e592a", backgroundColor);
+                drawText(position, "ħ", "#507436", backgroundColor);
                 break;
             case 5:
-                drawText(position, "Ħ", "#3e592a", backgroundColor);
+                drawText(position, "Ħ", "#507436", backgroundColor);
                 break;
             case 6:
-                drawText(position, "ĥ", "#3e592a", backgroundColor);
+                drawText(position, "ĥ", "#507436", backgroundColor);
                 break;
             case 7:
-                drawText(position, "Ē", "#3e592a", backgroundColor);
+                drawText(position, "Ē", "#507436", backgroundColor);
                 break;
         }
     }

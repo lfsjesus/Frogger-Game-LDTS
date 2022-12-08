@@ -18,7 +18,7 @@ public class BigLogController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMovement > 400) {
+        if (time - lastMovement > 600) {
             for (BigLog bigLog : getModel().getBigLogs()) {
                 if(bigLog.getDirection() == 1){
                     moveBigLog(bigLog, new MoveRight());
@@ -34,6 +34,9 @@ public class BigLogController extends GameController{
     private void moveBigLog(BigLog bigLog, Command command) {
         Position oldPosition = bigLog.getPosition();
         Position newPosition = command.execute(oldPosition,getModel()); //o command precisa da posição atual do log e de uma arena (getModel())
+        if(getModel().getFrog().getPosition().equals(oldPosition)) {
+            getModel().getFrog().setPosition(newPosition);
+        }
         bigLog.setPosition(newPosition);
     }
 
