@@ -1,9 +1,10 @@
-package com.ldts.frogger.controller.game;
+package com.ldts.frogger.controller.Command;
 
+import com.ldts.frogger.controller.Command.Command;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
 
-public class MoveLeft extends Command{
+public class MoveLeft extends Command {
 
     @Override
     public Position execute(Position position, Arena arena) {

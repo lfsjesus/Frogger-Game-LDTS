@@ -3,9 +3,15 @@ package com.ldts.frogger.controller.game;
 import com.ldts.frogger.Game;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.game.arena.Arena;
+<<<<<<< HEAD
 import com.ldts.frogger.model.game.arena.LoaderArenaBuilder;
 import com.ldts.frogger.model.menu.Menu;
 import com.ldts.frogger.states.GameState;
+=======
+import com.ldts.frogger.model.menu.GameOver;
+import com.ldts.frogger.model.menu.Menu;
+import com.ldts.frogger.states.GameOverState;
+>>>>>>> game_over
 import com.ldts.frogger.states.MenuState;
 
 import java.io.IOException;
@@ -35,11 +41,16 @@ public class ArenaController extends GameController {
 
 
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (action == GUI.ACTION.QUIT || getModel().getFrog().getLives() == 0)
+        if (action == GUI.ACTION.QUIT)
             game.setState(new MenuState(new Menu()));
+
         else if(frogController.reachesEndOfLevel()){
             Arena.setLevel(Arena.getLevel()+1);
             game.setState(new GameState(new LoaderArenaBuilder(Arena.level).createArena()));
+        }
+
+        else if (getModel().getFrog().getLives() == 0) {
+            game.setState(new GameOverState(new GameOver()));
         }
 
         else {
