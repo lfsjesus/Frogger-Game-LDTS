@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Arena {
+    public static int level = 1;
     private final int width;
     private final int height;
     private static int points = 0;
@@ -284,4 +285,12 @@ public class Arena {
     public List<SmallLog> getSmallLogs() {return smallLogs;}
 
     public void setSmallLogs(List<SmallLog> smallLogs) {this.smallLogs = smallLogs;}
+
+    public static int getLevel() {
+        return level;
+    }
+
+    public static void setLevel(int level) {
+        Arena.level = level;
+    }
 }

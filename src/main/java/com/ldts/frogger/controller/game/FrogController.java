@@ -57,6 +57,10 @@ public class FrogController extends GameController {
 
     }
 
+    public boolean reachesEndOfLevel() {
+        return getModel().getFrog().getPosition().getY() == 1;
+    }
+
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
         if(time - lastMovement > 7000){
