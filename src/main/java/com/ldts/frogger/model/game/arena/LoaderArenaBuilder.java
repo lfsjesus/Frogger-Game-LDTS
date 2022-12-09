@@ -216,8 +216,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
 
     @Override
     protected Frog createFrog() {
-        return new Frog(9,8);
-        //return new Frog (getWidth()/2 - 1, getHeight() - 2);
+        return new Frog (getWidth()/2 - 1, getHeight() - 2);
     }
 
 }
