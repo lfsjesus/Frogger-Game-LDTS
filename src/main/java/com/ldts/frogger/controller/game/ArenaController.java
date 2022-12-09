@@ -3,15 +3,11 @@ package com.ldts.frogger.controller.game;
 import com.ldts.frogger.Game;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.game.arena.Arena;
-<<<<<<< HEAD
 import com.ldts.frogger.model.game.arena.LoaderArenaBuilder;
 import com.ldts.frogger.model.menu.Menu;
 import com.ldts.frogger.states.GameState;
-=======
 import com.ldts.frogger.model.menu.GameOver;
-import com.ldts.frogger.model.menu.Menu;
 import com.ldts.frogger.states.GameOverState;
->>>>>>> game_over
 import com.ldts.frogger.states.MenuState;
 
 import java.io.IOException;
