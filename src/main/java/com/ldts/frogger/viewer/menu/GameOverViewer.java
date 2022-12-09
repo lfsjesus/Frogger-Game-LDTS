@@ -13,8 +13,29 @@ public class GameOverViewer extends Viewer<GameOver> {
 
     @Override
     protected void drawElements(GUI gui) {
-        for (int i = 0; i < getModel().getEntries().size(); i++) {
-            gui.drawText(new Position(4, 6 + i), getModel().getEntry(i), "#FFFFFF", "#32A852");
+
+        for(int i = 0; i < 20; i++){
+            for(int j = 0; j< 20; j++){
+                gui.drawBackground(new Position(i,j),"#32a852");
+            }
+        }
+
+        gui.drawText(new Position(3, 5), "Y O U  L O S T!", "#000000", "#32a852");
+
+        for (int i = 0; i < getModel().getNumberEntries(); i++) {
+
+            if(getModel().isSelected(i)){
+                StringBuilder s = new StringBuilder(">");
+                s.append(getModel().getEntry(i));
+                s.append("<");
+                gui.drawText(new Position(4, 8 + i), s.toString(), "#a84c32", "#32a852");
+            }
+            else{
+                StringBuilder s = new StringBuilder(" ");
+                s.append(getModel().getEntry(i));
+                s.append(" ");
+                gui.drawText(new Position(4, 8 + i), s.toString(), "#FFFFFF", "#32a852");
+            }
         }
     }
 }
