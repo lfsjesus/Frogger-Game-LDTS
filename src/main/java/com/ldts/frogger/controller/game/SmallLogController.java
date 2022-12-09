@@ -1,11 +1,13 @@
 package com.ldts.frogger.controller.game;
 
 import com.ldts.frogger.Game;
+import com.ldts.frogger.controller.Command.Command;
+import com.ldts.frogger.controller.Command.MoveLeft;
+import com.ldts.frogger.controller.Command.MoveRight;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
 import com.ldts.frogger.model.game.elements.SmallLog;
-import com.ldts.frogger.model.game.elements.Water;
 
 import java.io.IOException;
 

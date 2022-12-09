@@ -1,10 +1,9 @@
 package com.ldts.frogger.model.menu;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LeaderboardDisplay extends Menu{
@@ -20,6 +19,13 @@ public class LeaderboardDisplay extends Menu{
 
         for (String line; (line = br.readLine()) != null; )
             lines.add(line);
+        java.util.Collections.sort(lines, Collections.reverseOrder());
+    }
+
+    public void addRecord(int score, String name) throws IOException {
+        BufferedWriter output = new BufferedWriter(new FileWriter("/leaderboard.txt", true));
+        output.append(score + " " + name);
+        output.close();
     }
 
     @Override
