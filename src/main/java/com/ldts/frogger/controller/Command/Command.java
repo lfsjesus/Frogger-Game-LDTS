@@ -1,4 +1,4 @@
-package com.ldts.frogger.controller.game;
+package com.ldts.frogger.controller.Command;
 
 import com.ldts.frogger.Game;
 import com.ldts.frogger.model.Position;

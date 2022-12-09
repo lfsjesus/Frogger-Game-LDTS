@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Menu {
-    private final List<String> entries;
+    private List<String> entries;
     private int currentEntry = 0;
 
     public Menu() {
@@ -50,4 +50,14 @@ public class Menu {
     public int getCurrentEntry() {
         return currentEntry;
     }
+
+    public List<String> getEntries() {
+        return entries;
+    }
+
+    public void setEntries(List<String> entries) {
+        this.entries = entries;
+    }
+
+
 }
