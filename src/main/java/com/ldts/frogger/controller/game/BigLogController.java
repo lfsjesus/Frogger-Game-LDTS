@@ -34,8 +34,15 @@ public class BigLogController extends GameController{
     private void moveBigLog(BigLog bigLog, Command command) {
         Position oldPosition = bigLog.getPosition();
         Position newPosition = command.execute(oldPosition,getModel()); //o command precisa da posição atual do log e de uma arena (getModel())
-        if(getModel().getFrog().getPosition().equals(oldPosition)) {
+
+        if(getModel().getFrog().getPosition().equals(oldPosition)){ //se estou na ponta do tronco
             getModel().getFrog().setPosition(newPosition);
+        }
+        else if(getModel().getFrog().getPosition().equals(oldPosition.getRight())){ //se estou a meio do tronco
+            getModel().getFrog().setPosition(newPosition.getRight());
+        }
+        else if(getModel().getFrog().getPosition().equals(oldPosition.getRight().getRight())){// se estou na outra ponta do tronco
+            getModel().getFrog().setPosition(newPosition.getRight().getRight());
         }
         bigLog.setPosition(newPosition);
     }

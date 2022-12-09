@@ -37,9 +37,9 @@ public class SmallLogController extends GameController{
         if(getModel().getFrog().getPosition().equals(oldPosition)) {
             getModel().getFrog().setPosition(newPosition);
         }
+        else if(getModel().getFrog().getPosition().equals(oldPosition.getRight())){
+            getModel().getFrog().setPosition(newPosition.getRight());
+        }
         smallLog.setPosition(newPosition);
-
     }
-
-
 }
