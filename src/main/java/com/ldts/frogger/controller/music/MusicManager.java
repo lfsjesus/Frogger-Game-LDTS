@@ -9,7 +9,8 @@ public class MusicManager {
     private static MusicManager musicManager;
 
     private MusicManager() {
-        backgroundMusic = new Music("/src/main/resources/sounds/soundtrack.wav");
+        backgroundMusic = new Music("/src/main/resources/sounds/sunset.wav");
+        //backgroundMusic = new Music("/src/main/resources/sounds/sunsetCompressed.wav");
         frog = new Music("/src/main/resources/sounds/frog.wav");
         coin = new Music("/src/main/resources/sounds/coin.wav");
         crash = new Music("/src/main/resources/sounds/crash.wav");
