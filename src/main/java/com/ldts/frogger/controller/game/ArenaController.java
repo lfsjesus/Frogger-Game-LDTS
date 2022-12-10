@@ -23,6 +23,7 @@ public class ArenaController extends GameController {
     private final MotorbikeController motorbikeController;
     private final SmallLogController smallLogController;
     private final BigLogController bigLogController;
+    private final TrainController trainController;
 
     public ArenaController(Arena arena) {
         super(arena);
@@ -34,6 +35,7 @@ public class ArenaController extends GameController {
         this.vanController = new VanController(arena);
         this.smallLogController = new SmallLogController(arena);
         this.bigLogController = new BigLogController(arena);
+        this.trainController = new TrainController(arena);
 
     }
 
@@ -60,6 +62,8 @@ public class ArenaController extends GameController {
             vanController.step(game, action,time);
             smallLogController.step(game,action,time);
             bigLogController.step(game,action,time);
+            trainController.step(game,action,time);
+
 
 
             frogController.checkCollisions();

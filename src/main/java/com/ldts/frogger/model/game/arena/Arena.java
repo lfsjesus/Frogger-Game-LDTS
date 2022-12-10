@@ -25,6 +25,7 @@ public class Arena {
     private List<Coin> coins;
     private List<BigLog> bigLogs;
     private List<SmallLog> smallLogs;
+    private List<Train> trains;
 
     public Arena(int width, int height) {
         this.width = width;
@@ -295,5 +296,13 @@ public class Arena {
 
     public static void setLevel(int level) {
         Arena.level = level;
+    }
+
+    public List<Train> getTrains() {
+        return trains;
+    }
+
+    public void setTrains(List<Train> trains) {
+        this.trains = trains;
     }
 }

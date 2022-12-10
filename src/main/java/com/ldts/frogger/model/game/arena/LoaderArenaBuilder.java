@@ -99,6 +99,23 @@ public class LoaderArenaBuilder extends ArenaBuilder {
     }
 
     @Override
+    protected List<Train> createTrains(){
+        List<Train> trains = new ArrayList<>();
+        List<String> colors = Arrays.asList("#ff8a00","#ffffff","#4fb72e","#c8b510","#2b8aba","#ca01fb","#0909c9","#fe0003");
+        int index = 0;
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++){
+                index = (int)(Math.random()*colors.size());
+                if (line.charAt(x) == 'R') trains.add(new Train(new Position(x,y),1,colors.get(index)));
+                else if (line.charAt(x) == 'E') trains.add(new Train(new Position(x,y),0,colors.get(index)));
+            }
+        }
+
+        return trains;
+    }
+
+    @Override
     protected List<Sidewalk> createSidewalks() {
         List<Sidewalk> sidewalks = new ArrayList<>();
         for (int y = 0; y < lines.size(); y++) {

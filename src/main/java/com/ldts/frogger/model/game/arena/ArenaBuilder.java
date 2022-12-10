@@ -14,12 +14,14 @@ public abstract class ArenaBuilder {
         arena.setBigLogs(createBigLogs());
         arena.setSmallLogs(createSmallLogs());
         arena.setTrucks(createTrucks());
+        arena.setTrains(createTrains());
         arena.setMotorbikes(createMotorbikes());
         arena.setVans(createVans());
         arena.setGrasses(createGrasses());
         arena.setTrees(createTrees());
         arena.setWaters(createWaters());
         arena.setCoins(arena.createCoins());
+
         return arena;
     }
 
@@ -37,6 +39,8 @@ public abstract class ArenaBuilder {
     protected abstract List<Water> createWaters();
     protected abstract List<BigLog> createBigLogs();
     protected abstract List<SmallLog> createSmallLogs();
+
+    protected abstract List<Train> createTrains();
 
     protected abstract int getWidth();
     protected abstract int getHeight();

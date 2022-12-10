@@ -1,19 +1,17 @@
 package com.ldts.frogger.model.game.elements;
-
 import com.ldts.frogger.model.Position;
 
-public class Motorbike extends MoveableElement{
+public class Train extends MoveableElement {
     private int direction = 0;
     private String color;
-    public Motorbike(int x, int y) {
+    public Train(int x, int y) {
         super(x, y);
     }
-
-    public Motorbike(Position position, int direction, String color) {
+    public Train(Position position, int direction, String color) {
         super(position.getX(), position.getY());
         this.direction = direction;
-        this.color = color;
     }
+
     public int getDirection() {
         return direction;
     }
@@ -23,6 +21,10 @@ public class Motorbike extends MoveableElement{
     }
 
     public String getColor() {
-        return this.color;
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

@@ -16,6 +16,7 @@ public class RandomArenaBuilder extends ArenaBuilder {
     private final int numberOfGrasses;
     private final int numberOfMotorbikes;
     private final int numberOfVans;
+    private final int numberOfTrains;
     private final int numberOfTrees;
     private final int numberOfSideWalks;
     private final int numberOfCoins;
@@ -24,7 +25,8 @@ public class RandomArenaBuilder extends ArenaBuilder {
     private final int numberOfBigLogs;
 
 
-    public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes, int numberOfVans, int numberOfGrasses, int numberOfTrees, int numberOfSideWalks, int numberOfWaters, int numberOfCoins, int numberOfSmallLogs, int numberOfBigLogs) {
+
+    public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes, int numberOfVans, int numberOfTrains, int numberOfGrasses, int numberOfTrees, int numberOfSideWalks, int numberOfWaters, int numberOfCoins, int numberOfSmallLogs, int numberOfBigLogs) {
         this.rng = new Random();
         this.numberOfGrasses = numberOfGrasses;
         this.numberOfTrees = numberOfTrees;
@@ -39,6 +41,7 @@ public class RandomArenaBuilder extends ArenaBuilder {
         this.numberOfCoins = numberOfCoins;
         this.numberOfSmallLogs = numberOfSmallLogs;
         this.numberOfBigLogs = numberOfBigLogs;
+        this.numberOfTrains = numberOfTrains;
     }
 
     @Override
@@ -77,6 +80,15 @@ public class RandomArenaBuilder extends ArenaBuilder {
             vans.add(new Van(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
 
         return vans;
+    }
+    @Override
+    protected List<Train> createTrains(){
+        List<Train> trains = new ArrayList<>();
+
+        while (trains.size() < numberOfTrains)
+            trains.add(new Train(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
+
+        return trains;
     }
     @Override
     protected List<Motorbike> createMotorbikes() {
