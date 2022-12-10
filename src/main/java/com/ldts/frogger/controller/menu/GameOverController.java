@@ -36,6 +36,8 @@ public class GameOverController extends Controller<GameOver> {
             case SELECT:
                 if (getModel().isSelectedExit()) game.setState(null);
                 else if (getModel().isSelectedStart()){
+                    Arena.setPoints(0);
+                    Frog.setLives(3);
                     game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
                 }
                 else {

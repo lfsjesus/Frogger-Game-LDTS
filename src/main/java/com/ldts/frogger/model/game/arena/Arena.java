@@ -1,5 +1,7 @@
 package com.ldts.frogger.model.game.arena;
 
+import com.ldts.frogger.controller.music.MusicManager;
+import com.ldts.frogger.controller.music.Sounds;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.elements.*;
 
@@ -177,6 +179,7 @@ public class Arena {
             if (coin.getPosition().equals(position)){
                 coins.remove(coin);
                 points+=5;
+                MusicManager.getInstance().start(Sounds.COIN);
                 break;
             }
         }

@@ -1,5 +1,7 @@
 package com.ldts.frogger.model.game.elements;
 
+import com.ldts.frogger.controller.music.MusicManager;
+import com.ldts.frogger.controller.music.Sounds;
 import com.ldts.frogger.model.Position;
 
 public class Frog extends Element{
@@ -41,6 +43,7 @@ public class Frog extends Element{
     public void resetPosition(){
         this.direction = 0;
         setPosition(new Position(9,18));
+        MusicManager.getInstance().start(Sounds.CRASH);
 
     }
 }

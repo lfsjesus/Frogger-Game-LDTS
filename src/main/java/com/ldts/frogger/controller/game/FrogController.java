@@ -1,6 +1,8 @@
 package com.ldts.frogger.controller.game;
 
 import com.ldts.frogger.Game;
+import com.ldts.frogger.controller.music.MusicManager;
+import com.ldts.frogger.controller.music.Sounds;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
@@ -45,7 +47,7 @@ public class FrogController extends GameController {
     }
 
     private void moveFrog(Position position) { //estamos a ver a nova posicao
-
+        MusicManager.getInstance().start(Sounds.FROG);
         //checkCollisions();
         //can move?
         if (getModel().isEmpty(position)) {
