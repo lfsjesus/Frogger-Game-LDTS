@@ -67,7 +67,7 @@ public class Arena {
         return isEmpty(position) && !isWater(position) && !isLog(position) /* && !isLava(position) */;
     }
     public boolean isMoveableObstacle(Position position) {
-        return isCar(position) || isTruck(position) || isVan(position) || isMotorbike(position);
+        return isCar(position) || isTruck(position) || isVan(position) || isMotorbike(position) || isTrain(position);
     }
     public boolean isNonMoveableObstacle(Position frogPosition) {
         Position intialPosition = waters.get(0).getPosition();
@@ -78,6 +78,14 @@ public class Arena {
     public boolean isCar(Position position) {
         for (Car car : cars){
             if (car.getPosition().equals(position) || car.getPosition().getRight().equals(position)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean isTrain(Position position){
+        for (Train train : trains){
+            if(position.greaterOrEqual(train.getPosition()) && position.lessOrEqual(train.getPosition().add(new Position(15,0)))){
                 return true;
             }
         }

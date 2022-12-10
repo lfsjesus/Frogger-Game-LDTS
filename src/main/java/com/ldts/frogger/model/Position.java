@@ -46,4 +46,15 @@ public class Position {
     public boolean greaterOrEqual(Position position) {
         return x >= position.x && y >= position.y;
     }
+
+    public boolean lessThan(Position position){
+        return x < position.x && y < position.y;
+    }
+    public boolean greaterThan(Position position){
+        return x > position.x && y < position.y;
+    }
+
+    public Position add(Position position) {
+        return new Position(x + position.x, y + position.y);
+    }
 }

@@ -19,7 +19,7 @@ public class TrainController extends GameController{
         this.lastMovement = 0;
     }
     public void checkCrash(Train train){
-        if (getModel().getFrog().getPosition().equals(train.getPosition()) || getModel().getFrog().getPosition().equals(train.getPosition().getRight())) {
+        if (getModel().getFrog().getPosition().greaterOrEqual(train.getPosition()) && getModel().getFrog().getPosition().lessOrEqual(train.getPosition().add(new Position(15,0)))){
             getModel().getFrog().decreaseLives();
             getModel().getFrog().resetPosition();
         }
