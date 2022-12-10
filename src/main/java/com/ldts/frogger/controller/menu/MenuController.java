@@ -6,7 +6,7 @@ import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.game.arena.Arena;
 import com.ldts.frogger.model.game.arena.LoaderArenaBuilder;
 import com.ldts.frogger.model.game.elements.Frog;
-import com.ldts.frogger.model.menu.LeaderboardDisplay;
+import com.ldts.frogger.model.menu.Leaderboard;
 import com.ldts.frogger.model.menu.Menu;
 import com.ldts.frogger.states.GameState;
 import com.ldts.frogger.states.LeaderboardState;
@@ -34,7 +34,7 @@ public class MenuController extends Controller<Menu> {
                     Arena.setPoints(0);
                     Frog.setLives(3);
                 }
-                if (getModel().isSelectedLeaderboard()) game.setState(new LeaderboardState(new LeaderboardDisplay()));
+                if (getModel().isSelectedLeaderboard()) game.setState(new LeaderboardState(new Leaderboard()));
         }
     }
 }

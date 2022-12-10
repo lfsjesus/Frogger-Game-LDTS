@@ -1,6 +1,6 @@
 package com.ldts.frogger.model;
 
-import com.ldts.frogger.model.menu.LeaderboardDisplay;
+import com.ldts.frogger.model.menu.Leaderboard;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.io.IOException;
 public class LeaderboardTest {
     public LeaderboardTest() throws IOException {
     }
-    private LeaderboardDisplay lb = new LeaderboardDisplay();
+    private Leaderboard lb = new Leaderboard();
 
 
 

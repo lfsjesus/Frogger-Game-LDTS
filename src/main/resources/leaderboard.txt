@@ -1,6 +1,0 @@
-00999 Player1
-00876 Player2
-00676 Player1
-00500 Player2
-00100 Player1
-00060 Player2

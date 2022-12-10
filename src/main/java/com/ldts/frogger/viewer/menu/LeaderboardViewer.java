@@ -2,11 +2,11 @@ package com.ldts.frogger.viewer.menu;
 
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
-import com.ldts.frogger.model.menu.LeaderboardDisplay;
+import com.ldts.frogger.model.menu.Leaderboard;
 import com.ldts.frogger.viewer.Viewer;
 
-public class LeaderboardViewer extends Viewer<LeaderboardDisplay> {
-    public LeaderboardViewer(LeaderboardDisplay model) {
+public class LeaderboardViewer extends Viewer<Leaderboard> {
+    public LeaderboardViewer(Leaderboard model) {
         super(model);
     }
 
