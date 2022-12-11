@@ -163,54 +163,38 @@ public class LoaderArenaBuilder extends ArenaBuilder {
     @Override
     protected List<Water> createWaters() {
         List<Water> waters = new ArrayList<>();
-        Position initialPosition = new Position(0,0);
-        Position finalPosition = new Position(0,0);
+        boolean isWater = false;
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++){
+            for (int x = 0; x < line.length(); x++) {
                 if (line.charAt(x) == 'W') {
-                    initialPosition = new Position(x,y);
+                    isWater = !isWater;
+                    waters.add(new Water(new Position(x, y)));
                 }
-                else if(line.charAt(x) == 'F') {
-                    finalPosition = new Position(x,y);
-                    break;
+                if (isWater) {
+                    waters.add(new Water(new Position(x, y)));
                 }
             }
         }
-
-         for(int y = initialPosition.getY(); y <= finalPosition.getY(); y++){
-             for(int x = initialPosition.getX(); x <= finalPosition.getX(); x++){
-                 waters.add(new Water(new Position(x,y)));
-             }
-         }
-
         return waters;
     }
 
     @Override
     protected List<Lava> createLavas() {
         List<Lava> lavas = new ArrayList<>();
-        Position initialPosition = new Position(0,0);
-        Position finalPosition = new Position(0,0);
+        boolean isLava = false;
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++){
+            for (int x = 0; x < line.length(); x++) {
                 if (line.charAt(x) == 'p') {
-                    initialPosition = new Position(x,y);
+                    isLava = !isLava;
+                    lavas.add(new Lava(new Position(x, y)));
                 }
-                else if(line.charAt(x) == 'a') {
-                    finalPosition = new Position(x,y);
-                    break;
+                if (isLava) {
+                    lavas.add(new Lava(new Position(x, y)));
                 }
             }
         }
-
-        for(int y = initialPosition.getY(); y <= finalPosition.getY(); y++){
-            for(int x = initialPosition.getX(); x <= finalPosition.getX(); x++){
-                lavas.add(new Lava(new Position(x,y)));
-            }
-        }
-
         return lavas;
     }
 

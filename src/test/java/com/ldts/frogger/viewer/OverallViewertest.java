@@ -31,6 +31,12 @@ public class OverallViewertest {
         arena.setWaters(Arrays.asList());
         arena.setCars(Arrays.asList(new Car(new Position(4, 5), 0, "#ffffff"), new Car(new Position(5, 6), 1, "#000000")));
         arena.setFrog(new Frog(5, 8));
+        arena.setCoins(Arrays.asList(new Coin(5, 8)));
+        arena.setBigLogs(Arrays.asList(new BigLog(5, 8)));
+        arena.setSmallLogs(Arrays.asList(new SmallLog(5, 8)));
+        arena.setTrains(Arrays.asList(new Train(5, 8)));
+        arena.setLavas(Arrays.asList(new Lava(5, 8)));
+        arena.setRocks(Arrays.asList(new Rock(5, 8)));
     }
 
     @Test

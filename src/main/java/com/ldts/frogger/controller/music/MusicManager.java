@@ -31,6 +31,18 @@ public class MusicManager {
         this.frog = frog;
     }
 
+    public void setBackgroundMusic(Music backgroundMusic) {
+        this.backgroundMusic = backgroundMusic;
+    }
+
+    public void setCoin(Music coin) {
+        this.coin = coin;
+    }
+
+    public void setCrash(Music crash) {
+        this.crash = crash;
+    }
+
     public void start(Sounds sound) {
         switch(sound) {
             case SOUNDTRACK -> backgroundMusic.startLoop();

@@ -1,6 +1,5 @@
 package com.ldts.frogger.controller.Command;
 
-import com.ldts.frogger.controller.Command.Command;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
 

@@ -3,12 +3,14 @@ package com.ldts.frogger.controller;
 import com.ldts.frogger.Game;
 import com.ldts.frogger.controller.game.CarController;
 import com.ldts.frogger.controller.game.FrogController;
+import com.ldts.frogger.controller.music.MusicManager;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
 import com.ldts.frogger.model.game.elements.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
 import java.io.IOException;
@@ -24,20 +26,23 @@ public class FrogControllerTest {
 
     @BeforeEach
     void setUp() {
+        MusicManager manager= Mockito.mock(MusicManager .class);
+        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+            configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
+            arena = new Arena(10, 10);
+            frog = new Frog(5, 5);
+            arena.setSidewalks(Arrays.asList(new Sidewalk(3, 4)));
+            arena.setGrasses(Arrays.asList(new Grass(7, 8)));
+            arena.setMotorbikes(Arrays.asList(new Motorbike(8, 7)));
+            arena.setTrucks(Arrays.asList(new Truck(8, 7)));
+            arena.setVans(Arrays.asList(new Van(8, 7)));
+            arena.setTrees(Arrays.asList());
+            arena.setFrog(frog);
+            arena.setCars(Arrays.asList());
+            arena.setWaters(Arrays.asList());
 
-        arena = new Arena(10, 10);
-        frog = new Frog(5,5);
-        arena.setSidewalks(Arrays.asList(new Sidewalk(3,4)));
-        arena.setGrasses(Arrays.asList(new Grass(7,8)));
-        arena.setMotorbikes(Arrays.asList(new Motorbike(8, 7)));
-        arena.setTrucks(Arrays.asList(new Truck(8, 7)));
-        arena.setVans(Arrays.asList(new Van(8, 7)));
-        arena.setTrees(Arrays.asList());
-        arena.setFrog(frog);
-        arena.setCars(Arrays.asList());
-        arena.setWaters(Arrays.asList());
-
-        controller = new FrogController(arena);
+            controller = new FrogController(arena);
+        }
     }
 
     @Test

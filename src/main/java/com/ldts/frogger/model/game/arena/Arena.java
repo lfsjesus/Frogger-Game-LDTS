@@ -81,6 +81,7 @@ public class Arena {
     }
     public boolean isNonMoveableObstacle(Position frogPosition) {
         return (isLava(frogPosition)  && !isRock(frogPosition)) || (isWater(frogPosition) && !isLog(frogPosition));
+
     }
     public boolean isCar(Position position) {
         for (Car car : cars){
