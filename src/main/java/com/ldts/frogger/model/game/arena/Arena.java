@@ -80,12 +80,7 @@ public class Arena {
         return isCar(position) || isTruck(position) || isVan(position) || isMotorbike(position) || isTrain(position);
     }
     public boolean isNonMoveableObstacle(Position frogPosition) {
-        try{
-            return (isLava(frogPosition)  && !isRock(frogPosition)) || (isWater(frogPosition) && !isLog(frogPosition));
-        }
-        catch (Exception e){
-            return false;
-        }
+        return (isLava(frogPosition)  && !isRock(frogPosition)) || (isWater(frogPosition) && !isLog(frogPosition));
     }
     public boolean isCar(Position position) {
         for (Car car : cars){
