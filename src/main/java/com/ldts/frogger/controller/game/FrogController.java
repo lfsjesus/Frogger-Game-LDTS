@@ -42,7 +42,7 @@ public class FrogController extends GameController {
         }
 
         //Coins
-        getModel().catchCoin(frogPosition);
+       getModel().catchCoin(frogPosition);
 
     }
 

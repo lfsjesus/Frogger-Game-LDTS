@@ -19,7 +19,6 @@ public class RandomArenaBuilder extends ArenaBuilder {
     private final int numberOfTrains;
     private final int numberOfTrees;
     private final int numberOfSideWalks;
-    private final int numberOfCoins;
     private final int numberOfWaters;
     private final int numberOfSmallLogs;
     private final int numberOfBigLogs;
@@ -38,7 +37,6 @@ public class RandomArenaBuilder extends ArenaBuilder {
         this.numberOfMotorbikes = numberOfMotorbikes;
         this.numberOfVans = numberOfVans;
         this.numberOfWaters = numberOfWaters;
-        this.numberOfCoins = numberOfCoins;
         this.numberOfSmallLogs = numberOfSmallLogs;
         this.numberOfBigLogs = numberOfBigLogs;
         this.numberOfTrains = numberOfTrains;
@@ -141,12 +139,22 @@ public class RandomArenaBuilder extends ArenaBuilder {
 
     @Override
     protected List<BigLog> createBigLogs() {
-        return null;
+        List<BigLog> bigLogs = new ArrayList<>();
+
+        while (bigLogs.size() < numberOfBigLogs)
+            bigLogs.add(new BigLog(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
+
+        return bigLogs;
     }
 
     @Override
     protected List<SmallLog> createSmallLogs() {
-        return null;
+        List<SmallLog> smallLogs = new ArrayList<>();
+
+        while (smallLogs.size() < numberOfSmallLogs)
+            smallLogs.add(new SmallLog(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
+
+        return smallLogs;
     }
 
     @Override

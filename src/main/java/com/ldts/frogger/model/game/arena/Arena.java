@@ -70,9 +70,14 @@ public class Arena {
         return isCar(position) || isTruck(position) || isVan(position) || isMotorbike(position) || isTrain(position);
     }
     public boolean isNonMoveableObstacle(Position frogPosition) {
-        Position intialPosition = waters.get(0).getPosition();
-        Position finalPosition = waters.get(waters.size() - 1).getPosition();
-        return (frogPosition.greaterOrEqual(intialPosition) && frogPosition.lessOrEqual(finalPosition) && !isLog(frogPosition));
+        try {
+            Position intialPosition = waters.get(0).getPosition();
+            Position finalPosition = waters.get(waters.size() - 1).getPosition();
+            return (frogPosition.greaterOrEqual(intialPosition) && frogPosition.lessOrEqual(finalPosition) && !isLog(frogPosition));
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 
     public boolean isCar(Position position) {
