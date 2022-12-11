@@ -44,10 +44,10 @@ public class TrainController extends GameController{
             train.setPosition(new Position(30,train.getPosition().getY()));
         }
         else if(train.getDirection() == 1){
-            train.setPosition(new MoveRight().execute(train.getPosition(), getModel()));
+            train.setPosition(train.getPosition().getRight());
         }
         else if(train.getDirection() == 0){
-            train.setPosition(new MoveLeft().execute(train.getPosition(), getModel()));
+            train.setPosition(train.getPosition().getLeft());
         }
     }
 }
