@@ -80,23 +80,12 @@ public class Arena {
         return isCar(position) || isTruck(position) || isVan(position) || isMotorbike(position) || isTrain(position);
     }
     public boolean isNonMoveableObstacle(Position frogPosition) {
-        try {
-            Position waterIntialPosition = waters.get(0).getPosition();
-            Position waterFinalPosition = waters.get(waters.size() - 1).getPosition();
-            return frogPosition.greaterOrEqual(waterIntialPosition) && frogPosition.lessOrEqual(waterFinalPosition) && !isLog(frogPosition);
-        }
-        catch (Exception e) {
-
-        }
         try{
-            Position lavaIntialPosition = lavas.get(0).getPosition();
-            Position lavaFinalPosition = lavas.get(lavas.size() - 1).getPosition();
-            return (frogPosition.greaterOrEqual(lavaIntialPosition) && frogPosition.lessOrEqual(lavaFinalPosition) && !isRock(frogPosition));
-
+            return (isLava(frogPosition)  && !isRock(frogPosition)) || (isWater(frogPosition) && !isLog(frogPosition));
         }
         catch (Exception e){
+            return false;
         }
-        return false;
     }
     public boolean isCar(Position position) {
         for (Car car : cars){
