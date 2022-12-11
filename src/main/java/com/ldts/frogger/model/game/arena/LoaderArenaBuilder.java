@@ -186,6 +186,34 @@ public class LoaderArenaBuilder extends ArenaBuilder {
 
         return waters;
     }
+
+    @Override
+    protected List<Lava> createLavas() {
+        List<Lava> lavas = new ArrayList<>();
+        Position initialPosition = new Position(0,0);
+        Position finalPosition = new Position(0,0);
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++){
+                if (line.charAt(x) == 'p') {
+                    initialPosition = new Position(x,y);
+                }
+                else if(line.charAt(x) == 'a') {
+                    finalPosition = new Position(x,y);
+                    break;
+                }
+            }
+        }
+
+        for(int y = initialPosition.getY(); y <= finalPosition.getY(); y++){
+            for(int x = initialPosition.getX(); x <= finalPosition.getX(); x++){
+                lavas.add(new Lava(new Position(x,y)));
+            }
+        }
+
+        return lavas;
+    }
+
     @Override
     protected List<BigLog> createBigLogs(){
         List<BigLog> bigLogs = new ArrayList<>();
@@ -216,6 +244,21 @@ public class LoaderArenaBuilder extends ArenaBuilder {
             }
         }
         return smallLogs;
+    }
+    protected List<Rock> createRocks(){
+        List<Rock> rocks = new ArrayList<>();
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++){
+                if (line.charAt(x) == 'r') {
+                    rocks.add(new Rock(new Position(x, y),1));
+                }
+                else if (line.charAt(x) == 'c') {
+                    rocks.add(new Rock(new Position(x, y),0));
+                }
+            }
+        }
+        return rocks;
     }
 
     @Override

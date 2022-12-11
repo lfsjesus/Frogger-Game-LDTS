@@ -26,6 +26,8 @@ public class Arena {
     private List<BigLog> bigLogs;
     private List<SmallLog> smallLogs;
     private List<Train> trains;
+    private List<Lava> lavas;
+    private List<Rock> rocks;
 
     public Arena(int width, int height) {
         this.width = width;
@@ -63,16 +65,27 @@ public class Arena {
         }
         return false;
     }
+    public boolean isRock(Position position){
+        for (Rock rock : rocks) {
+            if (rock.getPosition().equals(position)) {
+                return true;
+            }
+        }
+        return false;
+    }
     public boolean canPlaceCoin(Position position){
-        return isEmpty(position) && !isWater(position) && !isLog(position) /* && !isLava(position) */;
+        return isEmpty(position) && !isWater(position) && !isLog(position) && !isLava(position) && !isRock(position);
     }
     public boolean isMoveableObstacle(Position position) {
         return isCar(position) || isTruck(position) || isVan(position) || isMotorbike(position) || isTrain(position);
     }
     public boolean isNonMoveableObstacle(Position frogPosition) {
-        Position intialPosition = waters.get(0).getPosition();
-        Position finalPosition = waters.get(waters.size() - 1).getPosition();
-        return (frogPosition.greaterOrEqual(intialPosition) && frogPosition.lessOrEqual(finalPosition) && !isLog(frogPosition));
+        Position waterIntialPosition = waters.get(0).getPosition();
+        Position waterFinalPosition = waters.get(waters.size() - 1).getPosition();
+        Position lavaIntialPosition = lavas.get(0).getPosition();
+        Position lavaFinalPosition = lavas.get(lavas.size() - 1).getPosition();
+
+        return ((frogPosition.greaterOrEqual(waterIntialPosition) && frogPosition.lessOrEqual(waterFinalPosition) && !isLog(frogPosition) ) || ((frogPosition.greaterOrEqual(lavaIntialPosition) && frogPosition.lessOrEqual(lavaFinalPosition) && !isRock(frogPosition))));
     }
 
     public boolean isCar(Position position) {
@@ -125,8 +138,14 @@ public class Arena {
         else if(isLog(position)){
             getFrog().setBackgroundColor("#624219");
         }
+        else if(isRock(position)){
+            getFrog().setBackgroundColor("#4e535a");
+        }
         else if(isWater(position)){
             getFrog().setBackgroundColor("#1651b3");
+        }
+        else if(isLava(position)){
+            getFrog().setBackgroundColor("#ff2500");
         }
         else getFrog().setBackgroundColor("#000000");
     }
@@ -136,9 +155,6 @@ public class Arena {
         }
         else if(isGrass(position)){
             return "#41a000";
-        }
-        else if(isLog(position)){
-            return "#694b25";
         }
         else return "#000000";
     }
@@ -162,6 +178,15 @@ public class Arena {
     public boolean isWater(Position frogPosition) {
         for (Water water : waters){
             if (water.getPosition().equals(frogPosition)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isLava(Position position){
+        for (Lava lava : lavas){
+            if (lava.getPosition().equals(position)){
                 return true;
             }
         }
@@ -312,5 +337,21 @@ public class Arena {
 
     public void setTrains(List<Train> trains) {
         this.trains = trains;
+    }
+
+    public List<Lava> getLavas() {
+        return lavas;
+    }
+
+    public void setLavas(List<Lava> lavas) {
+        this.lavas = lavas;
+    }
+
+    public List<Rock> getRocks() {
+        return rocks;
+    }
+
+    public void setRocks(List<Rock> rocks) {
+        this.rocks = rocks;
     }
 }

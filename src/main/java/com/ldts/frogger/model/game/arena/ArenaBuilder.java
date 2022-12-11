@@ -13,6 +13,7 @@ public abstract class ArenaBuilder {
         arena.setSidewalks(createSidewalks());
         arena.setBigLogs(createBigLogs());
         arena.setSmallLogs(createSmallLogs());
+        arena.setRocks(createRocks());
         arena.setTrucks(createTrucks());
         arena.setTrains(createTrains());
         arena.setMotorbikes(createMotorbikes());
@@ -20,6 +21,7 @@ public abstract class ArenaBuilder {
         arena.setGrasses(createGrasses());
         arena.setTrees(createTrees());
         arena.setWaters(createWaters());
+        arena.setLavas(createLavas());
         arena.setCoins(arena.createCoins());
 
         return arena;
@@ -37,10 +39,12 @@ public abstract class ArenaBuilder {
 
     protected abstract List<Tree> createTrees();
     protected abstract List<Water> createWaters();
+    protected abstract List<Lava> createLavas();
     protected abstract List<BigLog> createBigLogs();
     protected abstract List<SmallLog> createSmallLogs();
 
     protected abstract List<Train> createTrains();
+    protected abstract List<Rock> createRocks();
 
     protected abstract int getWidth();
     protected abstract int getHeight();

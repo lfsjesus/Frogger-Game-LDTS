@@ -24,6 +24,7 @@ public class ArenaController extends GameController {
     private final SmallLogController smallLogController;
     private final BigLogController bigLogController;
     private final TrainController trainController;
+    private final RockController rockController;
 
     public ArenaController(Arena arena) {
         super(arena);
@@ -36,6 +37,7 @@ public class ArenaController extends GameController {
         this.smallLogController = new SmallLogController(arena);
         this.bigLogController = new BigLogController(arena);
         this.trainController = new TrainController(arena);
+        this.rockController = new RockController(arena);
 
     }
 
@@ -62,7 +64,9 @@ public class ArenaController extends GameController {
             vanController.step(game, action,time);
             smallLogController.step(game,action,time);
             bigLogController.step(game,action,time);
+            rockController.step(game,action,time);
             trainController.step(game,action,time);
+
 
 
 

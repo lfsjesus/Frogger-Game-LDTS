@@ -21,12 +21,14 @@ public class RandomArenaBuilder extends ArenaBuilder {
     private final int numberOfSideWalks;
     private final int numberOfCoins;
     private final int numberOfWaters;
+    private final int numberOfLavas;
     private final int numberOfSmallLogs;
     private final int numberOfBigLogs;
+    private final int numberOfRocks;
 
 
 
-    public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes, int numberOfVans, int numberOfTrains, int numberOfGrasses, int numberOfTrees, int numberOfSideWalks, int numberOfWaters, int numberOfCoins, int numberOfSmallLogs, int numberOfBigLogs) {
+    public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes, int numberOfVans, int numberOfTrains, int numberOfGrasses, int numberOfTrees, int numberOfSideWalks, int numberOfWaters, int numberOfCoins, int numberOfSmallLogs, int numberOfBigLogs, int numberOfLavas, int numberOfRocks) {
         this.rng = new Random();
         this.numberOfGrasses = numberOfGrasses;
         this.numberOfTrees = numberOfTrees;
@@ -42,6 +44,8 @@ public class RandomArenaBuilder extends ArenaBuilder {
         this.numberOfSmallLogs = numberOfSmallLogs;
         this.numberOfBigLogs = numberOfBigLogs;
         this.numberOfTrains = numberOfTrains;
+        this.numberOfLavas = numberOfLavas;
+        this.numberOfRocks = numberOfRocks;
     }
 
     @Override
@@ -138,15 +142,44 @@ public class RandomArenaBuilder extends ArenaBuilder {
 
         return waters;
     }
+    @Override
+    protected List<Lava> createLavas(){
+        List<Lava> lavas = new ArrayList<>();
+
+        while (lavas.size() < numberOfLavas)
+            lavas.add(new Lava(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
+
+        return lavas;
+    }
 
     @Override
     protected List<BigLog> createBigLogs() {
-        return null;
+        List<BigLog> bigLogs = new ArrayList<>();
+
+        while (bigLogs.size() < numberOfBigLogs)
+            bigLogs.add(new BigLog(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
+
+        return bigLogs;
     }
 
     @Override
     protected List<SmallLog> createSmallLogs() {
-        return null;
+        List<SmallLog> smallLogs = new ArrayList<>();
+
+        while (smallLogs.size() < numberOfSmallLogs)
+            smallLogs.add(new SmallLog(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
+
+        return smallLogs;
+    }
+
+    @Override
+    protected List<Rock> createRocks() {
+        List<Rock> rocks = new ArrayList<>();
+
+        while (rocks.size() < numberOfRocks)
+            rocks.add(new Rock(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
+
+        return rocks;
     }
 
     @Override
