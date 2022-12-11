@@ -19,7 +19,7 @@ public class TrainController extends GameController{
         this.lastMovement = 0;
     }
     public void checkCrash(Train train){
-        if (getModel().getFrog().getPosition().greaterOrEqual(train.getPosition()) && getModel().getFrog().getPosition().lessOrEqual(train.getPosition().add(new Position(15,0)))){
+        if (getModel().getFrog().getPosition().greaterOrEqual(train.getPosition()) && getModel().getFrog().getPosition().lessOrEqual(new Position(15,0))){
             getModel().getFrog().decreaseLives();
             getModel().getFrog().resetPosition();
         }
@@ -44,10 +44,10 @@ public class TrainController extends GameController{
             train.setPosition(new Position(30,train.getPosition().getY()));
         }
         else if(train.getDirection() == 1){
-            train.setPosition(train.getPosition().getRight());
+            train.setPosition(new MoveRight().execute(train.getPosition(), getModel()));
         }
         else if(train.getDirection() == 0){
-            train.setPosition(train.getPosition().getLeft());
+            train.setPosition(new MoveLeft().execute(train.getPosition(), getModel()));
         }
     }
 }

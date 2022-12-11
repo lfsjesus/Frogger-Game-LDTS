@@ -42,19 +42,22 @@ public class CarControllerTest {
 
     @Test
     void moveCars() throws IOException {
-        Car car = new Car(new Position(5,5),1);
-        arena.setCars(Arrays.asList(car));
+        Car car1 = new Car(new Position(5,5),1);
+        Car car2 = new Car(new Position(9, 6), 0);
+        arena.setCars(Arrays.asList(car1, car2));
         controller.step(game, GUI.ACTION.NONE, 1000);
-        assertNotEquals(new Position(5,5), car.getPosition());
+        assertEquals(new Position(6,5), car1.getPosition());
+        assertEquals(new Position(8,6), car2.getPosition());
     }
 
     @Test
     void moveCarAgainstWall() throws IOException {
-        Car car = new Car(new Position(9,5),1);
-        arena.setCars(Arrays.asList(car));
+        Car car1 = new Car(new Position(9,5),1);
+        Car car2 = new Car(new Position(-1,5),0);
+        arena.setCars(Arrays.asList(car1, car2));
         controller.step(game, GUI.ACTION.NONE, 2000);
-        System.out.println(car.getPosition().getX());
-        assertEquals(new Position(-1,5), car.getPosition());
+        assertEquals(new Position(-1,5), car1.getPosition());
+        assertEquals(new Position(9,5), car2.getPosition());
     }
 
     @Test
@@ -71,6 +74,7 @@ public class CarControllerTest {
         arena.setCars(Arrays.asList(car));
         FrogController frogController = new FrogController(arena);
         frogController.step(game, GUI.ACTION.RIGHT, 2000);
+        controller.step(game, GUI.ACTION.NONE, 2000);
         assertTrue(frog.getLives() < 3);
     }
     @Test
@@ -87,9 +91,9 @@ public class CarControllerTest {
     void checkCrashWithFrogMovingUp() throws IOException {
         Car car = new Car(new Position(3, 4),1);
         arena.setCars(Arrays.asList(car));
-        controller.step(game, GUI.ACTION.NONE, 2000);
         FrogController frogController = new FrogController(arena);
         frogController.step(game, GUI.ACTION.UP, 2000);
+        controller.step(game, GUI.ACTION.NONE, 2000);
         assertTrue(frog.getLives() < 3);
     }
 

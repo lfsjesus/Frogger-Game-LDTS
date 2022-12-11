@@ -19,7 +19,6 @@ public class RandomArenaBuilder extends ArenaBuilder {
     private final int numberOfTrains;
     private final int numberOfTrees;
     private final int numberOfSideWalks;
-    private final int numberOfCoins;
     private final int numberOfWaters;
     private final int numberOfLavas;
     private final int numberOfSmallLogs;
@@ -40,7 +39,6 @@ public class RandomArenaBuilder extends ArenaBuilder {
         this.numberOfMotorbikes = numberOfMotorbikes;
         this.numberOfVans = numberOfVans;
         this.numberOfWaters = numberOfWaters;
-        this.numberOfCoins = numberOfCoins;
         this.numberOfSmallLogs = numberOfSmallLogs;
         this.numberOfBigLogs = numberOfBigLogs;
         this.numberOfTrains = numberOfTrains;
@@ -180,6 +178,7 @@ public class RandomArenaBuilder extends ArenaBuilder {
             rocks.add(new Rock(rng.nextInt(width - 2) + 1, rng.nextInt(height - 2) + 1));
 
         return rocks;
+
     }
 
     @Override
