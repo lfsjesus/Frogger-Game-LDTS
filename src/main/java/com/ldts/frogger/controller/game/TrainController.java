@@ -30,19 +30,25 @@ public class TrainController extends GameController{
         if(time - lastMovement > 100){
             for(Train train : getModel().getTrains()){
                 checkCrash(train);
-                if(train.getDirection() == 1){
-                    moveTrain(train, new MoveRight());
-                }
-                else {
-                    moveTrain(train, new MoveLeft());
-                }
+                moveTrain(train);
                 checkCrash(train);
             }
             this.lastMovement = time;
         }
     }
-    private void moveTrain(Train train, Command command) {
-        train.setPosition(command.execute(train.getPosition(),getModel())); //o command precisa da posição atual do carro e de uma arena (getModel())
+    private void moveTrain(Train train) {
+        if(train.getDirection() == 1 && train.getPosition().getX() > 20){
+            train.setPosition(new Position(-30,train.getPosition().getY()));
+        }
+        else if(train.getDirection() == 0 && train.getPosition().getX() < 0){
+            train.setPosition(new Position(30,train.getPosition().getY()));
+        }
+        else if(train.getDirection() == 1){
+            train.setPosition(train.getPosition().getRight());
+        }
+        else if(train.getDirection() == 0){
+            train.setPosition(train.getPosition().getLeft());
+        }
     }
 }
 
