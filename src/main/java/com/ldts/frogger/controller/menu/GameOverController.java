@@ -38,7 +38,7 @@ public class GameOverController extends Controller<GameOver> {
                 else if (getModel().isSelectedStart()){
                     Arena.setPoints(0);
                     Frog.setLives(3);
-                    game.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
+                    game.setState(new GameState(new LoaderArenaBuilder(Arena.getLevel()).createArena()));
                 }
                 else {
                     try {

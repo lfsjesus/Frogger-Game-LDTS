@@ -53,6 +53,7 @@ public class ArenaController extends GameController {
         }
 
         else if (getModel().getFrog().getLives() == 0) {
+            Arena.setLevel(1);
             game.setState(new GameOverState(new GameOver()));
         }
 
