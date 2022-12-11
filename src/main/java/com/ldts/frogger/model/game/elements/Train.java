@@ -10,6 +10,7 @@ public class Train extends MoveableElement {
     public Train(Position position, int direction, String color) {
         super(position.getX(), position.getY());
         this.direction = direction;
+        this.color = color;
     }
 
     public int getDirection() {
