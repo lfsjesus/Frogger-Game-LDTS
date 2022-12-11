@@ -19,6 +19,7 @@ import java.net.URISyntaxException;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GameStateTest {
+/*
     private Game game;
     private Menu menu;
     private State state;
@@ -52,5 +53,5 @@ public class GameStateTest {
         controller.step(game, GUI.ACTION.QUIT, 300);
         assertTrue(game.getState().getController() instanceof MenuController && game.getState().getViewer() instanceof MenuViewer);
     }
-
+*/
 }

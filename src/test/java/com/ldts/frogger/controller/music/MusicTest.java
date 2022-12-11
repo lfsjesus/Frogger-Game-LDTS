@@ -10,6 +10,7 @@ import javax.sound.sampled.FloatControl;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MusicTest {
+
     private Music music;
     private Clip clipMock;
 
@@ -64,4 +65,6 @@ public class MusicTest {
         music.stop();
         Mockito.verify(clipMock, Mockito.times(1)).stop();
     }
+
+
 }

@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MusicManagerTest {
+
     MusicManager musicManagerTest;
     Music backgroundMusic = Mockito.mock(Music.class);
     Music coin = Mockito.mock(Music.class);
@@ -113,4 +114,6 @@ public class MusicManagerTest {
         Mockito.verify(crash, Mockito.times(1)).stop();
         Mockito.verify(coin, Mockito.times(1)).stop();
     }
+
+
 }

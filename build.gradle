@@ -13,6 +13,7 @@ repositories {
 
 pitest {
     junit5PluginVersion = '1.0.0'
+    excludedClasses = ['frogger.GameState', 'frogger.GameOverState', 'frogger.LeaderboardState', 'frogger.MenuState', 'frogger.State']
 }
 
 application {
