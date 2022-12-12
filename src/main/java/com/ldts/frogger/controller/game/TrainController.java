@@ -7,6 +7,7 @@ import com.ldts.frogger.controller.Command.MoveRight;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
+import com.ldts.frogger.model.game.elements.Frog;
 import com.ldts.frogger.model.game.elements.Train;
 
 import java.io.IOException;
@@ -19,9 +20,10 @@ public class TrainController extends GameController{
         this.lastMovement = 0;
     }
     public void checkCrash(Train train){
-        if (getModel().getFrog().getPosition().greaterOrEqual(train.getPosition()) && getModel().getFrog().getPosition().lessOrEqual(new Position(15,0))){
-            getModel().getFrog().decreaseLives();
-            getModel().getFrog().resetPosition();
+        Frog frog = getModel().getFrog();
+        if (frog.getPosition().greaterOrEqual(train.getPosition()) && frog.getPosition().lessOrEqual(train.getPosition().add(new Position(15,0)))){
+            frog.decreaseLives();
+            frog.resetPosition();
         }
     }
 
@@ -38,7 +40,7 @@ public class TrainController extends GameController{
     }
     private void moveTrain(Train train) {
         if(train.getDirection() == 1){
-            if(train.getPosition().getX() > 20){
+            if(train.getPosition().getX() > getModel().getWidth()){
                 train.setPosition(new Position(-30,train.getPosition().getY()));
             }
             else train.setPosition(train.getPosition().getRight());
