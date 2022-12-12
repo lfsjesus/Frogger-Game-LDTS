@@ -74,7 +74,7 @@ public class Arena {
         return false;
     }
     public boolean canPlaceCoin(Position position){
-        return isEmpty(position) && !isWater(position) && !isLog(position) && !isLava(position) && !isRock(position);
+        return isEmpty(position) && !isWater(position) && !isLog(position) && !isLava(position) && !isRock(position) && position.getY() != 1;
     }
     public boolean isMoveableObstacle(Position position) {
         return isCar(position) || isTruck(position) || isVan(position) || isMotorbike(position) || isTrain(position);

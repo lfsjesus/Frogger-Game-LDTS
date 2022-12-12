@@ -33,6 +33,7 @@ public class GameViewer extends Viewer<Arena> {
         drawElements(gui, getModel().getTrucks(), new TruckViewer());
         drawElements(gui, getModel().getMotorbikes(), new MotorbikeViewer());
         drawElements(gui, getModel().getVans(), new VanViewer());
+        drawCrossline(gui);
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
@@ -50,6 +51,15 @@ public class GameViewer extends Viewer<Arena> {
             gui.drawText(new Position(i+6,0),"♥", "#ff0000");
         }
     }
+
+    private void drawCrossline(GUI gui) {
+        if (Arena.level == 5) {
+            for (int x = 0; x < 20; x++) {
+                    gui.drawText(new Position(x, 1), "ľ", "#FFFFFF");
+                }
+            }
+    }
+
 
     private void drawPoints(GUI gui) {
         gui.drawText(new Position(getModel().getWidth() - 10, 0), "Score:", "#FFFFFF");
