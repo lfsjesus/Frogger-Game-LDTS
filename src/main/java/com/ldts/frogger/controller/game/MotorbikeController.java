@@ -6,6 +6,7 @@ import com.ldts.frogger.controller.Command.MoveLeft;
 import com.ldts.frogger.controller.Command.MoveRight;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.game.arena.Arena;
+import com.ldts.frogger.model.game.elements.Frog;
 import com.ldts.frogger.model.game.elements.Motorbike;
 
 import java.io.IOException;
@@ -21,9 +22,10 @@ public class MotorbikeController extends GameController {
     }
 
     public void checkCrash(Motorbike motorbike) {
-        if (getModel().getFrog().getPosition().equals(motorbike.getPosition()) || getModel().getFrog().getPosition().equals(motorbike.getPosition().getRight())) {
-            getModel().getFrog().decreaseLives();
-            getModel().getFrog().resetPosition();
+        Frog frog = getModel().getFrog();
+        if (frog.getPosition().equals(motorbike.getPosition()) || frog.getPosition().equals(motorbike.getPosition().getRight())) {
+            frog.decreaseLives();
+            frog.resetPosition();
         }
     }
 

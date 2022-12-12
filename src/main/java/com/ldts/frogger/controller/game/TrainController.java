@@ -47,7 +47,7 @@ public class TrainController extends GameController{
         }
         else if(train.getDirection() == 0){
             if(train.getPosition().getX() < -16){
-                train.setPosition(new Position(30,train.getPosition().getY()));
+                train.setPosition(new Position(getModel().getWidth() + 10,train.getPosition().getY()));
             }
             else train.setPosition(train.getPosition().getLeft());
         }

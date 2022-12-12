@@ -40,14 +40,14 @@ public class RockController extends GameController{
         Position newPosition = oldPosition;
 
         if (rock.getDirection() == 1) {
-            if (rock.getPosition().getX() > 19)
+            if (rock.getPosition().getX() > getModel().getWidth())
                 newPosition = new Position(0, rock.getPosition().getY());
             else
                newPosition = rock.getPosition().getRight();
         }
         else if (rock.getDirection() == 0) {
             if (rock.getPosition().getX() < 0)
-                newPosition = new Position(19, rock.getPosition().getY());
+                newPosition = new Position(getModel().getWidth() - 1, rock.getPosition().getY());
             else
                 newPosition = rock.getPosition().getLeft();
         }

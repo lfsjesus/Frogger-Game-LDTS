@@ -6,6 +6,7 @@ import com.ldts.frogger.controller.Command.MoveLeft;
 import com.ldts.frogger.controller.Command.MoveRight;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.game.arena.Arena;
+import com.ldts.frogger.model.game.elements.Frog;
 import com.ldts.frogger.model.game.elements.Truck;
 
 import java.io.IOException;
@@ -18,9 +19,10 @@ public class TruckController extends GameController{
         this.lastMovement = 0;
     }
     public void checkCrash(Truck truck){
-        if (getModel().getFrog().getPosition().equals(truck.getPosition()) || getModel().getFrog().getPosition().equals(truck.getPosition().getRight())) {
-            getModel().getFrog().decreaseLives();
-            getModel().getFrog().resetPosition();
+        Frog frog = getModel().getFrog();
+        if (frog.getPosition().equals(truck.getPosition()) || frog.getPosition().equals(truck.getPosition().getRight())) {
+            frog.decreaseLives();
+            frog.resetPosition();
         }
     }
 

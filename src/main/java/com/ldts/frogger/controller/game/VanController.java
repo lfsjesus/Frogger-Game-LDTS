@@ -6,6 +6,7 @@ import com.ldts.frogger.controller.Command.MoveLeft;
 import com.ldts.frogger.controller.Command.MoveRight;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.game.arena.Arena;
+import com.ldts.frogger.model.game.elements.Frog;
 import com.ldts.frogger.model.game.elements.Van;
 
 import java.io.IOException;
@@ -18,9 +19,10 @@ public class VanController extends GameController{
         this.lastMovement = 0;
     }
     public void checkCrash(Van van){
-        if (getModel().getFrog().getPosition().equals(van.getPosition()) || getModel().getFrog().getPosition().equals(van.getPosition().getRight())) {
-            getModel().getFrog().decreaseLives();
-            getModel().getFrog().resetPosition();
+        Frog frog = getModel().getFrog();
+        if (frog.getPosition().equals(van.getPosition()) || frog.getPosition().equals(van.getPosition().getRight())) {
+            frog.decreaseLives();
+            frog.resetPosition();
         }
     }
 
