@@ -5,11 +5,9 @@ public class MusicManager {
     private Music frog;
     private Music coin;
     private Music crash;
-
     private static MusicManager musicManager;
 
     private MusicManager() {
-        //backgroundMusic = new Music("/src/main/resources/sounds/sunset.wav");
         backgroundMusic = new Music("/src/main/resources/sounds/sunsetCompressed.wav");
         frog = new Music("/src/main/resources/sounds/frog.wav");
         coin = new Music("/src/main/resources/sounds/coin.wav");

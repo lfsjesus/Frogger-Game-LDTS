@@ -2,6 +2,8 @@ package com.ldts.frogger.states;
 
 import com.ldts.frogger.controller.Controller;
 import com.ldts.frogger.controller.game.ArenaController;
+import com.ldts.frogger.controller.music.MusicManager;
+import com.ldts.frogger.controller.music.Sounds;
 import com.ldts.frogger.model.game.arena.Arena;
 import com.ldts.frogger.viewer.Viewer;
 import com.ldts.frogger.viewer.game.GameViewer;
@@ -9,6 +11,7 @@ import com.ldts.frogger.viewer.game.GameViewer;
 public class GameState extends State<Arena> {
     public GameState(Arena arena) {
         super(arena);
+        MusicManager.getInstance().start(Sounds.SOUNDTRACK);
     }
 
     @Override
