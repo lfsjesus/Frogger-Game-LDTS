@@ -11,6 +11,7 @@ import com.ldts.frogger.viewer.game.GameViewer;
 public class GameState extends State<Arena> {
     public GameState(Arena arena) {
         super(arena);
+        MusicManager.getInstance().stopAll();
         if (!MusicManager.getInstance().isPlaying(Sounds.SOUNDTRACK))
             MusicManager.getInstance().start(Sounds.SOUNDTRACK);
     }
