@@ -35,7 +35,8 @@ public class SmallLogController extends GameController{
     }
     private void moveSmallLog(SmallLog smallLog, Command command) {
         Position oldPosition = smallLog.getPosition();
-        Position newPosition = command.execute(oldPosition,getModel()); //o command precisa da posição atual do log e de uma arena (getModel())
+        Position newPosition = command.execute(oldPosition,getModel());
+
         if(getModel().getFrog().getPosition().equals(oldPosition)) {
             getModel().getFrog().setPosition(newPosition);
         }
