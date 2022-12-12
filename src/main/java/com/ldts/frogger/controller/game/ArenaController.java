@@ -6,10 +6,12 @@ import com.ldts.frogger.controller.music.Sounds;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.game.arena.Arena;
 import com.ldts.frogger.model.game.arena.LoaderArenaBuilder;
+import com.ldts.frogger.model.menu.GameWin;
 import com.ldts.frogger.model.menu.Menu;
 import com.ldts.frogger.states.GameState;
 import com.ldts.frogger.model.menu.GameOver;
 import com.ldts.frogger.states.GameOverState;
+import com.ldts.frogger.states.GameWinState;
 import com.ldts.frogger.states.MenuState;
 
 import java.io.IOException;
@@ -46,6 +48,10 @@ public class ArenaController extends GameController {
         if (action == GUI.ACTION.QUIT) {
             MusicManager.getInstance().stop(Sounds.SOUNDTRACK);
             game.setState(new MenuState(new Menu()));
+        }
+        else if(frogController.reachesEndOfLevel() && Arena.getLevel() == 5) {
+            MusicManager.getInstance().stop(Sounds.SOUNDTRACK);
+            game.setState(new GameWinState(new GameWin()));
         }
         else if(frogController.reachesEndOfLevel()){
             Arena.setLevel(Arena.getLevel()+1);

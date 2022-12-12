@@ -6,6 +6,7 @@ public class MusicManager {
     private Music coin;
     private Music crash;
     private Music gameOver;
+    private Music win;
     private static MusicManager musicManager;
 
     private MusicManager() {
@@ -14,6 +15,7 @@ public class MusicManager {
         coin = new Music("/src/main/resources/sounds/coin.wav");
         crash = new Music("/src/main/resources/sounds/crash.wav");
         gameOver = new Music("/src/main/resources/sounds/gameOver.wav");
+        win = new Music("/src/main/resources/sounds/win.wav");
     }
 
     public static MusicManager getInstance() {
@@ -42,6 +44,9 @@ public class MusicManager {
     public void setCrash(Music crash) {
         this.crash = crash;
     }
+    public void setWin(Music win) {
+        this.win = win;
+    }
 
     public void setGameOver(Music gameOver) {
         this.gameOver = gameOver;
@@ -54,6 +59,7 @@ public class MusicManager {
             case COIN -> coin.start();
             case CRASH -> crash.start();
             case GAMEOVER -> gameOver.start();
+            case WIN -> win.start();
         }
     }
 
@@ -64,6 +70,7 @@ public class MusicManager {
             case COIN -> coin.stop();
             case CRASH -> crash.stop();
             case GAMEOVER -> gameOver.stop();
+            case WIN -> win.stop();
 
         }
     }
@@ -75,6 +82,7 @@ public class MusicManager {
             case COIN -> coin.isPlaying();
             case CRASH -> crash.isPlaying();
             case GAMEOVER -> gameOver.isPlaying();
+            case WIN -> win.isPlaying();
         };
     }
 
@@ -84,5 +92,6 @@ public class MusicManager {
         coin.stop();
         crash.stop();
         gameOver.stop();
+        win.stop();
     }
 }
