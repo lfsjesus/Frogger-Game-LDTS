@@ -37,17 +37,17 @@ public class TrainController extends GameController{
         }
     }
     private void moveTrain(Train train) {
-        if(train.getDirection() == 1 && train.getPosition().getX() > 20){
-            train.setPosition(new Position(-30,train.getPosition().getY()));
-        }
-        else if(train.getDirection() == 0 && train.getPosition().getX() < 0){
-            train.setPosition(new Position(30,train.getPosition().getY()));
-        }
-        else if(train.getDirection() == 1){
-            train.setPosition(train.getPosition().getRight());
+        if(train.getDirection() == 1){
+            if(train.getPosition().getX() > 20){
+                train.setPosition(new Position(-30,train.getPosition().getY()));
+            }
+            else train.setPosition(train.getPosition().getRight());
         }
         else if(train.getDirection() == 0){
-            train.setPosition(train.getPosition().getLeft());
+            if(train.getPosition().getX() < -16){
+                train.setPosition(new Position(30,train.getPosition().getY()));
+            }
+            else train.setPosition(train.getPosition().getLeft());
         }
     }
 }
