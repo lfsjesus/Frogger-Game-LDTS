@@ -1,5 +1,6 @@
 package com.ldts.frogger.controller.music;
 
+import com.ldts.frogger.Game;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -14,6 +15,8 @@ public class MusicManagerTest {
     Music coin = Mockito.mock(Music.class);
     Music frog = Mockito.mock(Music.class);
     Music crash = Mockito.mock(Music.class);
+    Music GameOver = Mockito.mock(Music.class);
+    Music win = Mockito.mock(Music.class);
 
     @BeforeEach
     void initMusicManager() {
@@ -22,6 +25,8 @@ public class MusicManagerTest {
         musicManager.setFrog(frog);
         musicManager.setCoin(coin);
         musicManager.setCrash(crash);
+        musicManager.setGameOver(GameOver);
+        musicManager.setWin(win);
 
         musicManagerTest = Mockito.spy(musicManager);
     }
@@ -48,6 +53,18 @@ public class MusicManagerTest {
     void startCoin() {
         musicManagerTest.start(Sounds.COIN);
         Mockito.verify(coin, Mockito.times(1)).start();
+    }
+
+    @Test
+    void startGameOver() {
+        musicManagerTest.start(Sounds.GAMEOVER);
+        Mockito.verify(GameOver, Mockito.times(1)).start();
+    }
+
+    @Test
+    void startGameWin() {
+        musicManagerTest.start(Sounds.WIN);
+        Mockito.verify(win, Mockito.times(1)).start();
     }
 
     @Test
@@ -106,6 +123,33 @@ public class MusicManagerTest {
         assertFalse(playing);
     }
 
+    @Test
+    void isPlayingGameOverTrue() {
+        Mockito.when(GameOver.isPlaying()).thenReturn(true);
+        boolean playing = musicManagerTest.isPlaying(Sounds.GAMEOVER);
+        assertTrue(playing);
+    }
+
+    @Test
+    void isPlayingGameOverFalse() {
+        Mockito.when(GameOver.isPlaying()).thenReturn(false);
+        boolean playing = musicManagerTest.isPlaying(Sounds.GAMEOVER);
+        assertFalse(playing);
+    }
+
+    @Test
+    void isPlayingGameWinTrue() {
+        Mockito.when(win.isPlaying()).thenReturn(true);
+        boolean playing = musicManagerTest.isPlaying(Sounds.WIN);
+        assertTrue(playing);
+    }
+
+    @Test
+    void isPlayingGameWinFalse() {
+        Mockito.when(win.isPlaying()).thenReturn(false);
+        boolean playing = musicManagerTest.isPlaying(Sounds.WIN);
+        assertFalse(playing);
+    }
     @Test
     void stopAll() {
         musicManagerTest.stopAll();
