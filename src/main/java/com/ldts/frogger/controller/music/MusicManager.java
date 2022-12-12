@@ -5,6 +5,7 @@ public class MusicManager {
     private Music frog;
     private Music coin;
     private Music crash;
+    private Music gameOver;
     private static MusicManager musicManager;
 
     private MusicManager() {
@@ -12,6 +13,7 @@ public class MusicManager {
         frog = new Music("/src/main/resources/sounds/frog.wav");
         coin = new Music("/src/main/resources/sounds/coin.wav");
         crash = new Music("/src/main/resources/sounds/crash.wav");
+        gameOver = new Music("/src/main/resources/sounds/gameOver.wav");
     }
 
     public static MusicManager getInstance() {
@@ -41,12 +43,17 @@ public class MusicManager {
         this.crash = crash;
     }
 
+    public void setGameOver(Music gameOver) {
+        this.gameOver = gameOver;
+    }
+
     public void start(Sounds sound) {
         switch(sound) {
             case SOUNDTRACK -> backgroundMusic.startLoop();
             case FROG ->  frog.start();
             case COIN -> coin.start();
             case CRASH -> crash.start();
+            case GAMEOVER -> gameOver.start();
         }
     }
 
@@ -56,6 +63,7 @@ public class MusicManager {
             case FROG -> frog.stop();
             case COIN -> coin.stop();
             case CRASH -> crash.stop();
+            case GAMEOVER -> gameOver.stop();
 
         }
     }
@@ -66,6 +74,7 @@ public class MusicManager {
             case FROG -> frog.isPlaying();
             case COIN -> coin.isPlaying();
             case CRASH -> crash.isPlaying();
+            case GAMEOVER -> gameOver.isPlaying();
         };
     }
 
@@ -74,5 +83,6 @@ public class MusicManager {
         frog.stop();
         coin.stop();
         crash.stop();
+        gameOver.stop();
     }
 }

@@ -15,7 +15,6 @@ public class MusicManagerTest {
     Music frog = Mockito.mock(Music.class);
     Music crash = Mockito.mock(Music.class);
 
-
     @BeforeEach
     void initMusicManager() {
         MusicManager musicManager = MusicManager.getInstance();
@@ -23,6 +22,7 @@ public class MusicManagerTest {
         musicManager.setFrog(frog);
         musicManager.setCoin(coin);
         musicManager.setCrash(crash);
+
         musicManagerTest = Mockito.spy(musicManager);
     }
 
