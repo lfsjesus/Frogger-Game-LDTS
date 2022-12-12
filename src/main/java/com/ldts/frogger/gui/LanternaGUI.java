@@ -79,38 +79,6 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
-    public void drawFrog(Position position, int direction) {
-        //string color = getcolorbject(position);
-        switch (direction){
-
-            case 0:
-                drawText(position, "ē", "#507436");
-                break;
-            case 1:
-                drawText(position, "Ĕ", "#507436");
-                break;
-            case 2:
-                drawText(position, "ĕ", "#507436");
-                break;
-            case 3:
-                drawText(position, "Ĩ", "#507436");
-                break;
-            case 4:
-                drawText(position, "ħ", "#507436");
-                break;
-            case 5:
-                drawText(position, "Ħ", "#507436");
-                break;
-            case 6:
-                drawText(position, "ĥ", "#507436");
-                break;
-            case 7:
-                drawText(position, "Ē", "#507436");
-                break;
-        }
-    }
-
-    @Override
     public void drawFrog(Position position, int direction, String backgroundColor) {
 
         switch (direction){
@@ -162,11 +130,6 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
-    public void drawCar(Position position) {
-        drawText(position, "ėĘ", "#CC0000");
-    }
-
-    @Override
     public void drawTruck(Position position, String color, int direction) {
         if(direction == 1){
             drawText(position, "Ăă", color);
@@ -207,7 +170,7 @@ public class LanternaGUI implements GUI{
 
     }
     @Override
-    public void drawTrain(Position position, int direction, String color){
+    public void drawTrain(Position position, String color, int direction){
         if(direction == 1){
             drawText(position, "ŚśŚśŚśŚśŚśŚśŚśŜŝ", color);
         }

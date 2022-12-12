@@ -5,7 +5,6 @@ import java.io.IOException;
 
 public interface GUI {
     ACTION getNextAction() throws IOException;
-    void drawFrog(Position position, int direction);
     void drawFrog(Position position, int direction, String backgroundColor);
 
     void drawBackground(Position position, String color);
@@ -13,8 +12,6 @@ public interface GUI {
     void drawText(Position position, String text, String color);
 
     void drawText(Position position, String text, String foregroundColor, String backgroundColor);
-
-    void drawCar(Position position);
 
     void drawVan(Position position, String color, int direction);
 
@@ -30,7 +27,7 @@ public interface GUI {
 
     void drawMotorbike(Position position, String color, int direction);
 
-    void drawTrain(Position position, int direction, String color);
+    void drawTrain(Position position, String color, int direction);
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
 }

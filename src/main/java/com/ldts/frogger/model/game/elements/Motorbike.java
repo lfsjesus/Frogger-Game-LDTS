@@ -14,6 +14,11 @@ public class Motorbike extends MoveableElement{
         this.direction = direction;
         this.color = color;
     }
+
+    public Motorbike(Position position, int direction) {
+        super(position.getX(), position.getY());
+        this.direction = direction;
+    }
     public int getDirection() {
         return direction;
     }

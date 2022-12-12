@@ -24,10 +24,67 @@ public class LanternaGUITest {
     }
 
     @Test
-    void drawFrog() {
-        gui.drawFrog(new Position(2,2), 0);
+    void drawFrog0() {
+        gui.drawFrog(new Position(2,2), 0, "#000000");
         Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(80, 116, 54));
+        Mockito.verify(textTg, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(0, 0, 0));
         Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "ē");
+    }
+
+    @Test
+    void drawFrog1() {
+        gui.drawFrog(new Position(2,2), 1, "#000000");
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(80, 116, 54));
+        Mockito.verify(textTg, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(0, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "Ĕ");
+    }
+
+    @Test
+    void drawFrog2() {
+        gui.drawFrog(new Position(2,2), 2, "#000000");
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(80, 116, 54));
+        Mockito.verify(textTg, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(0, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "ĕ");
+    }
+
+    @Test
+    void drawFrog3() {
+        gui.drawFrog(new Position(2,2), 3, "#000000");
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(80, 116, 54));
+        Mockito.verify(textTg, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(0, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "Ĩ");
+    }
+
+    @Test
+    void drawFrog4() {
+        gui.drawFrog(new Position(2,2), 4, "#000000");
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(80, 116, 54));
+        Mockito.verify(textTg, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(0, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "ħ");
+    }
+
+    @Test
+    void drawFrog5() {
+        gui.drawFrog(new Position(2,2), 5, "#000000");
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(80, 116, 54));
+        Mockito.verify(textTg, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(0, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "Ħ");
+    }
+
+    @Test
+    void drawFrog6() {
+        gui.drawFrog(new Position(2,2), 6, "#000000");
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(80, 116, 54));
+        Mockito.verify(textTg, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(0, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "ĥ");
+    }
+
+    @Test
+    void drawFrog7() {
+        gui.drawFrog(new Position(2,2), 7, "#000000");
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(80, 116, 54));
+        Mockito.verify(textTg, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(0, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "Ē");
     }
 
     @Test
@@ -46,8 +103,15 @@ public class LanternaGUITest {
     }
 
     @Test
-    void drawCar() {
-        gui.drawCar(new Position(2,2));
+    void drawCar0() {
+        gui.drawCar(new Position(2,2), "#cc0000", 0);
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(204, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "Īī");
+    }
+
+    @Test
+    void drawCar1() {
+        gui.drawCar(new Position(2,2), "#cc0000", 1);
         Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(204, 0, 0));
         Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "ėĘ");
     }
@@ -57,6 +121,62 @@ public class LanternaGUITest {
         gui.drawBackground(new Position(2,2), "#FFFFFF");
         Mockito.verify(textTg, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(255, 255, 255));
         Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, " ");
+    }
+
+    @Test
+    void drawTruck0() {
+        gui.drawTruck(new Position(2,2), "#cc0000", 0);
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(204, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "Āā");
+    }
+
+    @Test
+    void drawTruck1() {
+        gui.drawTruck(new Position(2,2), "#cc0000", 1);
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(204, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "Ăă");
+    }
+
+    @Test
+    void drawMotorbike0() {
+        gui.drawMotorbike(new Position(2,2), "#cc0000", 0);
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(204, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "ļĽ");
+    }
+
+    @Test
+    void drawMotorbike1() {
+        gui.drawMotorbike(new Position(2,2), "#cc0000", 1);
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(204, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "ĸĹ");
+    }
+
+    @Test
+    void drawVan0() {
+        gui.drawVan(new Position(2,2), "#cc0000", 0);
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(204, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "ģĤ");
+    }
+
+    @Test
+    void drawVan1() {
+        gui.drawVan(new Position(2,2), "#cc0000", 1);
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(204, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "Ķķ");
+    }
+
+    @Test
+    void drawTrain0() {
+        gui.drawTrain(new Position(2,2), "#cc0000", 0);
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(204, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "ŉŊŋŌŋŌŋŌŋŌŋŌŋŌŋŌ");
+    }
+
+    @Test
+    void drawTrain1() {
+        gui.drawTrain(new Position(2,2), "#cc0000", 1);
+        Mockito.verify(textTg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(204, 0, 0));
+        Mockito.verify(textTg, Mockito.times(1)).putString(2, 2, "ŚśŚśŚśŚśŚśŚśŚśŜŝ");
     }
 
 }

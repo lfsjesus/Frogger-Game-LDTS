@@ -7,6 +7,6 @@ public class TrainViewer implements ElementViewer<Train>{
 
     @Override
     public void draw(Train train, GUI gui) {
-        gui.drawTrain(train.getPosition(), train.getDirection(), train.getColor());
+        gui.drawTrain(train.getPosition(), train.getColor(), train.getDirection());
     }
 }

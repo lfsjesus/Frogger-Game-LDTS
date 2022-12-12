@@ -19,10 +19,9 @@ import java.net.URISyntaxException;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GameStateTest {
-/*
+
     private Game game;
     private Menu menu;
-    private State state;
     private Arena arena;
     private GUI gui;
     private ArenaController controller;
@@ -32,7 +31,6 @@ public class GameStateTest {
     void setUp() throws IOException, URISyntaxException, FontFormatException {
         menu = new Menu();
         arena = Mockito.mock(Arena.class);
-        gui = Mockito.mock(GUI.class);
         game = new Game();
         game.setState(new GameState(arena));
         controller = new ArenaController(arena);
@@ -53,5 +51,5 @@ public class GameStateTest {
         controller.step(game, GUI.ACTION.QUIT, 300);
         assertTrue(game.getState().getController() instanceof MenuController && game.getState().getViewer() instanceof MenuViewer);
     }
-*/
+
 }
