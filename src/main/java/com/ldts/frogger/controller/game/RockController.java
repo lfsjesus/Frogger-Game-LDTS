@@ -7,6 +7,7 @@ import com.ldts.frogger.controller.Command.MoveRight;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
+import com.ldts.frogger.model.game.elements.Frog;
 import com.ldts.frogger.model.game.elements.Rock;
 
 import java.io.IOException;
@@ -20,8 +21,15 @@ public class RockController extends GameController{
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (time - lastMovement > 500) {
+            boolean frog_moved = false;
+            Frog frog = getModel().getFrog();
             for (Rock rock : getModel().getRocks()) {
+                Position oldPosition = rock.getPosition();
                 moveRock(rock);
+                if(frog.getPosition().equals(oldPosition) && !frog_moved){
+                    frog.setPosition(rock.getPosition());
+                    frog_moved = true;
+                }
             }
             this.lastMovement = time;
         }
@@ -31,21 +39,17 @@ public class RockController extends GameController{
         Position oldPosition = rock.getPosition();
         Position newPosition = oldPosition;
 
-        if(rock.getDirection() == 1 && rock.getPosition().getX() > 19){
-            newPosition = new Position(0, rock.getPosition().getY());
+        if (rock.getDirection() == 1) {
+            if (rock.getPosition().getX() > 19)
+                newPosition = new Position(0, rock.getPosition().getY());
+            else
+               newPosition = rock.getPosition().getRight();
         }
-        else if (rock.getDirection() == 0 && rock.getPosition().getX() < 0){
-            newPosition = new Position(19, rock.getPosition().getY());
-        }
-
-        else if(rock.getDirection() == 1){
-            newPosition = rock.getPosition().getRight();
-        }
-        else if(rock.getDirection() == 0){
-            newPosition = rock.getPosition().getLeft();
-        }
-        if(getModel().getFrog().getPosition().equals(oldPosition)) {
-            getModel().getFrog().setPosition(newPosition);
+        else if (rock.getDirection() == 0) {
+            if (rock.getPosition().getX() < 0)
+                newPosition = new Position(19, rock.getPosition().getY());
+            else
+                newPosition = rock.getPosition().getLeft();
         }
         rock.setPosition(newPosition);
     }

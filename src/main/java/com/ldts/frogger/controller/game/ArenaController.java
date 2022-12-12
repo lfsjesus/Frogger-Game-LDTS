@@ -58,6 +58,7 @@ public class ArenaController extends GameController {
         }
 
         else {
+            rockController.step(game,action,time);
             frogController.step(game, action, time);
             carController.step(game,action,time);
             truckController.step(game,action,time);
@@ -65,7 +66,7 @@ public class ArenaController extends GameController {
             vanController.step(game, action,time);
             smallLogController.step(game,action,time);
             bigLogController.step(game,action,time);
-            rockController.step(game,action,time);
+
             trainController.step(game,action,time);
 
 
