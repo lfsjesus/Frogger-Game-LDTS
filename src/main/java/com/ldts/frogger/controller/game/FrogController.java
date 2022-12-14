@@ -35,28 +35,22 @@ public class FrogController extends GameController {
     public void checkCollisions(){
         Position frogPosition = getModel().getFrog().getPosition();
 
-        //Obstacles
         if(getModel().isMoveableObstacle(frogPosition) || getModel().isNonMoveableObstacle(frogPosition)){
             getModel().getFrog().resetPosition();
             getModel().getFrog().decreaseLives();
         }
 
-        //Coins
        getModel().catchCoin(frogPosition);
 
     }
 
     private void moveFrog(Position position) { //estamos a ver a nova posicao
         MusicManager.getInstance().start(Sounds.FROG);
-        //checkCollisions();
-        //can move?
+
         if (getModel().isEmpty(position)) {
             getModel().getFrog().setPosition(position);
 
         }
-        //checkCollisions();
-
-
     }
 
     public boolean reachesEndOfLevel() {
@@ -71,7 +65,7 @@ public class FrogController extends GameController {
         }
 
         if (action == GUI.ACTION.UP) {
-            //getModel().isCar(getModel().getFrog().getPosition());
+
             moveFrogUp();
             if (changeDir) {
                 getModel().getFrog().setDirection(1);

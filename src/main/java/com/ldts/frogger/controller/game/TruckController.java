@@ -43,7 +43,7 @@ public class TruckController extends GameController{
         }
     }
     private void moveTruck(Truck truck, Command command) {
-        truck.setPosition(command.execute(truck.getPosition(),getModel())); //o command precisa da posição atual do truck e de uma arena (getModel())
+        truck.setPosition(command.execute(truck.getPosition(),getModel()));
 
 
     }

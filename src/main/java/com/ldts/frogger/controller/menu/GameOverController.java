@@ -24,7 +24,7 @@ public class GameOverController extends Controller<GameOver> {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        switch (action) {
+        switch (action){
             case QUIT:
                 game.setState(new MenuState(new Menu()));
             case UP:

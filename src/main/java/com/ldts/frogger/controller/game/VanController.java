@@ -43,7 +43,7 @@ public class VanController extends GameController{
         }
     }
     private void moveVan(Van van, Command command) {
-        van.setPosition(command.execute(van.getPosition(),getModel())); //o command precisa da posição atual da van e de uma arena (getModel())
+        van.setPosition(command.execute(van.getPosition(),getModel()));
 
 
     }

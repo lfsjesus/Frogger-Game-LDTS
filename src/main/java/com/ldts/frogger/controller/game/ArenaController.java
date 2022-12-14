@@ -75,14 +75,10 @@ public class ArenaController extends GameController {
             vanController.step(game, action,time);
             smallLogController.step(game,action,time);
             bigLogController.step(game,action,time);
-
             trainController.step(game,action,time);
 
-
-
-
             frogController.checkCollisions();
-            //change frog background color after each step
+
             getModel().setFrogBackgroundColor(getModel().getFrog().getPosition());
             if (time - arenaTime > 2000) {
                 Arena.setPoints(Arena.getPoints() + 1);
