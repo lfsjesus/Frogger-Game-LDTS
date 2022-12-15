@@ -7,7 +7,7 @@ import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.game.arena.Arena;
 import com.ldts.frogger.model.game.arena.LoaderArenaBuilder;
 import com.ldts.frogger.model.game.elements.Frog;
-import com.ldts.frogger.model.menu.GameOver;
+import com.ldts.frogger.model.menu.GameFinished;
 import com.ldts.frogger.model.menu.Leaderboard;
 import com.ldts.frogger.model.menu.Menu;
 import com.ldts.frogger.states.GameState;
@@ -17,8 +17,8 @@ import com.ldts.frogger.states.MenuState;
 import java.io.IOException;
 import java.util.Locale;
 
-public class GameOverController extends Controller<GameOver> {
-    public GameOverController(GameOver model) {
+public class GameOverController extends Controller<GameFinished> {
+    public GameOverController(GameFinished model) {
         super(model);
     }
 

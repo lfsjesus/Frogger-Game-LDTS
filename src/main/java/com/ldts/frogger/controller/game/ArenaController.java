@@ -7,12 +7,10 @@ import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.game.arena.Arena;
 import com.ldts.frogger.model.game.arena.LoaderArenaBuilder;
 import com.ldts.frogger.model.game.elements.Frog;
-import com.ldts.frogger.model.menu.GameWin;
 import com.ldts.frogger.model.menu.Menu;
 import com.ldts.frogger.states.GameState;
-import com.ldts.frogger.model.menu.GameOver;
-import com.ldts.frogger.states.GameOverState;
-import com.ldts.frogger.states.GameWinState;
+import com.ldts.frogger.model.menu.GameFinished;
+import com.ldts.frogger.states.GameFinishedState;
 import com.ldts.frogger.states.MenuState;
 
 import java.io.IOException;
@@ -54,7 +52,7 @@ public class ArenaController extends GameController {
         }
         else if(frogController.reachesEndOfLevel() && Arena.getLevel() == 5) {
             MusicManager.getInstance().stop(Sounds.SOUNDTRACK);
-            game.setState(new GameWinState(new GameWin()));
+            game.setState(new GameFinishedState(new GameFinished(true)));
         }
         else if(frogController.reachesEndOfLevel()){
             Arena.setLevel(Arena.getLevel()+1);
@@ -63,7 +61,7 @@ public class ArenaController extends GameController {
 
         else if (getModel().getFrog().getLives() == 0) {
             Arena.setLevel(1);
-            game.setState(new GameOverState(new GameOver()));
+            game.setState(new GameFinishedState(new GameFinished(false)));
         }
 
         else {
