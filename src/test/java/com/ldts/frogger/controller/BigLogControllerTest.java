@@ -113,7 +113,7 @@ public class BigLogControllerTest {
 
     @Test
     void LogReset1() throws IOException {
-        BigLog bigLog = new BigLog(new Position(10, 5), 1);
+        BigLog bigLog = new BigLog(new Position(9, 5), 1);
         arena.setBigLogs(Arrays.asList(bigLog));
         frog = new Frog(10, 5);
         arena.setFrog(frog);

@@ -59,7 +59,7 @@ public class TrainControllerTest {
 
     @Test
     void moveTrainsAgainstWall() throws IOException {
-        Train t1 = new Train(new Position(21,5),1);
+        Train t1 = new Train(new Position(19,5),1);
         Train t2 = new Train(new Position(-17, 6), 0);
         arena.setTrains(Arrays.asList(t1, t2));
         controller.step(game, GUI.ACTION.NONE, 2000);

@@ -92,7 +92,7 @@ public class SmallLogControllerTest {
 
     @Test
     void LogReset1() throws IOException {
-        SmallLog smallLog = new SmallLog(new Position(10, 5), 1);
+        SmallLog smallLog = new SmallLog(new Position(9, 5), 1);
         arena.setSmallLogs(Arrays.asList(smallLog));
         frog = new Frog(10, 5);
         arena.setFrog(frog);
