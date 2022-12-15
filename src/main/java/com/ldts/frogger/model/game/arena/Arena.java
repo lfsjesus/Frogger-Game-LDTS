@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Arena {
-    public static int level = 0;
+    public static int level = 1;
     private final int width;
     private final int height;
     private static int points = 0;
