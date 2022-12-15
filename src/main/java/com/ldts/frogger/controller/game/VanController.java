@@ -45,6 +45,5 @@ public class VanController extends GameController{
     private void moveVan(Van van, Command command) {
         van.setPosition(command.execute(van.getPosition(),getModel()));
 
-
     }
 }

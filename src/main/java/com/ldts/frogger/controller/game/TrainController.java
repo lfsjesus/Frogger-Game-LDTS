@@ -32,24 +32,27 @@ public class TrainController extends GameController{
         if(time - lastMovement > 100){
             for(Train train : getModel().getTrains()){
                 checkCrash(train);
-                moveTrain(train);
+                if (train.getDirection() == 1)
+                    moveTrain(train, new MoveRight());
+                else
+                    moveTrain(train, new MoveLeft());
                 checkCrash(train);
             }
             this.lastMovement = time;
         }
     }
-    private void moveTrain(Train train) {
-        if(train.getDirection() == 1){
+    private void moveTrain(Train train, Command command) {
+        if (command instanceof MoveRight) {
             if(train.getPosition().getX() > getModel().getWidth()){
                 train.setPosition(new Position(-30,train.getPosition().getY()));
             }
-            else train.setPosition(train.getPosition().getRight());
+            else train.setPosition(command.execute(train.getPosition(), getModel()));
         }
-        else if(train.getDirection() == 0){
+        else if (command instanceof  MoveLeft) {
             if(train.getPosition().getX() < -16){
                 train.setPosition(new Position(getModel().getWidth() + 10,train.getPosition().getY()));
             }
-            else train.setPosition(train.getPosition().getLeft());
+            else train.setPosition(command.execute(train.getPosition(), getModel()));
         }
     }
 }

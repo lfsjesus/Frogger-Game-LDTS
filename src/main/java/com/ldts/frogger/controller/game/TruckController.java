@@ -45,6 +45,5 @@ public class TruckController extends GameController{
     private void moveTruck(Truck truck, Command command) {
         truck.setPosition(command.execute(truck.getPosition(),getModel()));
 
-
     }
 }
