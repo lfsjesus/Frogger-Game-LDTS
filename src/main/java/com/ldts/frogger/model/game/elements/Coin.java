@@ -18,7 +18,4 @@ public class Coin extends NonMoveableElement{
         return backGroundColor;
     }
 
-    public void setBackGroundColor(String backGroundColor) {
-        this.backGroundColor = backGroundColor;
-    }
 }
