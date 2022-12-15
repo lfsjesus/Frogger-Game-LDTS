@@ -51,10 +51,6 @@ public class Menu {
         return currentEntry;
     }
 
-    public List<String> getEntries() {
-        return entries;
-    }
-
     public void setEntries(List<String> entries) {
         this.entries = entries;
     }

@@ -93,7 +93,7 @@ public class FrogControllerTest {
     void moveFrogDownAgainstWall() {
         frog.setPosition(new Position(1, 10));
         controller.moveFrogDown();
-        System.out.println(frog.getPosition().getY());
+        System.out.println(frog.getPosition().y());
         assertEquals(new Position(1, 10), frog.getPosition());
     }
 

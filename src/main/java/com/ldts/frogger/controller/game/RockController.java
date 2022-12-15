@@ -1,9 +1,6 @@
 package com.ldts.frogger.controller.game;
 
 import com.ldts.frogger.Game;
-import com.ldts.frogger.controller.Command.Command;
-import com.ldts.frogger.controller.Command.MoveLeft;
-import com.ldts.frogger.controller.Command.MoveRight;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
@@ -40,14 +37,14 @@ public class RockController extends GameController{
         Position newPosition = oldPosition;
 
         if (rock.getDirection() == 1) {
-            if (rock.getPosition().getX() > getModel().getWidth())
-                newPosition = new Position(0, rock.getPosition().getY());
+            if (rock.getPosition().x() > getModel().getWidth())
+                newPosition = new Position(0, rock.getPosition().y());
             else
                newPosition = rock.getPosition().getRight();
         }
         else if (rock.getDirection() == 0) {
-            if (rock.getPosition().getX() < 0)
-                newPosition = new Position(getModel().getWidth() - 1, rock.getPosition().getY());
+            if (rock.getPosition().x() < 0)
+                newPosition = new Position(getModel().getWidth() - 1, rock.getPosition().y());
             else
                 newPosition = rock.getPosition().getLeft();
         }

@@ -7,7 +7,7 @@ public class Water extends NonMoveableElement{
         super(x, y);
     }
     public Water(Position position) {
-        super(position.getX(),position.getY());
+        super(position.x(),position.y());
     }
 
 

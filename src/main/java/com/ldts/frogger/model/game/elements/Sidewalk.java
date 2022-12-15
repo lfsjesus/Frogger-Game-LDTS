@@ -8,6 +8,6 @@ public class Sidewalk extends NonMoveableElement{
     }
 
     public Sidewalk(Position position) {
-        super(position.getX(),position.getY());
+        super(position.x(),position.y());
     }
 }

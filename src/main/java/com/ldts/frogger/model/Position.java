@@ -1,13 +1,6 @@
 package com.ldts.frogger.model;
 
-public class Position {
-    private final int x;
-    private final int y;
-
-    public Position(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
+public record Position(int x, int y) {
 
     public Position getLeft() {
         return new Position(x - 1, y);
@@ -25,14 +18,6 @@ public class Position {
         return new Position(x, y + 1);
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -40,18 +25,13 @@ public class Position {
         Position position = (Position) o;
         return x == position.x && y == position.y;
     }
+
     public boolean lessOrEqual(Position position) {
         return x <= position.x && y <= position.y;
     }
+
     public boolean greaterOrEqual(Position position) {
         return x >= position.x && y >= position.y;
-    }
-
-    public boolean lessThan(Position position){
-        return x < position.x && y < position.y;
-    }
-    public boolean greaterThan(Position position){
-        return x > position.x && y < position.y;
     }
 
     public Position add(Position position) {

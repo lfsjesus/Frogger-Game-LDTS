@@ -7,6 +7,6 @@ public class Lava extends NonMoveableElement{
         super(x, y);
     }
     public Lava(Position position) {
-        super(position.getX(),position.getY());
+        super(position.x(),position.y());
     }
 }

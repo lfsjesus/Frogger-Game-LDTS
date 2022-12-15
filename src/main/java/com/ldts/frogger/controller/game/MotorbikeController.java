@@ -11,8 +11,6 @@ import com.ldts.frogger.model.game.elements.Motorbike;
 
 import java.io.IOException;
 
-
-
 public class MotorbikeController extends GameController {
     private long lastMovement;
 

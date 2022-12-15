@@ -7,8 +7,8 @@ public class MoveLeft extends Command {
 
     @Override
     public Position execute(Position position, Arena arena) {
-        if (position.getX() == -1){
-            return new Position(arena.getWidth()-1,position.getY());
+        if (position.x() == -1){
+            return new Position(arena.getWidth()-1,position.y());
         }
         return position.getLeft();
     }

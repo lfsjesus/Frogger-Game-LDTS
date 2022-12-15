@@ -8,7 +8,7 @@ public class Tree extends NonMoveableElement{
         super(x, y);
     }
     public Tree(Position position, String treeChar) {
-        super(position.getX(),position.getY());
+        super(position.x(),position.y());
         this.treeChar = treeChar;
     }
 

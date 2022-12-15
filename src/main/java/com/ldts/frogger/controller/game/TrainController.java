@@ -1,9 +1,6 @@
 package com.ldts.frogger.controller.game;
 
 import com.ldts.frogger.Game;
-import com.ldts.frogger.controller.Command.Command;
-import com.ldts.frogger.controller.Command.MoveLeft;
-import com.ldts.frogger.controller.Command.MoveRight;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
@@ -40,14 +37,14 @@ public class TrainController extends GameController{
     }
     private void moveTrain(Train train) {
         if (train.getDirection() == 1) {
-            if(train.getPosition().getX() == getModel().getWidth() - 1){
-                train.setPosition(new Position(-30,train.getPosition().getY()));
+            if(train.getPosition().x() == getModel().getWidth() - 1){
+                train.setPosition(new Position(-30,train.getPosition().y()));
             }
             else train.setPosition(train.getPosition().getRight());
         }
         else if (train.getDirection() == 0) {
-            if(train.getPosition().getX() == -17){
-                train.setPosition(new Position(getModel().getWidth() + 10,train.getPosition().getY()));
+            if(train.getPosition().x() == -17){
+                train.setPosition(new Position(getModel().getWidth() + 10,train.getPosition().y()));
             }
             else train.setPosition(train.getPosition().getLeft());
         }

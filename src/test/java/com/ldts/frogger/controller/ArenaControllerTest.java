@@ -1,13 +1,11 @@
 package com.ldts.frogger.controller;
 
 import com.ldts.frogger.controller.game.ArenaController;
-import com.ldts.frogger.controller.game.FrogController;
 import com.ldts.frogger.controller.music.MusicManager;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
 import com.ldts.frogger.model.game.arena.RandomArenaBuilder;
-import com.ldts.frogger.model.game.elements.Frog;
 import net.jqwik.api.*;
 import net.jqwik.api.constraints.IntRange;
 import org.mockito.MockedStatic;
@@ -28,13 +26,13 @@ public class ArenaControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             for (GUI.ACTION action : actions) {
-                if (controller.getModel().getFrog().getPosition().getY() == 2)
-                    controller.getModel().getFrog().setPosition(new Position(controller.getModel().getFrog().getPosition().getX(), 3));
+                if (controller.getModel().getFrog().getPosition().y() == 2)
+                    controller.getModel().getFrog().setPosition(new Position(controller.getModel().getFrog().getPosition().x(), 3));
                 controller.step(null, action, 100);
-                assert (controller.getModel().getFrog().getPosition().getX() >= 0);
-                assert (controller.getModel().getFrog().getPosition().getY() > 0);
-                assert (controller.getModel().getFrog().getPosition().getX() < width);
-                assert (controller.getModel().getFrog().getPosition().getY() <= height);
+                assert (controller.getModel().getFrog().getPosition().x() >= 0);
+                assert (controller.getModel().getFrog().getPosition().y() > 0);
+                assert (controller.getModel().getFrog().getPosition().x() < width);
+                assert (controller.getModel().getFrog().getPosition().y() <= height);
             }
         }
     }

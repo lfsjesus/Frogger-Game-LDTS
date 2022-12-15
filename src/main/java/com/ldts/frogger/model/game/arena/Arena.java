@@ -50,7 +50,7 @@ public class Arena {
         this.frog = frog;
     }
     public boolean isEmpty(Position position) {
-        return !(position.getY() < 1 || position.getY() > height - 1) && !(position.getX() < 0 || position.getX() > width - 1) && !isTree(position);
+        return !(position.y() < 1 || position.y() > height - 1) && !(position.x() < 0 || position.x() > width - 1) && !isTree(position);
     }
     public boolean isLog(Position position){
         for (BigLog bigLog : bigLogs) {
@@ -74,7 +74,7 @@ public class Arena {
         return false;
     }
     public boolean canPlaceCoin(Position position){
-        return isEmpty(position) && !isWater(position) && !isLog(position) && !isLava(position) && !isRock(position) && position.getY() != 1;
+        return isEmpty(position) && !isWater(position) && !isLog(position) && !isLava(position) && !isRock(position) && position.y() != 1;
     }
     public boolean isMoveableObstacle(Position position) {
         return isCar(position) || isTruck(position) || isVan(position) || isMotorbike(position) || isTrain(position);

@@ -10,25 +10,25 @@ public class PositionTest {
 
     @Property
     void getLeft(@ForAll int x, @ForAll int y) {
-        assertEquals(x - 1, new Position(x, y).getLeft().getX());
-        assertEquals(y, new Position(x, y).getLeft().getY());
+        assertEquals(x - 1, new Position(x, y).getLeft().x());
+        assertEquals(y, new Position(x, y).getLeft().y());
     }
 
     @Property
     void getRight(@ForAll int x, @ForAll int y) {
-        assertEquals(x + 1, new Position(x, y).getRight().getX());
-        assertEquals(y, new Position(x, y).getRight().getY());
+        assertEquals(x + 1, new Position(x, y).getRight().x());
+        assertEquals(y, new Position(x, y).getRight().y());
     }
 
     @Property
     void getUp(@ForAll int x, @ForAll int y) {
-        assertEquals(x, new Position(x, y).getUp().getX());
-        assertEquals(y - 1, new Position(x, y).getUp().getY());
+        assertEquals(x, new Position(x, y).getUp().x());
+        assertEquals(y - 1, new Position(x, y).getUp().y());
     }
 
     @Property
     void getDown(@ForAll int x, @ForAll int y) {
-        assertEquals(x, new Position(x, y).getDown().getX());
-        assertEquals(y + 1, new Position(x, y).getDown().getY());
+        assertEquals(x, new Position(x, y).getDown().x());
+        assertEquals(y + 1, new Position(x, y).getDown().y());
     }
 }

@@ -7,6 +7,6 @@ public class Grass extends NonMoveableElement{
         super(x, y);
     }
     public Grass(Position position){
-        super(position.getX(), position.getY());
+        super(position.x(), position.y());
     }
 }

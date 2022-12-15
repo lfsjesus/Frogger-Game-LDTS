@@ -54,7 +54,7 @@ public class FrogController extends GameController {
     }
 
     public boolean reachesEndOfLevel() {
-        return getModel().getFrog().getPosition().getY() == 1;
+        return getModel().getFrog().getPosition().y() == 1;
     }
 
     @Override

@@ -9,13 +9,13 @@ public class MoveableElement extends Element{
         super(x, y);
     }
     public MoveableElement(Position position, int direction, String color) {
-        super(position.getX(), position.getY());
+        super(position.x(), position.y());
         this.direction = direction;
         this.color = color;
     }
 
     public MoveableElement(Position position, int direction) {
-        super(position.getX(), position.getY());
+        super(position.x(), position.y());
         this.direction = direction;
     }
 
