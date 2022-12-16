@@ -7,6 +7,7 @@ import com.ldts.frogger.controller.Command.MoveRight;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
+import com.ldts.frogger.model.game.elements.Frog;
 import com.ldts.frogger.model.game.elements.SmallLog;
 
 import java.io.IOException;
@@ -36,13 +37,15 @@ public class SmallLogController extends GameController{
     private void moveSmallLog(SmallLog smallLog, Command command) {
         Position oldPosition = smallLog.getPosition();
         Position newPosition = command.execute(oldPosition,getModel());
+        Frog frog = getModel().getFrog();
 
-        if(getModel().getFrog().getPosition().equals(oldPosition)) {
-            getModel().getFrog().setPosition(newPosition);
+        if(frog.getPosition().equals(oldPosition)){
+            frog.setPosition(newPosition);
         }
-        else if(getModel().getFrog().getPosition().equals(oldPosition.getRight())){
-            getModel().getFrog().setPosition(newPosition.getRight());
+        else if(frog.getPosition().equals(oldPosition.getRight())){
+            frog.setPosition(newPosition.getRight());
         }
+
         smallLog.setPosition(newPosition);
     }
 }

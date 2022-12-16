@@ -8,6 +8,7 @@ import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
 import com.ldts.frogger.model.game.elements.BigLog;
+import com.ldts.frogger.model.game.elements.Frog;
 
 import java.io.IOException;
 
@@ -36,15 +37,16 @@ public class BigLogController extends GameController{
     private void moveBigLog(BigLog bigLog, Command command) {
         Position oldPosition = bigLog.getPosition();
         Position newPosition = command.execute(oldPosition,getModel());
+        Frog frog = getModel().getFrog();
 
-        if(getModel().getFrog().getPosition().equals(oldPosition)){
-            getModel().getFrog().setPosition(newPosition);
+        if(frog.getPosition().equals(oldPosition)){
+            frog.setPosition(newPosition);
         }
-        else if(getModel().getFrog().getPosition().equals(oldPosition.getRight())){
-            getModel().getFrog().setPosition(newPosition.getRight());
+        else if(frog.getPosition().equals(oldPosition.getRight())){
+            frog.setPosition(newPosition.getRight());
         }
-        else if(getModel().getFrog().getPosition().equals(oldPosition.getRight().getRight())){
-            getModel().getFrog().setPosition(newPosition.getRight().getRight());
+        else if(frog.getPosition().equals(oldPosition.getRight().getRight())){
+            frog.setPosition(newPosition.getRight().getRight());
         }
         bigLog.setPosition(newPosition);
     }
