@@ -23,7 +23,7 @@ public class Leaderboard extends Menu{
     }
 
     public void addRecord(int score, String name) throws IOException {
-        lines.add(String.format("%05d" , score) + " " + name + "\n");
+        lines.add(String.format("%05d" , score) + " " + name);
         lines.sort(Collections.reverseOrder());
         writeToFile();
     }
@@ -31,8 +31,8 @@ public class Leaderboard extends Menu{
     public void writeToFile() throws IOException {
         BufferedWriter output = new BufferedWriter(new FileWriter("src/main/resources/leaderboard.txt"));
         for (int i = 0; i < lines.size() && i < 10; i++) {
-            output.newLine();
             output.write(lines.get(i));
+            output.newLine();
         }
         output.close();
     }
