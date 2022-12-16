@@ -7,9 +7,6 @@ public class Coin extends NonMoveableElement{
     public Coin(int x, int y) {
         super(x, y);
     }
-    public Coin(Position position) {
-        super(position.x(), position.y());
-    }
     public Coin(Position position, String backGroundColor) {
         super(position.x(), position.y());
         this.backGroundColor = backGroundColor;
