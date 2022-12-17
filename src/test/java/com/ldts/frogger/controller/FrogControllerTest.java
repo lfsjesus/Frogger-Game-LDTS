@@ -1,6 +1,7 @@
 package com.ldts.frogger.controller;
 
 import com.ldts.frogger.Game;
+import com.ldts.frogger.controller.game.ArenaController;
 import com.ldts.frogger.controller.game.CarController;
 import com.ldts.frogger.controller.game.FrogController;
 import com.ldts.frogger.controller.music.MusicManager;
@@ -14,7 +15,9 @@ import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -31,16 +34,8 @@ public class FrogControllerTest {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             arena = new Arena(10, 10);
             frog = new Frog(5, 5);
-            arena.setSidewalks(Arrays.asList(new Sidewalk(3, 4)));
-            arena.setGrasses(Arrays.asList(new Grass(7, 8)));
-            arena.setMotorbikes(Arrays.asList(new Motorbike(8, 7)));
-            arena.setTrucks(Arrays.asList(new Truck(8, 7)));
-            arena.setVans(Arrays.asList(new Van(8, 7)));
-            arena.setTrees(Arrays.asList());
             arena.setFrog(frog);
-            arena.setCars(Arrays.asList());
-            arena.setWaters(Arrays.asList());
-
+            Frog.setLives(3);
             controller = new FrogController(arena);
         }
     }
@@ -66,6 +61,14 @@ public class FrogControllerTest {
     void moveFrogDown() {
         controller.moveFrogDown();
         assertEquals(new Position(5,6), frog.getPosition());
+    }
+
+    @Test
+    void frogChangedDirection() {
+        controller.step(null, GUI.ACTION.RIGHT, 300);
+        controller.step(null, GUI.ACTION.LEFT, 300);
+        assertEquals(new Position(5,5), frog.getPosition());
+        assertEquals(frog.getDirection(), 7);
     }
 
     @Test
@@ -104,7 +107,29 @@ public class FrogControllerTest {
         Car car = new Car(new Position(3,5),1);
         arena.setCars(Arrays.asList(car));
         carController.step(game, GUI.ACTION.NONE, 1000);
-        assertTrue(frog.getLives() < 3);
+        assertTrue(Frog.getLives() < 3);
+    }
+
+    @Test
+    void noCollisionWithFrog() throws IOException {
+        Game game = Mockito.mock(Game.class);
+        CarController carController = new CarController(arena);
+        Car car = new Car(new Position(2,5),1);
+        arena.setCars(Arrays.asList(car));
+        carController.step(game, GUI.ACTION.NONE, 1000);
+        assertEquals(3, Frog.getLives());
+    }
+
+    @Test
+    void coinInFrogPosition() throws IOException {
+        Game game = Mockito.mock(Game.class);
+        Coin coin = new Coin(5,5);
+        List<Coin> coinList = new ArrayList<>();
+        coinList.add(coin);
+        arena.setCoins(coinList);
+        ArenaController arenaController = new ArenaController(arena);
+        arenaController.step(game, GUI.ACTION.NONE, 1000);
+        assertEquals(5, Arena.getPoints());
     }
 
 }

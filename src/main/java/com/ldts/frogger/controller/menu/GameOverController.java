@@ -46,7 +46,9 @@ public class GameOverController extends Controller<GameFinished> {
                         Leaderboard leaderboard = new Leaderboard();
                         leaderboard.addRecord(Arena.getPoints(), name);
                         game.setState(new MenuState(new Menu()));
-                    } catch (NullPointerException ignored) {}
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
+                    }
                     Arena.setPoints(0);
                     Frog.setLives(3);
                 }

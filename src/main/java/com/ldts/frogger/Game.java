@@ -18,11 +18,18 @@ public class Game {
         this.state = new MenuState(new Menu());
 
     }
+
+    // For testing purposes
+    public Game(LanternaGUI gui) {
+        this.gui = gui;
+        this.state = new MenuState(new Menu());
+    }
+
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
         new Game().start();
     }
 
-    private void start() throws IOException {
+    public void start() throws IOException {
         int FPS = 10;
         int frameTime = 1000 / FPS;
 
@@ -37,6 +44,7 @@ public class Game {
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
 

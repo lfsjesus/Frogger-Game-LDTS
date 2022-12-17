@@ -59,7 +59,7 @@ public class ArenaController extends GameController {
             game.setState(new GameState(new LoaderArenaBuilder(Arena.level).createArena()));
         }
 
-        else if (getModel().getFrog().getLives() == 0) {
+        else if (Frog.getLives() == 0) {
             Arena.setLevel(1);
             game.setState(new GameFinishedState(new GameFinished(false)));
         }

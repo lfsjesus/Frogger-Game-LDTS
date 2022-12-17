@@ -7,6 +7,7 @@ import com.ldts.frogger.model.game.elements.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class Arena {
     public static int level = 1;
@@ -14,20 +15,20 @@ public class Arena {
     private final int height;
     private static int points = 0;
     private Frog frog;
-    private List<Car> cars;
-    private List<Sidewalk> sidewalks;
-    private List<Truck> trucks;
-    private List<Motorbike> motorbikes;
-    private List<Van> vans;
-    private List<Grass> grasses;
-    private List<Tree> trees;
-    private List<Water> waters;
-    private List<Coin> coins;
-    private List<BigLog> bigLogs;
-    private List<SmallLog> smallLogs;
-    private List<Train> trains;
-    private List<Lava> lavas;
-    private List<Rock> rocks;
+    private List<Car> cars = new ArrayList<>();
+    private List<Sidewalk> sidewalks = new ArrayList<>();
+    private List<Truck> trucks = new ArrayList<>();
+    private List<Motorbike> motorbikes = new ArrayList<>();
+    private List<Van> vans = new ArrayList<>();;
+    private List<Grass> grasses = new ArrayList<>();
+    private List<Tree> trees = new ArrayList<>();
+    private List<Water> waters = new ArrayList<>();
+    private List<Coin> coins = new ArrayList<>();
+    private List<BigLog> bigLogs = new ArrayList<>();
+    private List<SmallLog> smallLogs = new ArrayList<>();
+    private List<Train> trains = new ArrayList<>();
+    private List<Lava> lavas = new ArrayList<>();
+    private List<Rock> rocks = new ArrayList<>();
 
     public Arena(int width, int height) {
         this.width = width;
@@ -204,14 +205,17 @@ public class Arena {
         return false;
     }
     public void catchCoin(Position position){
-        for (Coin coin : coins){
+        ListIterator<Coin> iterator = coins.listIterator();
+        while (iterator.hasNext()){
+            Coin coin = iterator.next();
             if (coin.getPosition().equals(position)){
-                coins.remove(coin);
+                iterator.remove();
                 points+=5;
                 MusicManager.getInstance().start(Sounds.COIN);
                 break;
             }
         }
+
     }
     public List<Coin> createCoins(){
         List<Coin> coins = new ArrayList<>();

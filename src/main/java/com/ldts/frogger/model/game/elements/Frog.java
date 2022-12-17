@@ -21,7 +21,7 @@ public class Frog extends Element{
         super(x, y);
     }
 
-    public int getLives() {
+    public static int getLives() {
         return lives;
     }
 

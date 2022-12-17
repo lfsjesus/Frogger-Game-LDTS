@@ -4,6 +4,7 @@ import com.ldts.frogger.Game;
 import com.ldts.frogger.controller.game.ArenaController;
 import com.ldts.frogger.controller.menu.MenuController;
 import com.ldts.frogger.gui.GUI;
+import com.ldts.frogger.gui.LanternaGUI;
 import com.ldts.frogger.model.game.arena.Arena;
 import com.ldts.frogger.model.menu.Menu;
 import com.ldts.frogger.viewer.game.GameViewer;
@@ -21,15 +22,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class MenuStateTest {
     private Game game;
     private Menu menu;
-
     private Arena arena;
+    private LanternaGUI gui;
     private MenuController controller;
 
     @BeforeEach
     void setUp() throws IOException, URISyntaxException, FontFormatException {
         menu = new Menu();
         arena = Mockito.mock(Arena.class);
-        game = new Game();
+        gui = Mockito.mock(LanternaGUI.class);
+        game = new Game(gui);
         game.setState(new MenuState(menu));
         controller = new MenuController(menu);
     }

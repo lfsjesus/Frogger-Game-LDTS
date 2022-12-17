@@ -34,13 +34,7 @@ public class VanControllerTest {
             arena = new Arena(10, 10);
             frog = new Frog(5, 5);
             arena.setFrog(frog);
-            arena.setSidewalks(Arrays.asList(new Sidewalk(3, 4)));
-            arena.setGrasses(Arrays.asList(new Grass(7, 8)));
-            arena.setCars(Arrays.asList(new Car(8, 7)));
-            arena.setTrucks(Arrays.asList(new Truck(8, 7)));
-            arena.setVans(Arrays.asList(new Van(8, 7)));
-            arena.setTrees(Arrays.asList(new Tree(9, 7)));
-            arena.setWaters(Arrays.asList());
+            Frog.setLives(3);
             controller = new VanController(arena);
 
             game = Mockito.mock(Game.class);
@@ -72,7 +66,7 @@ public class VanControllerTest {
         Van v = new Van(new Position(4, 5),1);
         arena.setVans(Arrays.asList(v));
         controller.step(game, GUI.ACTION.NONE, 2000);
-        assertTrue(frog.getLives() < 3);
+        assertTrue(Frog.getLives() < 3);
     }
 
     @Test
@@ -82,16 +76,16 @@ public class VanControllerTest {
         FrogController frogController = new FrogController(arena);
         frogController.step(game, GUI.ACTION.RIGHT, 2000);
         controller.step(game, GUI.ACTION.NONE, 2000);
-        assertTrue(frog.getLives() < 3);
+        assertTrue(Frog.getLives() < 3);
     }
     @Test
     void checkCrashWithFrogMovingLeft() throws IOException {
         Van v = new Van(new Position(2, 5),1);
         arena.setVans(Arrays.asList(v));
-        controller.step(game, GUI.ACTION.NONE, 2000);
         FrogController frogController = new FrogController(arena);
         frogController.step(game, GUI.ACTION.LEFT, 2000);
-        assertTrue(frog.getLives() < 3);
+        controller.step(game, GUI.ACTION.NONE, 2000);
+        assertTrue(Frog.getLives() < 3);
     }
 
     @Test
@@ -101,17 +95,17 @@ public class VanControllerTest {
         FrogController frogController = new FrogController(arena);
         frogController.step(game, GUI.ACTION.UP, 2000);
         controller.step(game, GUI.ACTION.NONE, 2000);
-        assertTrue(frog.getLives() < 3);
+        assertTrue(Frog.getLives() < 3);
     }
 
     @Test
     void checkCrashWithFrogMovingDown() throws IOException {
         Van v = new Van(new Position(3, 6),1);
         arena.setVans(Arrays.asList(v));
-        controller.step(game, GUI.ACTION.NONE, 2000);
         FrogController frogController = new FrogController(arena);
         frogController.step(game, GUI.ACTION.DOWN, 2000);
-        assertTrue(frog.getLives() < 3);
+        controller.step(game, GUI.ACTION.NONE, 2000);
+        assertTrue(Frog.getLives() < 3);
     }
 
 }

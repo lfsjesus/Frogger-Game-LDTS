@@ -34,17 +34,16 @@ public class FrogController extends GameController {
 
     public void checkCollisions(){
         Position frogPosition = getModel().getFrog().getPosition();
-
+        getModel().catchCoin(frogPosition);
         if(getModel().isMoveableObstacle(frogPosition) || getModel().isNonMoveableObstacle(frogPosition)){
             getModel().getFrog().resetPosition();
             getModel().getFrog().decreaseLives();
         }
-
-       getModel().catchCoin(frogPosition);
+        getModel().catchCoin(frogPosition);
 
     }
 
-    private void moveFrog(Position position) { //estamos a ver a nova posicao
+    private void moveFrog(Position position) {
         MusicManager.getInstance().start(Sounds.FROG);
 
         if (getModel().isEmpty(position)) {
