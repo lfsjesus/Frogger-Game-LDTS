@@ -2,48 +2,46 @@ package com.ldts.frogger.states;
 
 import com.ldts.frogger.Game;
 import com.ldts.frogger.controller.game.ArenaController;
+import com.ldts.frogger.controller.menu.GameFinishedController;
 import com.ldts.frogger.controller.menu.MenuController;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.gui.LanternaGUI;
-import com.ldts.frogger.model.game.arena.Arena;
+import com.ldts.frogger.model.menu.GameFinished;
 import com.ldts.frogger.model.menu.Menu;
 import com.ldts.frogger.viewer.game.GameViewer;
+import com.ldts.frogger.viewer.menu.GameFinishedViewer;
 import com.ldts.frogger.viewer.menu.MenuViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.awt.*;
 import java.io.IOException;
-import java.net.URISyntaxException;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class MenuStateTest {
+public class GameFinishedStateTest {
     private Game game;
-    private Menu menu;
-    private Arena arena;
+    private GameFinished menu;
     private LanternaGUI gui;
-    private MenuController controller;
+    private GameFinishedController controller;
 
     @BeforeEach
     void setUp() {
-        menu = new Menu();
-        arena = Mockito.mock(Arena.class);
+        menu = new GameFinished(true);
         gui = Mockito.mock(LanternaGUI.class);
         game = new Game(gui);
-        game.setState(new MenuState(menu));
-        controller = new MenuController(menu);
+        game.setState(new GameFinishedState(menu));
+        controller = new GameFinishedController(menu);
     }
 
     @Test
     void testMenuStateViewer() {
-        assertTrue(game.getState().getViewer() instanceof MenuViewer);
+        assertTrue(game.getState().getViewer() instanceof GameFinishedViewer);
     }
 
     @Test
     void testMenuStateController() {
-        assertTrue(game.getState().getController() instanceof MenuController);
+        assertTrue(game.getState().getController() instanceof GameFinishedController);
     }
 
     @Test
@@ -54,7 +52,6 @@ public class MenuStateTest {
 
     @Test
     void getModel() {
-        assertTrue(game.getState().getModel() instanceof Menu);
+        assertTrue(game.getState().getModel() instanceof GameFinished);
     }
-
 }

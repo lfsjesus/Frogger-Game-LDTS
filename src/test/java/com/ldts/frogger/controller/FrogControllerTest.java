@@ -123,13 +123,14 @@ public class FrogControllerTest {
     @Test
     void coinInFrogPosition() throws IOException {
         Game game = Mockito.mock(Game.class);
+        int points = Arena.getPoints();
         Coin coin = new Coin(5,5);
         List<Coin> coinList = new ArrayList<>();
         coinList.add(coin);
         arena.setCoins(coinList);
         ArenaController arenaController = new ArenaController(arena);
         arenaController.step(game, GUI.ACTION.NONE, 1000);
-        assertEquals(5, Arena.getPoints());
+        assertEquals(points + 5, Arena.getPoints());
     }
 
 }

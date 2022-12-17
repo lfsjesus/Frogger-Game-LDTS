@@ -1,7 +1,7 @@
 package com.ldts.frogger.states;
 
 import com.ldts.frogger.controller.Controller;
-import com.ldts.frogger.controller.menu.GameOverController;
+import com.ldts.frogger.controller.menu.GameFinishedController;
 import com.ldts.frogger.controller.music.MusicManager;
 import com.ldts.frogger.controller.music.Sounds;
 import com.ldts.frogger.model.menu.GameFinished;
@@ -24,6 +24,6 @@ public class GameFinishedState extends State<GameFinished> {
 
     @Override
     protected Controller<GameFinished> getController() {
-        return new GameOverController(getModel());
+        return new GameFinishedController(getModel());
     }
 }

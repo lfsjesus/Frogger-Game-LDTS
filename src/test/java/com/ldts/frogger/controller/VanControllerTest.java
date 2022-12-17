@@ -108,4 +108,14 @@ public class VanControllerTest {
         assertTrue(Frog.getLives() < 3);
     }
 
+    @Test
+    void frogDidNotCrash() throws IOException {
+        Van v = new Van(new Position(3, 6),1);
+        arena.setVans(Arrays.asList(v));
+        FrogController frogController = new FrogController(arena);
+        frogController.step(game, GUI.ACTION.NONE, 2000);
+        controller.step(game, GUI.ACTION.NONE, 2000);
+        assertEquals(3, Frog.getLives());
+    }
+
 }

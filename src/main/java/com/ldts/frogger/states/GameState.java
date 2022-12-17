@@ -16,6 +16,11 @@ public class GameState extends State<Arena> {
             MusicManager.getInstance().start(Sounds.SOUNDTRACK);
     }
 
+    // For testing purposes
+    public GameState(Arena model, Controller<Arena> controller, Viewer<Arena> viewer) {
+        super(model, controller, viewer);
+    }
+
     @Override
     protected Viewer<Arena> getViewer() {
         return new GameViewer(getModel());

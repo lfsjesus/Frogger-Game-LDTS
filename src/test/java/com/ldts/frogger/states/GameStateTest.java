@@ -1,8 +1,10 @@
 package com.ldts.frogger.states;
 
 import com.ldts.frogger.Game;
+import com.ldts.frogger.controller.Controller;
 import com.ldts.frogger.controller.game.ArenaController;
 import com.ldts.frogger.controller.menu.MenuController;
+import com.ldts.frogger.controller.music.MusicManager;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.gui.LanternaGUI;
 import com.ldts.frogger.model.game.arena.Arena;
@@ -13,15 +15,12 @@ import com.ldts.frogger.viewer.menu.MenuViewer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
+import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
-import java.awt.*;
 import java.io.IOException;
-import java.net.URISyntaxException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GameStateTest {
 
@@ -33,15 +32,19 @@ public class GameStateTest {
 
 
     @BeforeEach
-    void setUp() throws IOException, URISyntaxException, FontFormatException {
-        menu = new Menu();
-        arena = Mockito.mock(Arena.class);
-        gui = Mockito.mock(LanternaGUI.class);
-        game = new Game(gui);
-        Arena.setPoints(0);
-        Frog.setLives(3);
-        game.setState(new GameState(arena));
-        controller = new ArenaController(arena);
+    void setUp() {
+        MusicManager manager1 = Mockito.mock(MusicManager.class);
+        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+            configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager1);
+            menu = new Menu();
+            arena = Mockito.mock(Arena.class);
+            gui = Mockito.mock(LanternaGUI.class);
+            game = new Game(gui);
+            Arena.setPoints(0);
+            Frog.setLives(3);
+            game.setState(new GameState(arena));
+            controller = new ArenaController(arena);
+        }
     }
 
     @Test
@@ -68,10 +71,29 @@ public class GameStateTest {
     }
 
     @Test
-    void gameStarted() throws IOException {
+    void gameStarted() {
         boolean score = Arena.getPoints() == 0;
         boolean lives = Frog.getLives() == 3;
+        MusicManager manager1 = Mockito.mock(MusicManager.class);
         Assertions.assertTrue(score && lives);
+    }
+
+    @Test
+    void getModel() {
+        assertTrue(game.getState().getModel() instanceof Arena);
+    }
+
+    @Test
+    void drawFromState() throws IOException {
+        Frog frog = new Frog(1, 1);
+        arena = new Arena(10,10);
+        arena.setFrog(frog);
+        Controller<Arena> c = Mockito.mock(Controller.class);
+        GameViewer v = Mockito.mock(GameViewer.class);
+        State state = new GameState(arena, c, v);
+        game.setState(state);
+        game.getState().step(game, gui, 300);
+        Mockito.verify(v, Mockito.times(1)).draw(gui);
     }
 
 }

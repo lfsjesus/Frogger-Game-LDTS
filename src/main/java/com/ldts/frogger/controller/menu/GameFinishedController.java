@@ -17,8 +17,8 @@ import com.ldts.frogger.states.MenuState;
 import java.io.IOException;
 import java.util.Locale;
 
-public class GameOverController extends Controller<GameFinished> {
-    public GameOverController(GameFinished model) {
+public class GameFinishedController extends Controller<GameFinished> {
+    public GameFinishedController(GameFinished model) {
         super(model);
     }
 

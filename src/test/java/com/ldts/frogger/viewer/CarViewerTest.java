@@ -10,6 +10,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.io.IOException;
+
 public class CarViewerTest {
     private Car car;
     private CarViewer viewer;
@@ -23,7 +25,7 @@ public class CarViewerTest {
     }
 
     @Test
-    void drawElement() {
+    void drawElement() throws IOException {
         viewer.draw(car, gui);
         Mockito.verify(gui, Mockito.times(1)).drawCar(car.getPosition(), car.getColor(), car.getDirection());
     }

@@ -108,4 +108,14 @@ public class TruckControllerTest {
         assertTrue(Frog.getLives() < 3);
     }
 
+    @Test
+    void frogDidNotCrash() throws IOException {
+        Truck t = new Truck(new Position(3, 6),1);
+        arena.setTrucks(Arrays.asList(t));
+        FrogController frogController = new FrogController(arena);
+        frogController.step(game, GUI.ACTION.NONE, 2000);
+        controller.step(game, GUI.ACTION.NONE, 2000);
+        assertEquals(3, Frog.getLives());
+    }
+
 }
