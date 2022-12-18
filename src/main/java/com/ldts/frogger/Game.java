@@ -8,6 +8,7 @@ import com.ldts.frogger.states.State;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.logging.*;
 
 public class Game {
     private final LanternaGUI gui;
@@ -44,7 +45,8 @@ public class Game {
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                Logger logger = Logger.getLogger(Game.class.getName());
+                logger.log(Level.SEVERE, e.getMessage(), e);
             }
         }
 

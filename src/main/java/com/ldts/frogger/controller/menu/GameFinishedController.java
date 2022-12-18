@@ -16,6 +16,8 @@ import com.ldts.frogger.states.MenuState;
 
 import java.io.IOException;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GameFinishedController extends Controller<GameFinished> {
     public GameFinishedController(GameFinished model) {
@@ -41,7 +43,8 @@ public class GameFinishedController extends Controller<GameFinished> {
                         leaderboard.addRecord(Arena.getPoints(), name);
                         game.setState(new MenuState(new Menu()));
                     } catch (NullPointerException e) {
-                        e.printStackTrace();
+                        Logger logger = Logger.getLogger(GameFinishedController.class.getName());
+                        logger.log(Level.SEVERE, e.getMessage(), e);
                     }
                     Arena.setPoints(0);
                     Frog.setLives(3);
