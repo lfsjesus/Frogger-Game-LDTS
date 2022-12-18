@@ -42,6 +42,11 @@ public class Leaderboard extends Menu{
         return lines.get(i);
     }
 
+    @Override
+    public void setEntries(List<String> lines) {
+        this.lines = lines;
+    }
+
     public List<String> getLines() {
         return lines;
     }

@@ -34,4 +34,26 @@ public class MenuViewerTest {
         viewer.drawMenuText(gui);
         Mockito.verify(gui, Mockito.times(3)).drawText(Mockito.any(), Mockito.anyString(), Mockito.anyString());
     }
+
+    @Test
+    void drawMenuBackground() {
+        viewer.drawMenuBackground(gui);
+        Mockito.verify(gui, Mockito.times(400)).drawBackground(Mockito.any(), Mockito.anyString());
+    }
+
+    @Test
+    void drawMenuBorder2() {
+        viewer.drawMenuBorder(gui);
+        Mockito.verify(gui, Mockito.times(46)).drawText(Mockito.any(), Mockito.anyString(), Mockito.anyString(), Mockito.anyString());
+    }
+
+    @Test
+    void drawElements() {
+        viewer = Mockito.spy(viewer);
+        viewer.drawElements(gui);
+        Mockito.verify(viewer, Mockito.times(1)).drawMenuBackground(gui);
+        Mockito.verify(viewer, Mockito.times(1)).drawMenuBorder(gui);
+        Mockito.verify(viewer, Mockito.times(1)).drawMenuText(gui);
+    }
+
 }

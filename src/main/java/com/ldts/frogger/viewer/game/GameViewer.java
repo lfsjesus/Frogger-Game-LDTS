@@ -45,14 +45,14 @@ public class GameViewer extends Viewer<Arena> {
         viewer.draw(element, gui);
     }
 
-    private void drawLives(GUI gui){
+    public void drawLives(GUI gui){
         gui.drawText(new Position(0, 0), "LIVES:", "#FFFFFF");
         for(int i = 0; i < getModel().getFrog().getLives(); i++){
             gui.drawText(new Position(i+6,0),"♥", "#ff0000");
         }
     }
 
-    private void drawCrossline(GUI gui) {
+    public void drawCrossline(GUI gui) {
         if (Arena.level == 5) {
             for (int x = 0; x < 20; x++) {
                     gui.drawText(new Position(x, 1), "ľ", "#FFFFFF");
@@ -61,7 +61,7 @@ public class GameViewer extends Viewer<Arena> {
     }
 
 
-    private void drawPoints(GUI gui) {
+    public void drawPoints(GUI gui) {
         gui.drawText(new Position(getModel().getWidth() - 10, 0), "Score:", "#FFFFFF");
         gui.drawText(new Position(getModel().getWidth() - 4, 0), String.valueOf(Arena.getPoints()), "#FFFF00");
 

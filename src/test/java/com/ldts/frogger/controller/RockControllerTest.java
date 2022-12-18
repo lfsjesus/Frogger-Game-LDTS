@@ -27,48 +27,55 @@ public class RockControllerTest {
     private Game game;
     @BeforeEach
     void setUp() {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
-            configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
-            arena = new Arena(10, 10);
-            arena.setLavas(Arrays.asList(new Lava(5,5), new Lava(6,5), new Lava(7,5), new Lava(8,5), new Lava(9,5)));
-            controller = new RockController(arena);
-
-            game = Mockito.mock(Game.class);
-        }
+        arena = new Arena(10, 10);
+        arena.setLavas(Arrays.asList(new Lava(5,5), new Lava(6,5), new Lava(7,5), new Lava(8,5), new Lava(9,5)));
+        controller = new RockController(arena);
+        game = Mockito.mock(Game.class);
     }
 
     @Test
     void FrogMovingWithRock() throws IOException {
-        Rock r = new Rock(new Position(5,5),1);
-        arena.setRocks(Arrays.asList(r));
-        frog = new Frog(5, 5);
-        arena.setFrog(frog);
-        controller.step(game, GUI.ACTION.NONE, 1000);
-        assertEquals(new Position(6,5), r.getPosition());
-        assertEquals(new Position(6,5), frog.getPosition());
+        MusicManager manager= Mockito.mock(MusicManager .class);
+        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+            configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
+            Rock r = new Rock(new Position(5, 5), 1);
+            arena.setRocks(Arrays.asList(r));
+            frog = new Frog(5, 5);
+            arena.setFrog(frog);
+            controller.step(game, GUI.ACTION.NONE, 1000);
+            assertEquals(new Position(6, 5), r.getPosition());
+            assertEquals(new Position(6, 5), frog.getPosition());
+        }
     }
 
     @Test
     void LogReset0() throws IOException {
-        Rock r = new Rock(new Position(-1, 5), 0);
-        arena.setRocks(Arrays.asList(r));
-        frog = new Frog(-1, 5);
-        arena.setFrog(frog);
-        controller.step(game, GUI.ACTION.NONE, 1000);
-        assertEquals(new Position(9, 5), r.getPosition());
-        assertEquals(new Position(9, 5), frog.getPosition());
+        MusicManager manager= Mockito.mock(MusicManager .class);
+        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+            configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
+            Rock r = new Rock(new Position(-1, 5), 0);
+            arena.setRocks(Arrays.asList(r));
+            frog = new Frog(-1, 5);
+            arena.setFrog(frog);
+            controller.step(game, GUI.ACTION.NONE, 1000);
+            assertEquals(new Position(9, 5), r.getPosition());
+            assertEquals(new Position(9, 5), frog.getPosition());
+        }
     }
 
     @Test
     void LogReset1() throws IOException {
-        Rock r = new Rock(new Position(11, 5), 1);
-        arena.setRocks(Arrays.asList(r));
-        frog = new Frog(11, 5);
-        arena.setFrog(frog);
-        controller.step(game, GUI.ACTION.NONE, 1000);
-        assertEquals(new Position(0, 5), r.getPosition());
-        assertEquals(new Position(0, 5), frog.getPosition());
+        MusicManager manager= Mockito.mock(MusicManager .class);
+        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+            configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
+            Rock r = new Rock(new Position(11, 5), 1);
+            arena.setRocks(Arrays.asList(r));
+            frog = new Frog(11, 5);
+            arena.setFrog(frog);
+            controller.step(game, GUI.ACTION.NONE, 1000);
+            assertEquals(new Position(0, 5), r.getPosition());
+            assertEquals(new Position(0, 5), frog.getPosition());
+        }
     }
 
 }

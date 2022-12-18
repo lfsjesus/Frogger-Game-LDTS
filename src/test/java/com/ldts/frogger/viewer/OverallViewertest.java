@@ -24,9 +24,9 @@ public class OverallViewertest {
         viewer = new GameViewer(arena);
         arena.setSidewalks(Arrays.asList(new Sidewalk(3,4)));
         arena.setGrasses(Arrays.asList(new Grass(7,8)));
-        arena.setMotorbikes(Arrays.asList(new Motorbike(8, 7)));
-        arena.setTrucks(Arrays.asList(new Truck(8, 7)));
-        arena.setVans(Arrays.asList(new Van(8, 7)));
+        arena.setMotorbikes(Arrays.asList(new Motorbike(new Position(1,2), 0, "#ffffff")));
+        arena.setTrucks(Arrays.asList(new Truck(new Position(9, 6), 1, "#ffffff")));
+        arena.setVans(Arrays.asList(new Van(new Position(10, 7), 0, "#ffffff"), new Van(new Position(10, 7), 0, "#ffffff")));
         arena.setTrees(Arrays.asList(new Tree(9, 7)));
         arena.setWaters(Arrays.asList());
         arena.setCars(Arrays.asList(new Car(new Position(4, 5), 0, "#ffffff"), new Car(new Position(5, 6), 1, "#000000")));
@@ -54,6 +54,60 @@ public class OverallViewertest {
         Mockito.verify(gui, Mockito.times(1)).drawCar(new Position(4, 5),"#ffffff",0);
         Mockito.verify(gui, Mockito.times(1)).drawCar(new Position(5, 6),"#000000", 1);
         Mockito.verify(gui, Mockito.times(2)).drawCar(Mockito.any(Position.class), Mockito.anyString(), Mockito.anyInt());
+    }
+
+    @Test
+    void drawVans() throws IOException {
+        viewer.draw(gui);
+
+        Mockito.verify(gui, Mockito.times(2)).drawVan(new Position(10, 7),"#ffffff",0);
+        Mockito.verify(gui, Mockito.times(2)).drawVan(Mockito.any(Position.class), Mockito.anyString(), Mockito.anyInt());
+    }
+
+    @Test
+    void drawTrucks() throws IOException {
+        viewer.draw(gui);
+
+        Mockito.verify(gui, Mockito.times(1)).drawTruck(new Position(9, 6),"#ffffff",1);
+        Mockito.verify(gui, Mockito.times(1)).drawTruck(Mockito.any(Position.class), Mockito.anyString(), Mockito.anyInt());
+    }
+
+    @Test
+    void drawMotorbikes() throws IOException {
+        viewer.draw(gui);
+
+        Mockito.verify(gui, Mockito.times(1)).drawMotorbike(new Position(1, 2),"#ffffff",0);
+        Mockito.verify(gui, Mockito.times(1)).drawMotorbike(Mockito.any(Position.class), Mockito.anyString(), Mockito.anyInt());
+    }
+
+    @Test
+    void drawOtherElements() {
+        viewer.drawElements(gui);
+        Mockito.verify(gui, Mockito.times(6)).drawText(Mockito.any(Position.class), Mockito.anyString(), Mockito.anyString());
+    }
+
+    @Test
+    void drawCrossLine() {
+        Arena.setLevel(5);
+        viewer.drawCrossline(gui);
+        Mockito.verify(gui, Mockito.times(20)).drawText(Mockito.any(Position.class), Mockito.anyString(), Mockito.anyString());
+        Arena.setLevel(1);
+    }
+
+    @Test
+    void drawLives() {
+        viewer.drawLives(gui);
+        for (int i = 0; i < 3; i++) {
+            Mockito.verify(gui, Mockito.times(1)).drawText(new Position(i+6,0), "♥", "#ff0000");
+        }
+        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(0, 0), "LIVES:", "#FFFFFF");
+    }
+
+    @Test
+    void drawPoints() {
+        viewer.drawPoints(gui);
+        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(0, 0), "Score:", "#FFFFFF");
+        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(6, 0), "0", "#FFFF00");
     }
 
 

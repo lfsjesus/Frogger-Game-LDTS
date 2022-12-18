@@ -16,7 +16,4 @@ public class Tree extends NonMoveableElement{
         return treeChar;
     }
 
-    public void setTreeChar(String treeChar) {
-        this.treeChar = treeChar;
-    }
 }

@@ -3,6 +3,7 @@ package com.ldts.frogger.states;
 import com.ldts.frogger.Game;
 import com.ldts.frogger.controller.game.ArenaController;
 import com.ldts.frogger.controller.menu.MenuController;
+import com.ldts.frogger.controller.music.MusicManager;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.gui.LanternaGUI;
 import com.ldts.frogger.model.game.arena.Arena;
@@ -11,6 +12,7 @@ import com.ldts.frogger.viewer.game.GameViewer;
 import com.ldts.frogger.viewer.menu.MenuViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
 import java.awt.*;
@@ -48,8 +50,12 @@ public class MenuStateTest {
 
     @Test
     void changeState() throws IOException {
-        controller.step(game, GUI.ACTION.SELECT, 300);
-        assertTrue(game.getState().getController() instanceof ArenaController && game.getState().getViewer() instanceof GameViewer);
+        MusicManager manager1 = Mockito.mock(MusicManager.class);
+        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+            configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager1);
+            controller.step(game, GUI.ACTION.SELECT, 300);
+            assertTrue(game.getState().getController() instanceof ArenaController && game.getState().getViewer() instanceof GameViewer);
+        }
     }
 
     @Test

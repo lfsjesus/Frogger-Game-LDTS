@@ -11,7 +11,14 @@ public class InputDialog {
         f.dispose();
     }
 
+    // For testing purposes
+    public InputDialog(JFrame f, String name) {
+        this.name = name;
+        f.dispose();
+    }
+
     public String getString() {
         return this.name;
     }
+
 }

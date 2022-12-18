@@ -49,51 +49,78 @@ public class GameStateTest {
 
     @Test
     void testMenuStateViewer() {
-        assertTrue(game.getState().getViewer() instanceof GameViewer);
+        MusicManager manager1 = Mockito.mock(MusicManager.class);
+        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+            configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager1);
+            assertTrue(game.getState().getViewer() instanceof GameViewer);
+        }
     }
 
     @Test
     void testMenuStateController() {
-        assertTrue(game.getState().getController() instanceof ArenaController);
+        MusicManager manager1 = Mockito.mock(MusicManager.class);
+        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+            configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager1);
+            assertTrue(game.getState().getController() instanceof ArenaController);
+        }
     }
 
     @Test
     void changeState() throws IOException {
-        controller.step(game, GUI.ACTION.QUIT, 300);
-        assertTrue(game.getState().getController() instanceof MenuController && game.getState().getViewer() instanceof MenuViewer);
+        MusicManager manager1 = Mockito.mock(MusicManager.class);
+        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+            configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager1);
+            controller.step(game, GUI.ACTION.QUIT, 300);
+            assertTrue(game.getState().getController() instanceof MenuController && game.getState().getViewer() instanceof MenuViewer);
+        }
     }
 
     @Test
     void testState() {
-        State state = Mockito.mock(State.class);
-        game.setState(state);
-        assertEquals(state, game.getState());
+        MusicManager manager1 = Mockito.mock(MusicManager.class);
+        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+            configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager1);
+            State state = Mockito.mock(State.class);
+            game.setState(state);
+            assertEquals(state, game.getState());
+        }
     }
 
     @Test
     void gameStarted() {
-        boolean score = Arena.getPoints() == 0;
-        boolean lives = Frog.getLives() == 3;
         MusicManager manager1 = Mockito.mock(MusicManager.class);
-        Assertions.assertTrue(score && lives);
+        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+            configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager1);
+            boolean score = Arena.getPoints() == 0;
+            boolean lives = Frog.getLives() == 3;
+            Assertions.assertTrue(score && lives);
+        }
     }
 
     @Test
     void getModel() {
-        assertTrue(game.getState().getModel() instanceof Arena);
+        MusicManager manager1 = Mockito.mock(MusicManager.class);
+        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+            configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager1);
+            assertTrue(game.getState().getModel() instanceof Arena);
+        }
     }
 
     @Test
     void drawFromState() throws IOException {
-        Frog frog = new Frog(1, 1);
-        arena = new Arena(10,10);
-        arena.setFrog(frog);
-        Controller<Arena> c = Mockito.mock(Controller.class);
-        GameViewer v = Mockito.mock(GameViewer.class);
-        State state = new GameState(arena, c, v);
-        game.setState(state);
-        game.getState().step(game, gui, 300);
-        Mockito.verify(v, Mockito.times(1)).draw(gui);
+        MusicManager manager1 = Mockito.mock(MusicManager.class);
+        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+            configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager1);
+            Frog frog = new Frog(1, 1);
+            arena = new Arena(10, 10);
+            arena.setFrog(frog);
+            Controller<Arena> c = Mockito.mock(Controller.class);
+            GameViewer v = Mockito.mock(GameViewer.class);
+            State state = new GameState(arena, c, v);
+            game.setState(state);
+            game.getState().step(game, gui, 300);
+            Mockito.verify(v, Mockito.times(1)).draw(gui);
+        }
     }
 
 }
