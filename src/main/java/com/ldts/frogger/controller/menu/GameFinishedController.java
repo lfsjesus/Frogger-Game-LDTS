@@ -24,23 +24,17 @@ public class GameFinishedController extends Controller<GameFinished> {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        switch (action){
-            case QUIT:
-                game.setState(new MenuState(new Menu()));
-            case UP:
-                getModel().previousEntry();
-                break;
-            case DOWN:
-                getModel().nextEntry();
-                break;
-            case SELECT:
+        switch (action) {
+            case QUIT -> game.setState(new MenuState(new Menu()));
+            case UP -> getModel().previousEntry();
+            case DOWN -> getModel().nextEntry();
+            case SELECT -> {
                 if (getModel().isSelectedExit()) game.setState(null);
-                else if (getModel().isSelectedStart()){
+                else if (getModel().isSelectedStart()) {
                     Arena.setPoints(0);
                     Frog.setLives(3);
                     game.setState(new GameState(new LoaderArenaBuilder(Arena.getLevel()).createArena()));
-                }
-                else {
+                } else {
                     try {
                         String name = new InputDialog().getString().toUpperCase(Locale.ROOT);
                         Leaderboard leaderboard = new Leaderboard();
@@ -52,6 +46,8 @@ public class GameFinishedController extends Controller<GameFinished> {
                     Arena.setPoints(0);
                     Frog.setLives(3);
                 }
+            }
+            default -> {}
         }
     }
 }

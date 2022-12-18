@@ -25,7 +25,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GameStateTest {
 
     private Game game;
-    private Menu menu;
     private Arena arena;
     private LanternaGUI gui;
     private ArenaController controller;
@@ -36,7 +35,6 @@ public class GameStateTest {
         MusicManager manager1 = Mockito.mock(MusicManager.class);
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager1);
-            menu = new Menu();
             arena = Mockito.mock(Arena.class);
             gui = Mockito.mock(LanternaGUI.class);
             game = new Game(gui);

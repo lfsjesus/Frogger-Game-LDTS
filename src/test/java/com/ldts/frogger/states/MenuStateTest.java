@@ -24,14 +24,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class MenuStateTest {
     private Game game;
     private Menu menu;
-    private Arena arena;
     private LanternaGUI gui;
     private MenuController controller;
 
     @BeforeEach
     void setUp() {
         menu = new Menu();
-        arena = Mockito.mock(Arena.class);
         gui = Mockito.mock(LanternaGUI.class);
         game = new Game(gui);
         game.setState(new MenuState(menu));

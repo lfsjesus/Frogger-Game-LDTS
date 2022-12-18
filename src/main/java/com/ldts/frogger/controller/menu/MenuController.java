@@ -32,6 +32,8 @@ public class MenuController extends Controller<Menu> {
                 }
                 if (getModel().isSelectedLeaderboard()) game.setState(new LeaderboardState(new Leaderboard()));
             }
+            default -> {
+            }
         }
     }
 }

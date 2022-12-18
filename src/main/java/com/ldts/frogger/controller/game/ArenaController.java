@@ -42,7 +42,7 @@ public class ArenaController extends GameController {
 
     }
 
-
+    @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.QUIT) {
             MusicManager.getInstance().stop(Sounds.SOUNDTRACK);

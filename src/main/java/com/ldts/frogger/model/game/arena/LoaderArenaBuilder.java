@@ -13,11 +13,9 @@ import java.util.List;
 import java.lang.Math;
 
 public class LoaderArenaBuilder extends ArenaBuilder {
-    private final int level;
     private final List<String> lines;
 
     public LoaderArenaBuilder(int level) throws IOException {
-        this.level = level;
 
         URL resource = LoaderArenaBuilder.class.getResource("/levels/level" + level + ".lvl");
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
@@ -214,6 +212,8 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return bigLogs;
     }
+
+    @Override
     protected List<SmallLog> createSmallLogs(){
         List<SmallLog> smallLogs = new ArrayList<>();
         for (int y = 0; y < lines.size(); y++) {
@@ -229,6 +229,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return smallLogs;
     }
+    @Override
     protected List<Rock> createRocks(){
         List<Rock> rocks = new ArrayList<>();
         for (int y = 0; y < lines.size(); y++) {
