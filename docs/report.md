@@ -1,4 +1,5 @@
 ## LDTS_GR04 - Frogger
+[![BCH compliance](https://bettercodehub.com/edge/badge/lfsjesus/Frogger-Game-LDTS?branch=main)](https://bettercodehub.com/)
 
 The objective of this game is to move the frog through a path of static and moving obstacles, reaching the end of
 the levels without dying with the highest score possible. 
