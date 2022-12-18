@@ -14,7 +14,7 @@ repositories {
 
 pitest {
     junit5PluginVersion = '1.0.0'
-    excludedClasses = ['com.ldts.frogger.Game']
+    excludedClasses = ['com.ldts.frogger.Game', 'com.ldts.frogger.model.game.arena.RandomArenaBuilder']
 }
 
 application {

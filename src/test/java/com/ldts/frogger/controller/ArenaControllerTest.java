@@ -29,9 +29,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ArenaControllerTest {
     @Property
     void allArenasAreClosed(@ForAll @IntRange(min = 10, max = 12) int width, @ForAll @IntRange(min = 18, max = 20) int height, @ForAll List<GUI.@From("moveActions") ACTION> actions) throws IOException {
-        RandomArenaBuilder rab = new RandomArenaBuilder(width, height, 0,0,0, 0, 0, 0, 0,0,0, 0, 0, 0, 0, 0);
+        RandomArenaBuilder rab = new RandomArenaBuilder(width, height);
         Arena arena = rab.createArena();
         ArenaController controller = new ArenaController(arena);
+        Game game = new Game(Mockito.mock(LanternaGUI.class));
 
         MusicManager manager= Mockito.mock(MusicManager .class);
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
@@ -39,7 +40,7 @@ public class ArenaControllerTest {
             for (GUI.ACTION action : actions) {
                 if (controller.getModel().getFrog().getPosition().y() == 2)
                     controller.getModel().getFrog().setPosition(new Position(controller.getModel().getFrog().getPosition().x(), 3));
-                controller.step(null, action, 100);
+                controller.step(game, action, 100);
                 assert (controller.getModel().getFrog().getPosition().x() >= 0);
                 assert (controller.getModel().getFrog().getPosition().y() > 0);
                 assert (controller.getModel().getFrog().getPosition().x() < width);

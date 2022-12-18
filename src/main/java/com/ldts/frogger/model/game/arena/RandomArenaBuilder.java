@@ -25,25 +25,24 @@ public class RandomArenaBuilder extends ArenaBuilder {
     private final int numberOfBigLogs;
     private final int numberOfRocks;
 
-
-
-    public RandomArenaBuilder(int width, int height, int numberOfCars, int numberOfTrucks, int numberOfMotorbikes, int numberOfVans, int numberOfTrains, int numberOfGrasses, int numberOfTrees, int numberOfSideWalks, int numberOfWaters, int numberOfCoins, int numberOfSmallLogs, int numberOfBigLogs, int numberOfLavas, int numberOfRocks) {
+    public RandomArenaBuilder(int width, int height) {
         this.rng = new Random();
-        this.numberOfGrasses = numberOfGrasses;
-        this.numberOfTrees = numberOfTrees;
-        this.numberOfSideWalks = numberOfSideWalks;
+        // Randomly generate the size of the arena
+        this.numberOfGrasses = rng.nextInt(10) + 1;
+        this.numberOfTrees = rng.nextInt(10) + 1;
+        this.numberOfSideWalks = rng.nextInt(10) + 1;
         this.width = width;
         this.height = height;
-        this.numberOfCars = numberOfCars;
-        this.numberOfTrucks = numberOfTrucks;
-        this.numberOfMotorbikes = numberOfMotorbikes;
-        this.numberOfVans = numberOfVans;
-        this.numberOfWaters = numberOfWaters;
-        this.numberOfSmallLogs = numberOfSmallLogs;
-        this.numberOfBigLogs = numberOfBigLogs;
-        this.numberOfTrains = numberOfTrains;
-        this.numberOfLavas = numberOfLavas;
-        this.numberOfRocks = numberOfRocks;
+        this.numberOfCars = rng.nextInt(10) + 1;
+        this.numberOfTrucks =  rng.nextInt(10) + 1;
+        this.numberOfMotorbikes = rng.nextInt(10) + 1;
+        this.numberOfVans = rng.nextInt(10) + 1;
+        this.numberOfWaters = rng.nextInt(10) + 1;
+        this.numberOfSmallLogs = rng.nextInt(10) + 1;
+        this.numberOfBigLogs = rng.nextInt(10) + 1;
+        this.numberOfTrains = rng.nextInt(10) + 1;
+        this.numberOfLavas = rng.nextInt(10) + 1;
+        this.numberOfRocks = rng.nextInt(10) + 1;
     }
 
     @Override
