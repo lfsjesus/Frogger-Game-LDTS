@@ -87,11 +87,9 @@ Analysis' result: 7/10
 
 
 ------
-#### UML
-**Note:** this diagram is just a simplified draft of what we want to implement. It will be changed and completed in the future.
+#### IMPLEMENTATION - UML
 
-<br>
-<img src="/docs/UML_Frogger.png"> 
+![UML](/docs/UML_Frogger.jpg)
 
 ------
 
