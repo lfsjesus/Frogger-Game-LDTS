@@ -16,7 +16,7 @@ public class LeaderboardViewerTest {
 
     @BeforeEach
     void setUp() throws IOException {
-        leaderboard = Mockito.mock(Leaderboard.class);;
+        leaderboard = Mockito.mock(Leaderboard.class);
         viewer = new LeaderboardViewer(leaderboard);
         gui = Mockito.mock(GUI.class);
     }

@@ -39,7 +39,7 @@ public class LeaderboardTest {
         }
         assertTrue(isAdded);
         leaderboard.setEntries(list);
-        leaderboard.writeToFile();;
+        leaderboard.writeToFile();
     }
 
     @Test
@@ -49,18 +49,18 @@ public class LeaderboardTest {
         List<String> updatedList = leaderboard.readLeaderboard();
         assertEquals(leaderboard.getEntry(0), updatedList.get(0));
         leaderboard.setEntries(list);
-        leaderboard.writeToFile();;
+        leaderboard.writeToFile();
     }
 
     @Test
     public void getLines() throws IOException{
         List<String> list = leaderboard.readLeaderboard();
-        List<String> updatedList = Arrays.asList("00000 test");
+        List<String> updatedList = List.of("00000 test");
         leaderboard.setEntries(updatedList);
         leaderboard.writeToFile();
         assertEquals(leaderboard.getLines(), updatedList);
         leaderboard.setEntries(list);
-        leaderboard.writeToFile();;
+        leaderboard.writeToFile();
     }
 
     @Test
@@ -74,7 +74,7 @@ public class LeaderboardTest {
         List<String> updatedList = leaderboard.readLeaderboard();
         assertEquals(finalList, updatedList);
         leaderboard.setEntries(list);
-        leaderboard.writeToFile();;
+        leaderboard.writeToFile();
     }
 
 }

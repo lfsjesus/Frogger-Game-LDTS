@@ -60,16 +60,14 @@ public class MenuViewer extends Viewer<Menu> {
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
 
             if(getModel().isSelected(i)){
-                StringBuilder s = new StringBuilder(">");
-                s.append(getModel().getEntry(i));
-                s.append("<");
-                gui.drawText(new Position(6, 9 + i), s.toString(), "#a84c32");
+                String s = ">" + getModel().getEntry(i) +
+                        "<";
+                gui.drawText(new Position(6, 9 + i), s, "#a84c32");
             }
             else{
-                StringBuilder s = new StringBuilder(" ");
-                s.append(getModel().getEntry(i));
-                s.append(" ");
-                gui.drawText(new Position(6, 9 + i), s.toString(), "#FFFFFF");
+                String s = " " + getModel().getEntry(i) +
+                        " ";
+                gui.drawText(new Position(6, 9 + i), s, "#FFFFFF");
             }
         }
     }

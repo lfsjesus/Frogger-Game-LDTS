@@ -4,8 +4,7 @@ import com.ldts.frogger.model.menu.Menu;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MainMenuTest {
     private Menu menu;
@@ -26,6 +25,6 @@ public class MainMenuTest {
 
     @Test
     public void numberEntries() {
-        assertTrue(menu.getNumberEntries() == 3);
+        assertEquals(3, menu.getNumberEntries());
     }
 }

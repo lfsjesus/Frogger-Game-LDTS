@@ -4,6 +4,7 @@ import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
 import com.ldts.frogger.model.game.elements.Element;
+import com.ldts.frogger.model.game.elements.Frog;
 import com.ldts.frogger.model.game.elements.Water;
 import com.ldts.frogger.viewer.Viewer;
 
@@ -47,7 +48,7 @@ public class GameViewer extends Viewer<Arena> {
 
     public void drawLives(GUI gui){
         gui.drawText(new Position(0, 0), "LIVES:", "#FFFFFF");
-        for(int i = 0; i < getModel().getFrog().getLives(); i++){
+        for(int i = 0; i < Frog.getLives(); i++){
             gui.drawText(new Position(i+6,0),"♥", "#ff0000");
         }
     }

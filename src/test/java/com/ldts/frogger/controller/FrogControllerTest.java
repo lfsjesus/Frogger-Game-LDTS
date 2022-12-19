@@ -140,7 +140,7 @@ public class FrogControllerTest {
             Game game = Mockito.mock(Game.class);
             CarController carController = new CarController(arena);
             Car car = new Car(new Position(3, 5), 1);
-            arena.setCars(Arrays.asList(car));
+            arena.setCars(List.of(car));
             carController.step(game, GUI.ACTION.NONE, 1000);
             assertTrue(Frog.getLives() < 3);
         }
@@ -154,7 +154,7 @@ public class FrogControllerTest {
             Game game = Mockito.mock(Game.class);
             CarController carController = new CarController(arena);
             Car car = new Car(new Position(2, 5), 1);
-            arena.setCars(Arrays.asList(car));
+            arena.setCars(List.of(car));
             carController.step(game, GUI.ACTION.NONE, 1000);
             assertEquals(3, Frog.getLives());
         }

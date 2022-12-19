@@ -19,7 +19,7 @@ public class Arena {
     private List<Sidewalk> sidewalks = new ArrayList<>();
     private List<Truck> trucks = new ArrayList<>();
     private List<Motorbike> motorbikes = new ArrayList<>();
-    private List<Van> vans = new ArrayList<>();;
+    private List<Van> vans = new ArrayList<>();
     private List<Grass> grasses = new ArrayList<>();
     private List<Tree> trees = new ArrayList<>();
     private List<Water> waters = new ArrayList<>();

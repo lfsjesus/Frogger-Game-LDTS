@@ -29,16 +29,14 @@ public class GameFinishedViewer extends Viewer<GameFinished> {
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
 
             if(getModel().isSelected(i)){
-                StringBuilder s = new StringBuilder(">");
-                s.append(getModel().getEntry(i));
-                s.append("<");
-                gui.drawText(new Position(4, 9 + i), s.toString(), "#a84c32", "#32a852");
+                String s = ">" + getModel().getEntry(i) +
+                        "<";
+                gui.drawText(new Position(4, 9 + i), s, "#a84c32", "#32a852");
             }
             else{
-                StringBuilder s = new StringBuilder(" ");
-                s.append(getModel().getEntry(i));
-                s.append(" ");
-                gui.drawText(new Position(4, 9 + i), s.toString(), "#FFFFFF", "#32a852");
+                String s = " " + getModel().getEntry(i) +
+                        " ";
+                gui.drawText(new Position(4, 9 + i), s, "#FFFFFF", "#32a852");
             }
         }
     }

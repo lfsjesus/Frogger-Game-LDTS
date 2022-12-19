@@ -16,6 +16,7 @@ import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -70,7 +71,7 @@ public class TruckControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Truck t = new Truck(new Position(4, 5), 1);
-            arena.setTrucks(Arrays.asList(t));
+            arena.setTrucks(List.of(t));
             controller.step(game, GUI.ACTION.NONE, 2000);
             assertTrue(Frog.getLives() < 3);
         }
@@ -82,7 +83,7 @@ public class TruckControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Truck t = new Truck(new Position(6, 5), 1);
-            arena.setTrucks(Arrays.asList(t));
+            arena.setTrucks(List.of(t));
             FrogController frogController = new FrogController(arena);
             frogController.step(game, GUI.ACTION.RIGHT, 2000);
             controller.step(game, GUI.ACTION.NONE, 2000);
@@ -95,7 +96,7 @@ public class TruckControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Truck t = new Truck(new Position(2, 5), 1);
-            arena.setTrucks(Arrays.asList(t));
+            arena.setTrucks(List.of(t));
             FrogController frogController = new FrogController(arena);
             frogController.step(game, GUI.ACTION.LEFT, 2000);
             controller.step(game, GUI.ACTION.NONE, 2000);
@@ -109,7 +110,7 @@ public class TruckControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Truck t = new Truck(new Position(3, 4), 1);
-            arena.setTrucks(Arrays.asList(t));
+            arena.setTrucks(List.of(t));
             FrogController frogController = new FrogController(arena);
             frogController.step(game, GUI.ACTION.UP, 2000);
             controller.step(game, GUI.ACTION.NONE, 2000);
@@ -123,7 +124,7 @@ public class TruckControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Truck t = new Truck(new Position(3, 6), 1);
-            arena.setTrucks(Arrays.asList(t));
+            arena.setTrucks(List.of(t));
             FrogController frogController = new FrogController(arena);
             frogController.step(game, GUI.ACTION.DOWN, 2000);
             controller.step(game, GUI.ACTION.NONE, 2000);
@@ -137,7 +138,7 @@ public class TruckControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Truck t = new Truck(new Position(3, 6), 1);
-            arena.setTrucks(Arrays.asList(t));
+            arena.setTrucks(List.of(t));
             FrogController frogController = new FrogController(arena);
             frogController.step(game, GUI.ACTION.NONE, 2000);
             controller.step(game, GUI.ACTION.NONE, 2000);

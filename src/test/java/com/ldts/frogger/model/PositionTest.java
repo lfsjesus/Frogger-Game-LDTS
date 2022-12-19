@@ -35,14 +35,14 @@ public class PositionTest {
     @Test
     void equals1() {
         Position p1 = new Position(1, 2);
-        assertTrue(p1.equals(p1));
+        assertEquals(p1, p1);
     }
 
     @Test
     void equals2() {
         Position p1 = new Position(1, 2);
         Position p2 = new Position(1, 2);
-        assertTrue(p1.equals(p2));
+        assertEquals(p1, p2);
     }
 
     @Test

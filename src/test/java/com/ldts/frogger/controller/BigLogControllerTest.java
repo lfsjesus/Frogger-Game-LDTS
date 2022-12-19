@@ -14,6 +14,7 @@ import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -36,7 +37,7 @@ public class BigLogControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             BigLog bigLog = new BigLog(new Position(5, 5), 1);
-            arena.setBigLogs(Arrays.asList(bigLog));
+            arena.setBigLogs(List.of(bigLog));
             frog = new Frog(5, 5);
             arena.setFrog(frog);
             controller.step(game, GUI.ACTION.NONE, 1000);
@@ -51,7 +52,7 @@ public class BigLogControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             BigLog bigLog = new BigLog(new Position(5, 5), 1);
-            arena.setBigLogs(Arrays.asList(bigLog));
+            arena.setBigLogs(List.of(bigLog));
             frog = new Frog(6, 5);
             arena.setFrog(frog);
             controller.step(game, GUI.ACTION.NONE, 1000);
@@ -66,7 +67,7 @@ public class BigLogControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             BigLog bigLog = new BigLog(new Position(5, 5), 1);
-            arena.setBigLogs(Arrays.asList(bigLog));
+            arena.setBigLogs(List.of(bigLog));
             frog = new Frog(7, 5);
             arena.setFrog(frog);
             controller.step(game, GUI.ACTION.NONE, 1000);
@@ -81,7 +82,7 @@ public class BigLogControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             BigLog bigLog = new BigLog(new Position(5, 5), 0);
-            arena.setBigLogs(Arrays.asList(bigLog));
+            arena.setBigLogs(List.of(bigLog));
             frog = new Frog(5, 5);
             arena.setFrog(frog);
             controller.step(game, GUI.ACTION.NONE, 1000);
@@ -96,7 +97,7 @@ public class BigLogControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             BigLog bigLog = new BigLog(new Position(5, 5), 0);
-            arena.setBigLogs(Arrays.asList(bigLog));
+            arena.setBigLogs(List.of(bigLog));
             frog = new Frog(6, 5);
             arena.setFrog(frog);
             controller.step(game, GUI.ACTION.NONE, 1000);
@@ -111,7 +112,7 @@ public class BigLogControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             BigLog bigLog = new BigLog(new Position(5, 5), 0);
-            arena.setBigLogs(Arrays.asList(bigLog));
+            arena.setBigLogs(List.of(bigLog));
             frog = new Frog(7, 5);
             arena.setFrog(frog);
             controller.step(game, GUI.ACTION.NONE, 1000);
@@ -126,7 +127,7 @@ public class BigLogControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             BigLog bigLog = new BigLog(new Position(-1, 5), 0);
-            arena.setBigLogs(Arrays.asList(bigLog));
+            arena.setBigLogs(List.of(bigLog));
             frog = new Frog(1, 5);
             arena.setFrog(frog);
             controller.step(game, GUI.ACTION.NONE, 1000);
@@ -140,7 +141,7 @@ public class BigLogControllerTest {
         try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             BigLog bigLog = new BigLog(new Position(9, 5), 1);
-            arena.setBigLogs(Arrays.asList(bigLog));
+            arena.setBigLogs(List.of(bigLog));
             frog = new Frog(10, 5);
             arena.setFrog(frog);
             controller.step(game, GUI.ACTION.NONE, 1000);

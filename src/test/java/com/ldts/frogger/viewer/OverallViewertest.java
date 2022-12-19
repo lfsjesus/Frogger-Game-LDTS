@@ -11,6 +11,7 @@ import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 public class OverallViewertest {
     private GUI gui;
@@ -22,21 +23,21 @@ public class OverallViewertest {
         arena = new Arena(10, 10);
         gui = Mockito.mock(GUI.class);
         viewer = new GameViewer(arena);
-        arena.setSidewalks(Arrays.asList(new Sidewalk(3,4)));
-        arena.setGrasses(Arrays.asList(new Grass(7,8)));
-        arena.setMotorbikes(Arrays.asList(new Motorbike(new Position(1,2), 0, "#ffffff")));
-        arena.setTrucks(Arrays.asList(new Truck(new Position(9, 6), 1, "#ffffff")));
+        arena.setSidewalks(List.of(new Sidewalk(3, 4)));
+        arena.setGrasses(List.of(new Grass(7, 8)));
+        arena.setMotorbikes(List.of(new Motorbike(new Position(1, 2), 0, "#ffffff")));
+        arena.setTrucks(List.of(new Truck(new Position(9, 6), 1, "#ffffff")));
         arena.setVans(Arrays.asList(new Van(new Position(10, 7), 0, "#ffffff"), new Van(new Position(10, 7), 0, "#ffffff")));
-        arena.setTrees(Arrays.asList(new Tree(9, 7)));
-        arena.setWaters(Arrays.asList());
+        arena.setTrees(List.of(new Tree(9, 7)));
+        arena.setWaters(List.of());
         arena.setCars(Arrays.asList(new Car(new Position(4, 5), 0, "#ffffff"), new Car(new Position(5, 6), 1, "#000000")));
         arena.setFrog(new Frog(5, 8));
-        arena.setCoins(Arrays.asList(new Coin(5, 8)));
-        arena.setBigLogs(Arrays.asList(new BigLog(5, 8)));
-        arena.setSmallLogs(Arrays.asList(new SmallLog(5, 8)));
-        arena.setTrains(Arrays.asList(new Train(5, 8)));
-        arena.setLavas(Arrays.asList(new Lava(5, 8)));
-        arena.setRocks(Arrays.asList(new Rock(5, 8)));
+        arena.setCoins(List.of(new Coin(5, 8)));
+        arena.setBigLogs(List.of(new BigLog(5, 8)));
+        arena.setSmallLogs(List.of(new SmallLog(5, 8)));
+        arena.setTrains(List.of(new Train(5, 8)));
+        arena.setLavas(List.of(new Lava(5, 8)));
+        arena.setRocks(List.of(new Rock(5, 8)));
     }
 
     @Test
