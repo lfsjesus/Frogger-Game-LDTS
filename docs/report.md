@@ -140,17 +140,27 @@ Analysis' result: 7/10
 
 ### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
-- There are several kinds of objects that have the same behavior when it comes to their motion. Cars and other vehicles, trunks, etc move either to the left or right (very simple motion). There is no need to complicate and repeat code everywhere to make them move.
-- A design pattern is yet being decided, because we will have more vehicles and movable objects in the game (maybe Command Pattern will be a good choice).
+#### Large Class
+The class Arena contains many methods and attributes when compared to other classes. Maybe we could have split it into smaller classes, but we couldn't find a way to do it without losing the cohesion of the class.
+
+#### If/Else Statements
+There are methods in some classes (Frog Controller, for example) that have a lot of if/else statements. We could have used polymorphism to solve it by creating different frogs with different directions (FrogNorth, FrogSouth, etc). The code is still readable, though.
+
+#### Feature Envy
+There are some methods in the class Arena that have a lot of calls to other classes. We tried to minimize as much as possible, but there are some cases where it's necessary because there are many interactions between the classes.
+
+#### Static Variables
+We have a static variable in the class Arena (points) and in the class Frog (lives). Managing the lives and the points was a bit tricky because we had to make sure that the values were updated in the right way. We tried to minimize the use of static variables. As we basically had just these two cases, it was not a big deal, but we recognize that it's not the best practice.
 
 ------
 ### TESTING
 
 ![](/docs/testcoverage.jpg)
-- [Mutation Testing](https://github.com/FEUP-LDTS-2022/project-l01gr04/blob/main/docs/Pitest/index.html): we remove the classes Game, because it was not testable, and RandomArenaBuilder, that was not supposed to be tested (it was used to generate random arenas for Property Testing).
+- [Mutation Testing](https://github.com/FEUP-LDTS-2022/project-l01gr04/blob/main/docs/Pitest/index.html): we excluded the classes Game, because it was not testable, and RandomArenaBuilder, that was not supposed to be tested (it was used to generate random arenas for Property Testing).
 ![Pitest](/docs/pitest.jpg)
 
 ### SELF-EVALUATION
+All the work was divided equally between us and we were both working hard to deliver the best results possible.
 
 - Luís Jesus: 50%
 - Miguel Rocha: 50%
