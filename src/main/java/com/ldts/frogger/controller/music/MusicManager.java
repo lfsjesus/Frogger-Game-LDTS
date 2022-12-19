@@ -33,10 +33,6 @@ public class MusicManager {
         this.frog = frog;
     }
 
-    public void setBackgroundMusic(Music backgroundMusic) {
-        this.backgroundMusic = backgroundMusic;
-    }
-
     public void setCoin(Music coin) {
         this.coin = coin;
     }
