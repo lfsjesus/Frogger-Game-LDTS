@@ -8,18 +8,63 @@ The character is a frog that must cross a series of busy roads, rivers, train tr
 
 This game is based on a mix of two well-known games: Crossy Road and Frogger.
 
-<img src="/docs/mockup.gif" width="500"> 
+#### Overall Game Design
+<p align="center" justify="center">
+  <img src="/docs/mockup.gif"/>
+</p>
+<p align="center">
+  <b><i>Image 1. Game</i></b>
+</p>
+<br>
+<br />
+
+#### Game Menu
+<p align="center" justify="center">
+  <img src="/docs/menu.jpg"/>
+</p>
+<p align="center">
+  <b><i>Image 2. Main Menu</i></b>
+</p>
+<br>
+<br />
+
+#### Leaderboard
+<p align="center" justify="center">
+  <img src="/docs/leaderboard.jpg"/>
+</p>
+<p align="center">
+  <b><i>Image 3. Leaderboard</i></b>
+</p>
+<br>
+<br/>
+
+#### Game Over
+<p align="center" justify="center">
+  <img src="/docs/gameover.jpg"/>
+</p>
+<p align="center">
+  <b><i>Image 4. Game Over Screen</i></b>
+</p>
+<br>
+<br/>
+
+#### Game Win
+<p align="center" justify="center">
+  <img src="/docs/gamewin.jpg"/>
+</p>
+<p align="center">
+  <b><i>Image 5. Game Win Screen</i></b>
+</p>
+<br>
+<br/>
+
 
 This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Miguel Rocha](https://github.com/r00cha).
 
 ### IMPLEMENTED FEATURES
 
 - [X] **Menu Interface**: the application starts by showing a simple menu that is able to start the game.
-  <br>
-  <img src="/docs/menu.gif" width="300"> 
 - [X] **Keyboard Control:** the keyboard inputs are received and an action is taken according the current state of the application. The used inputs are the Arrow keys and the letter 'q' to go back to the menu.
-  <br>
-  <img src="/docs/frogger1.gif" width="300">
 - [X] **Arena:** the arena and the elements are created at the beginning of the game while reading different files that describe each level, using different characters. Example: 'W' represents the water.
 - [X] **Collisions**: collisions between the frog, cars, trains, vans, trucks, motorbikes, water, lava, limit walls, etc are detected.
 - [X] **Lives**: the frog has 3 lives, which are shown on the screen represented by three hearts.
@@ -87,13 +132,13 @@ Analysis' result: 7/10
 
 
 ------
-#### IMPLEMENTATION - UML
+### IMPLEMENTATION - UML
 
 ![UML](/docs/UML_Frogger.jpg)
 
 ------
 
-#### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
+### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
 - There are several kinds of objects that have the same behavior when it comes to their motion. Cars and other vehicles, trunks, etc move either to the left or right (very simple motion). There is no need to complicate and repeat code everywhere to make them move.
 - A design pattern is yet being decided, because we will have more vehicles and movable objects in the game (maybe Command Pattern will be a good choice).
@@ -101,11 +146,11 @@ Analysis' result: 7/10
 ------
 ### TESTING
 
-![](/docs/testcoverage.jpeg)
-- [Mutation Testing](https://github.com/FEUP-LDTS-2022/project-l01gr04/blob/main/docs/Pitest/index.html): we had a problem using pitest with GUI tests, so we had to comment them before running pitest. Because of this, we lost significant coverage. We'll try to solve it later.
+![](/docs/testcoverage.jpg)
+- [Mutation Testing](https://github.com/FEUP-LDTS-2022/project-l01gr04/blob/main/docs/Pitest/index.html): we remove the classes Game, because it was not testable, and RandomArenaBuilder, that was not supposed to be tested (it was used to generate random arenas for Property Testing).
+![Pitest](/docs/pitest.jpg)
 
 ### SELF-EVALUATION
-
 
 - Luís Jesus: 50%
 - Miguel Rocha: 50%
