@@ -36,8 +36,7 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 ### DESIGN
 
 **GENERAL STRUCTURE**
-<br>
-<img src="/docs/mvc.jpg" width="300">
+![MVC](/docs/mvc.jpg)
 - **Problem in Context.**  In order to easily add new features and test them, we needed to find a way to structure our code accordingly. Our game uses a GUI, so we thought that Model-Viewer-Controller(MVC) pattern would be a good choice.
 - **The Pattern.** The Model-View-Controller pattern is an **Architectural** pattern in which the code is split up into three parts: the model, the controller and the view.
 - **Implementation.**  The model is responsible for storing the data, the controller is responsible for mutating the model and controlling the logic of the game and the view is responsible for rendering the model on the screen.
@@ -45,8 +44,7 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 
 
 **INTERACTING WITH LANTERNA**
-<br>
-<img src="/docs/facade.jpg" width="300">
+![Facade](/docs/facade.jpg)
 - **Problem in Context.**  Because Lanterna is an external dependency where changes can be introduced at any time, we need a way to isolate calls to it. We also just need a small portion of Lanterna's API.
 - **The Pattern.** The Facade Pattern immediately came to mind as it allows us to choose what functionalities we want to implement and if there's a change in Lanterna, we only need to update the way each method works. This way, we ensure that our code changes are minimal if any external method gets updated or redesigned.
 - **Implementation.**  We implemented it using a GUI interface that is implemented by LanternaGUI class that handles all the things related to the graphic interface.
@@ -54,24 +52,21 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 
 
 **APPLICATION STATE**
-<br>
-<img src="/docs/state.jpg" width="300">
+![State](/docs/state.jpg)
 - **Problem in Context.** It's important to know whether the application is on the menu or when the game is actually running, allowing, at the same time, other implementations (for example, if we want to add another entry to the menu, which whould imply a new state).
 - **The Pattern.** The State Pattern uses polymorphism in order to solve this problem. Each state has a class and its logic (GameState, MenuState, etc). 
 - **Implementation.** The Game has a state which is one of these four: MenuState, GameState, GameFinishedState or LeaderboardState. When the user starts the application, it is on the menu. If he selects the option to "Play", the state changes so the game starts running. If the user presses 'q' the state changes back to the menu, etc...
 - **Consequences.** This pattern minimizes conditional complexity, eliminating the need for if and switch statements in objects with different behavior.
 
 **SOUND EFFECTS AND MUSIC MANAGING**
-<br>
-<img src="/docs/singleton.jpg" width="300">
+![Singleton](/docs/singleton.jpg)
 - **Problem in Context.** There's a class (MusicManager) responsible for playing the background music and, simultaneously, other sounds. We have to make sure that there are not unwanted overlapping sounds that result from different instances of this class. At the same time, we want to have a single unit of control for the music and the sounds.
 - **The Pattern.** The Singleton Pattern is a pattern that ensures that only one instance of a class is created and that there is a single point of access to it.
 - **Implementation.** We implemented it using a static instance of the class that is initialized when the application starts. This instance is used to play the music and the sounds.
 - **Consequences.** We are sure that there is only one instance of the class. It is harder to unit test, though, because test frameworks are usually based on inheritance when producing mocks, so we had to use Mockito-Inline instead of regular Mockito.
 
 **RUNNING THE GAME**
-<br>
-<img src="/docs/gameloop.jpg" width="300">
+![GameLoop](/docs/gameloop.jpg)
 - **Problem in Context.** It would be great if we had a way to run the game and make the actions on it proceed at the proper speed and time regardless of what the user is doing or how fast the computer is.
 - **The Pattern.** The Game Loop pattern allows us to check for input and process it if available, update game objects and render the display, at each turn of the loop.
 - **Implementation.** It is a loop used in the main class game that allows the game to run smoothly.
