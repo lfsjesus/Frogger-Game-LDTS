@@ -152,6 +152,10 @@ There are some methods in the class Arena that have a lot of calls to other clas
 #### Static Variables
 We have a static variable in the class Arena (points) and in the class Frog (lives). Managing the lives and the points was a bit tricky because we had to make sure that the values were updated in the right way. We tried to minimize the use of static variables. As we basically had just these two cases, it was not a big deal, but we recognize that it's not the best practice.
 
+#### Train and Rock classes are not using Command as other movable objects
+We could have not fixed some bugs in TrainController and RockController classes if we used Command because those classes had some specificities that made it difficult to use. Therefor, we decided to not use Command in those classes making it possible to fix the bugs.
+
+
 ------
 ### TESTING
 
