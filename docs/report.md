@@ -36,6 +36,7 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 ### DESIGN
 
 **GENERAL STRUCTURE**
+<br>
 ![MVC](/docs/mvc.jpg)
 - **Problem in Context.**  In order to easily add new features and test them, we needed to find a way to structure our code accordingly. Our game uses a GUI, so we thought that Model-Viewer-Controller(MVC) pattern would be a good choice.
 - **The Pattern.** The Model-View-Controller pattern is an **Architectural** pattern in which the code is split up into three parts: the model, the controller and the view.
@@ -44,14 +45,16 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 
 
 **INTERACTING WITH LANTERNA**
+<br>
 ![Facade](/docs/facade.jpg)
 - **Problem in Context.**  Because Lanterna is an external dependency where changes can be introduced at any time, we need a way to isolate calls to it. We also just need a small portion of Lanterna's API.
 - **The Pattern.** The Facade Pattern immediately came to mind as it allows us to choose what functionalities we want to implement and if there's a change in Lanterna, we only need to update the way each method works. This way, we ensure that our code changes are minimal if any external method gets updated or redesigned.
 - **Implementation.**  We implemented it using a GUI interface that is implemented by LanternaGUI class that handles all the things related to the graphic interface.
-- **Consequences.** The use of this pattern makes the code easier to mantain and avoids duplicated code. It's also more clean as we just have the needed features from Lanterna.
+- **Consequences.** The use of this pattern makes the code easier to maintain and avoids duplicated code. It's also more clean as we just have the needed features from Lanterna.
 
 
 **APPLICATION STATE**
+<br>
 ![State](/docs/state.jpg)
 - **Problem in Context.** It's important to know whether the application is on the menu or when the game is actually running, allowing, at the same time, other implementations (for example, if we want to add another entry to the menu, which whould imply a new state).
 - **The Pattern.** The State Pattern uses polymorphism in order to solve this problem. Each state has a class and its logic (GameState, MenuState, etc). 
@@ -59,6 +62,7 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 - **Consequences.** This pattern minimizes conditional complexity, eliminating the need for if and switch statements in objects with different behavior.
 
 **SOUND EFFECTS AND MUSIC MANAGING**
+<br>
 ![Singleton](/docs/singleton.jpg)
 - **Problem in Context.** There's a class (MusicManager) responsible for playing the background music and, simultaneously, other sounds. We have to make sure that there are not unwanted overlapping sounds that result from different instances of this class. At the same time, we want to have a single unit of control for the music and the sounds.
 - **The Pattern.** The Singleton Pattern is a pattern that ensures that only one instance of a class is created and that there is a single point of access to it.
@@ -66,6 +70,7 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 - **Consequences.** We are sure that there is only one instance of the class. It is harder to unit test, though, because test frameworks are usually based on inheritance when producing mocks, so we had to use Mockito-Inline instead of regular Mockito.
 
 **RUNNING THE GAME**
+<br>
 ![GameLoop](/docs/gameloop.jpg)
 - **Problem in Context.** It would be great if we had a way to run the game and make the actions on it proceed at the proper speed and time regardless of what the user is doing or how fast the computer is.
 - **The Pattern.** The Game Loop pattern allows us to check for input and process it if available, update game objects and render the display, at each turn of the loop.
