@@ -22,7 +22,7 @@ public class BigLogViewerTest {
     @Test
     void drawElement() {
         viewer.draw(bigLog, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawText(bigLog.getPosition(), "ĻĻĻ", "#523715", "#624219");
+        Mockito.verify(gui, Mockito.times(1)).drawText(bigLog.getPosition(), "ooo", "#523715", "#624219");
     }
 
 }

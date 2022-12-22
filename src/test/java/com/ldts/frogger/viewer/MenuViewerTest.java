@@ -26,7 +26,7 @@ public class MenuViewerTest {
     @Test
     void drawMenuBorder() {
         viewer.drawMenuBorder(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(3,2),"┌","#47ed74", "#000000");
+        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(3,2),"&","#47ed74", "#000000");
     }
 
     @Test

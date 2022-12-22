@@ -22,6 +22,6 @@ public class SmallLogViewerTest {
     @Test
     void drawElement() {
         viewer.draw(smallLog, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawText(smallLog.getPosition(), "ĻĻ", "#523715", "#624219");
+        Mockito.verify(gui, Mockito.times(1)).drawText(smallLog.getPosition(), "oo", "#523715", "#624219");
     }
 }

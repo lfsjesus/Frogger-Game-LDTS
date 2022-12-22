@@ -98,10 +98,11 @@ public class OverallViewertest {
     @Test
     void drawLives() {
         viewer.drawLives(gui);
-        for (int i = 0; i < 3; i++) {
-            Mockito.verify(gui, Mockito.times(1)).drawText(new Position(i+6,0), "♥", "#ff0000");
-        }
         Mockito.verify(gui, Mockito.times(1)).drawText(new Position(0, 0), "LIVES:", "#FFFFFF");
+        for (int i = 0; i < 3; i++) {
+            Mockito.verify(gui, Mockito.times(1)).drawText(new Position(i+6,0), "$", "#ff0000");
+        }
+
     }
 
     @Test

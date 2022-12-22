@@ -25,7 +25,7 @@ public class CoinViewerTest {
     @Test
     void drawElement() {
         viewer.draw(coin, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawText(coin.getPosition(), "ĺ", "#daac34", coin.getBackGroundColor());
+        Mockito.verify(gui, Mockito.times(1)).drawText(coin.getPosition(), "p", "#daac34", coin.getBackGroundColor());
         assertEquals(coin.getBackGroundColor(), "#000000");
     }
 
