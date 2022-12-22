@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class Arena {
-    public static int level = 5;
+    public static int level = 1;
     private final int width;
     private final int height;
     private static int points = 0;
