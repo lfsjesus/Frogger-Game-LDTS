@@ -49,7 +49,7 @@ public class GameViewer extends Viewer<Arena> {
     public void drawLives(GUI gui){
         gui.drawText(new Position(0, 0), "LIVES:", "#FFFFFF");
         for(int i = 0; i < Frog.getLives(); i++){
-            gui.drawText(new Position(i+6,0),"♥", "#ff0000");
+            gui.drawText(new Position(i+6,0),"$", "#ff0000");
         }
     }
 
