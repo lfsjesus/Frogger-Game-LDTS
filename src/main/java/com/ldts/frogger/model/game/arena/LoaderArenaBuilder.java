@@ -151,10 +151,10 @@ public class LoaderArenaBuilder extends ArenaBuilder {
                 if (line.charAt(x) == 'P') {
                     int random = (int) (Math.random() * 2);
                     if(random == 0) {
-                        trees.add(new Tree(new Position(x, y), "đ"));
+                        trees.add(new Tree(new Position(x, y), "a"));
                     }
                     else {
-                        trees.add(new Tree(new Position(x, y), "Đ"));
+                        trees.add(new Tree(new Position(x, y), "b"));
                     }
                 }
             }

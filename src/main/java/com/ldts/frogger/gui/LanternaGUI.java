@@ -126,10 +126,10 @@ public class LanternaGUI implements GUI{
     @Override
     public void drawMotorbike(Position position, String color, int direction) {
         if(direction == 1){
-            drawText(position, "ĸĹ", color);
+            drawText(position, "rs", color);
         }
         else {
-            drawText(position, "ļĽ", color);
+            drawText(position, "tu", color);
         }
     }
 
