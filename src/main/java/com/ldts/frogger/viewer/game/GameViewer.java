@@ -63,7 +63,7 @@ public class GameViewer extends Viewer<Arena> {
 
 
     public void drawPoints(GUI gui) {
-        gui.drawText(new Position(getModel().getWidth() - 10, 0), "Score:", "#FFFFFF");
+        gui.drawText(new Position(getModel().getWidth() - 10, 0), "SCORE:", "#FFFFFF");
         gui.drawText(new Position(getModel().getWidth() - 4, 0), String.valueOf(Arena.getPoints()), "#FFFF00");
 
     }

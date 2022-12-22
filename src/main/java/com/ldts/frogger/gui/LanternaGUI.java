@@ -82,14 +82,14 @@ public class LanternaGUI implements GUI{
     @Override
     public void drawFrog(Position position, int direction, String backgroundColor) {
         switch (direction) {
-            case 0 -> drawText(position, "ē", "#507436", backgroundColor);
-            case 1 -> drawText(position, "Ĕ", "#507436", backgroundColor);
-            case 2 -> drawText(position, "ĕ", "#507436", backgroundColor);
-            case 3 -> drawText(position, "Ĩ", "#507436", backgroundColor);
-            case 4 -> drawText(position, "ħ", "#507436", backgroundColor);
-            case 5 -> drawText(position, "Ħ", "#507436", backgroundColor);
-            case 6 -> drawText(position, "ĥ", "#507436", backgroundColor);
-            case 7 -> drawText(position, "Ē", "#507436", backgroundColor);
+            case 0 -> drawText(position, "d", "#507436", backgroundColor);
+            case 1 -> drawText(position, "e", "#507436", backgroundColor);
+            case 2 -> drawText(position, "f", "#507436", backgroundColor);
+            case 3 -> drawText(position, "n", "#507436", backgroundColor);
+            case 4 -> drawText(position, "m", "#507436", backgroundColor);
+            case 5 -> drawText(position, "l", "#507436", backgroundColor);
+            case 6 -> drawText(position, "k", "#507436", backgroundColor);
+            case 7 -> drawText(position, "c", "#507436", backgroundColor);
         }
     }
     @Override
