@@ -80,6 +80,8 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
  
 ### DESIGN
 
+***Nota:*** The diagrams that show the implementation of each design pattern are, of course, simplified. We are not showing all the dependencies and relationships between other classes nor all the attributes and methods of some classes because they are not relevant for the understanding of the design pattern implementation.
+
 **GENERAL STRUCTURE**
 <br>
 ![MVC](/docs/mvc.jpg)
@@ -106,6 +108,8 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 - **Implementation.** The Game has a state which is one of these four: MenuState, GameState, GameFinishedState or LeaderboardState. When the user starts the application, it is on the menu. If he selects the option to "Play", the state changes so the game starts running. If the user presses 'q' the state changes back to the menu, etc...
 - **Consequences.** This pattern minimizes conditional complexity, eliminating the need for if and switch statements in objects with different behavior.
 
+**Nota**: In the diagram above, it is subtended that the subclasses override the methods in italic of the superclass.
+
 **SOUND EFFECTS AND MUSIC MANAGING**
 <br>
 ![Singleton](/docs/singleton.jpg)
@@ -113,6 +117,15 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 - **The Pattern.** The Singleton Pattern is a pattern that ensures that only one instance of a class is created and that there is a single point of access to it.
 - **Implementation.** We implemented it using a static instance of the class that is initialized when the application starts. This instance is used to play the music and the sounds.
 - **Consequences.** We are sure that there is only one instance of the class. It is harder to unit test, though, because test frameworks are usually based on inheritance when producing mocks, so we had to use Mockito-Inline instead of regular Mockito.
+
+**TWO FUNDAMENTAL COMMANDS**
+<br>
+![Singleton](/docs/command.jpg)
+- **Problem in Context.** Most of the MoveableElement objects have a simple movement, either left or right. This way, this movement must be independent of the object's class.
+- **The Pattern.** The Command Pattern alows us to turn a request into a stand-alone object that contains all the information about the request. This way, a object is used to encapsulate all the information need to perform a desired action (in this case, MoveRight and MoveLeft classes).
+- **Implementation.** We implemented it using a Command abstract class that is extended by MoveRight and MoveLeft classes. Each controller of a specific vehicle uses a parameter of type Command in its function that moves the vehicle.
+- **Consequences.** Promotes the Single Responsibility Principle, as the command object encapsulates all the information needed to perform an action. It also makes it easier to add new commands, as we just need to create a new class that extends Command and implement the execute method. The code is also cleaner and easier to read.
+
 
 **RUNNING THE GAME**
 <br>
