@@ -107,7 +107,7 @@ public class OverallViewertest {
     @Test
     void drawPoints() {
         viewer.drawPoints(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(0, 0), "Score:", "#FFFFFF");
+        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(0, 0), "SCORE:", "#FFFFFF");
         Mockito.verify(gui, Mockito.times(1)).drawText(new Position(6, 0), "0", "#FFFF00");
     }
 

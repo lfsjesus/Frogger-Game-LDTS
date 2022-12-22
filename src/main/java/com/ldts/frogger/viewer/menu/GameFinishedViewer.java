@@ -24,7 +24,7 @@ public class GameFinishedViewer extends Viewer<GameFinished> {
         if (getModel().getState()) gui.drawText(new Position(4, 5), "Y O U  W I N!", "#000000", "#32a852");
         else gui.drawText(new Position(3, 5), "Y O U  L O S T!", "#000000", "#32a852");
 
-        gui.drawText(new Position(4, 7), String.format("%05d" , Arena.getPoints()) + " Points", "#023020", "#32a852");
+        gui.drawText(new Position(4, 7), String.format("%05d" , Arena.getPoints()) + " POINTS", "#023020", "#32a852");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
 

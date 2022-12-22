@@ -7,6 +7,6 @@ public class LavaViewer implements ElementViewer<Lava>{
 
     @Override
     public void draw(Lava element, GUI gui) {
-        gui.drawText(element.getPosition(),"Ļ","#ff6600","#ff2500");
+        gui.drawText(element.getPosition(),"o","#ff6600","#ff2500");
     }
 }

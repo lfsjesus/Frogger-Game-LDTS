@@ -56,7 +56,7 @@ public class GameViewer extends Viewer<Arena> {
     public void drawCrossline(GUI gui) {
         if (Arena.level == 5) {
             for (int x = 0; x < 20; x++) {
-                    gui.drawText(new Position(x, 1), "ľ", "#FFFFFF");
+                    gui.drawText(new Position(x, 1), "q", "#FFFFFF");
                 }
             }
     }

@@ -115,10 +115,10 @@ public class LanternaGUI implements GUI{
     @Override
     public void drawTruck(Position position, String color, int direction) {
         if(direction == 1){
-            drawText(position, "Ăă", color);
+            drawText(position, "z{", color);
         }
         else {
-            drawText(position, "Āā", color);
+            drawText(position, "|}", color);
         }
     }
 
@@ -136,29 +136,29 @@ public class LanternaGUI implements GUI{
     @Override
     public void drawVan(Position position, String color, int direction) {
         if(direction == 1){
-            drawText(position, "Ķķ", color);
+            drawText(position, "xy", color);
         }
         else {
-            drawText(position, "ģĤ", color);
+            drawText(position, "vw", color);
         }
     }
     @Override
     public void drawCar(Position position, String color, int direction) {
         if(direction == 1){
-            drawText(position, "ėĘ", color);
+            drawText(position, "gh", color);
         }
         else {
-            drawText(position, "Īī", color);
+            drawText(position, "ij", color);
         }
 
     }
     @Override
     public void drawTrain(Position position, String color, int direction){
         if(direction == 1){
-            drawText(position, "ŚśŚśŚśŚśŚśŚśŚśŜŝ", color);
+            drawText(position, "[~[~[~[~[~[~[~]%", color);
         }
         else {
-            drawText(position, "ŉŊŋŌŋŌŋŌŋŌŋŌŋŌŋŌ", color);
+            drawText(position, "()()()()()()()*+", color);
         }
 
     }

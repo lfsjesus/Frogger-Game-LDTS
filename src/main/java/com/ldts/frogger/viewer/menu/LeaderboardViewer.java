@@ -24,8 +24,8 @@ public class LeaderboardViewer extends Viewer<Leaderboard> {
         }
 
         gui.drawText(new Position(4, 3), "PTS", "#000000", "#32A852");
-        gui.drawText(new Position(10, 3), "Player", "#000000", "#32A852");
+        gui.drawText(new Position(10, 3), "PLAYER", "#000000", "#32A852");
 
-        gui.drawText(new Position(1, 18), "Press Q to return", "#000000", "#32A852");
+        gui.drawText(new Position(1, 18), "PRESS Q TO RETURN", "#000000", "#32A852");
     }
 }
