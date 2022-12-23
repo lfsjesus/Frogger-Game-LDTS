@@ -192,7 +192,7 @@ All the warnings from Error Prone were improved but 4 of them were left unchange
 ### TESTING
 
 ![](/docs/testcoverage.jpg)
-- [Mutation Testing](https://github.com/FEUP-LDTS-2022/project-l01gr04/blob/main/docs/Pitest/index.html): we excluded the classes Game, because it was not testable, and RandomArenaBuilder, that was not supposed to be tested (it was used to generate random arenas for Property Testing).
+- [Mutation Testing](https://lfsjesus.github.io/Frogger-Game-LDTS/): we excluded the classes Game, because it was not testable, and RandomArenaBuilder, that was not supposed to be tested (it was used to generate random arenas for Property Testing).
 ![Pitest](/docs/pitest.jpg)
 
 ### SELF-EVALUATION
