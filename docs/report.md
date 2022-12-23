@@ -140,7 +140,7 @@ Analysis' result: 7/10
 
 **Failed Guidelines**: 
 - Separate Concerns in Modules: some classes have many incoming calls, however this is something we can't fully solve because most of the classes pointed by BetterCodeHub are general classes that have to be used by most of the other classes (for example, class Position).
-- Keep Unit Interfaces Small: this refers to functions that have more than 2 parameters and it happens quite often but just in the controller (that requires) three parameters for the method "step". We don't consider this particularly serious because this guideline is just marked as failed because our game has many elements and, of course, many controller classes (we really need these 3 parameters in this method).
+- Keep Unit Interfaces Small: this refers to functions that have more than 2 parameters and it happens quite often but just in the controller that requires three parameters for the method "step". We don't consider this particularly serious because this guideline is just marked as failed because our game has many elements and, of course, many controller classes (we really need these 3 parameters in this method).
 - Keep Architecture Components Balanced: this guideline is marked as failed because there are more lines in the controller package and in the class Arena (from the Model). Those are the only that really cause the greatest unbalancing, but they are very important in the game and we didn't see a better way to create more folders/packages as it is already very partitioned. 
 
 
