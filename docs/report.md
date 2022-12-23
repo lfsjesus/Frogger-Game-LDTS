@@ -181,6 +181,12 @@ We have a static variable in the class Arena (points) and in the class Frog (liv
 #### Train and Rock classes are not using Command as other movable objects
 We could have not fixed some bugs in TrainController and RockController classes if we used Command because those classes had some specificities that made it difficult to use. Therefor, we decided to not use Command in those classes making it possible to fix the bugs.
 
+------
+### ERROR PRONE WARNINGS
+
+All the warnings from Error Prone were improved but 4 of them were left unchanged because they were not possible to fix, such as:
+- **Implicit use of the platform default charset which can result in differing behaviour between JVM executions [...]**: this warning is shown 3 times. It is related to the way we were reading the different files (level, leaderboard, etc). We tried to follow the suggestion but it was not working in other platforms (it was not finding the path to the file when running in Windows). We leave it as it is because it's working both in Windows and Linux.
+- **Unnecessary Parentheses in a returned switch expression**: this warning was suggesting removing the parentheses from the switch statement present in the class MusicManager (return switch (sound) { //body } --> return switch sound { //body} ). However, this is not syntactically correct.
 
 ------
 ### TESTING
