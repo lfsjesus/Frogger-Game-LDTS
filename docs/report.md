@@ -63,8 +63,8 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 
 ### IMPLEMENTED FEATURES
 
-- [X] **Menu Interface**: the application starts by showing a simple menu that is able to start the game.
-- [X] **Keyboard Control:** the keyboard inputs are received and an action is taken according the current state of the application. The used inputs are the Arrow keys and the letter 'q' to go back to the menu.
+- [X] **Menu Interface**: the application starts by showing a simple menu that is able to start the game, show the leaderboard and exit the application.
+- [X] **Keyboard Control:** the keyboard inputs are received and an action is taken according to the current state of the application. The used inputs are the Arrow keys and the letter 'q' to go back to the menu.
 - [X] **Arena:** the arena and the elements are created at the beginning of the game while reading different files that describe each level, using different characters. Example: 'W' represents the water.
 - [X] **Collisions**: collisions between the frog, cars, trains, vans, trucks, motorbikes, water, lava, limit walls, etc are detected.
 - [X] **Lives**: the frog has 3 lives, which are shown on the screen represented by three hearts.
@@ -72,7 +72,7 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 - [X] **Elements:** the elements are divided into two categories: movable and non-movable. Specific elements inherit properties from one of these two categories (parent classes).
 - [X] **Levels:** there are different levels with different environments and elements (road, forest, river, lava, etc).
 - [X] **Score:** the score increases along with the time and picking up coins increases it even more.
-- [X] **Score Farming Prevention:** if the frog stays without moving for a certain amount of time, he loses a life and his position is reseted.
+- [X] **Score Farming Prevention:** if the frog stays without moving for a certain amount of time, he loses a life.
 - [X] **Sound Effects:** there are some sound effects for the frog motion, collisions, winning, losing, etc.
 - [x] **Leaderboard:** the game keeps track of the top 10 scores and shows them on the Leaderboard menu.
 - [x] **Game Over:** the game ends when the frog loses all his lives and a specific screen is shown.
@@ -80,7 +80,7 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
  
 ### DESIGN
 
-***Nota:*** The diagrams that show the implementation of each design pattern are, of course, simplified. We are not showing all the dependencies and relationships between other classes nor all the attributes and methods of some classes because they are not relevant for the understanding of the design pattern implementation.
+***Note:*** The diagrams that show the implementation of each design pattern are, of course, simplified. We are not showing all the dependencies and relationships between other classes nor all the attributes and methods of some classes because they are not relevant for the understanding of the design pattern implementation.
 
 **GENERAL STRUCTURE**
 <br>
@@ -108,7 +108,7 @@ This project was developed by [Luís Jesus](https://github.com/lfsjesus) and [Mi
 - **Implementation.** The Game has a state which is one of these four: MenuState, GameState, GameFinishedState or LeaderboardState. When the user starts the application, it is on the menu. If he selects the option to "Play", the state changes so the game starts running. If the user presses 'q' the state changes back to the menu, etc...
 - **Consequences.** This pattern minimizes conditional complexity, eliminating the need for if and switch statements in objects with different behavior.
 
-**Nota**: In the diagram above, it is subtended that the subclasses override the methods in italic of the superclass.
+**Note**: In the diagram above, it is subtended that the subclasses override the methods in italic of the superclass.
 
 **SOUND EFFECTS AND MUSIC MANAGING**
 <br>
