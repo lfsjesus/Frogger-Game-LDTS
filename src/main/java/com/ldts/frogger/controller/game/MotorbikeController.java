@@ -42,6 +42,7 @@ public class MotorbikeController extends GameController {
             this.lastMovement = time;
         }
     }
+
     private void moveMotorbike(Motorbike motorbike, Command command) {
         motorbike.setPosition(command.execute(motorbike.getPosition(), getModel()));
     }

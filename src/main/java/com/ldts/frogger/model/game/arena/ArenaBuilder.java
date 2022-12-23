@@ -28,9 +28,13 @@ public abstract class ArenaBuilder {
     }
 
     protected abstract Frog createFrog();
+
     protected abstract List<Car> createCars();
+
     protected abstract List<Truck> createTrucks();
+
     protected abstract List<Van> createVans();
+
     protected abstract List<Motorbike> createMotorbikes();
 
     protected abstract List<Sidewalk> createSidewalks();
@@ -38,17 +42,22 @@ public abstract class ArenaBuilder {
     protected abstract List<Grass> createGrasses();
 
     protected abstract List<Tree> createTrees();
+
     protected abstract List<Water> createWaters();
+
     protected abstract List<Lava> createLavas();
+
     protected abstract List<BigLog> createBigLogs();
+
     protected abstract List<SmallLog> createSmallLogs();
 
     protected abstract List<Train> createTrains();
+
     protected abstract List<Rock> createRocks();
 
     protected abstract int getWidth();
-    protected abstract int getHeight();
 
+    protected abstract int getHeight();
 
 
 }

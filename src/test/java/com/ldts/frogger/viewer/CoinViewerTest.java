@@ -17,7 +17,7 @@ public class CoinViewerTest {
 
     @BeforeEach
     void setUp() {
-        coin = new Coin(new Position(1,1), "#000000");
+        coin = new Coin(new Position(1, 1), "#000000");
         viewer = new CoinViewer();
         gui = Mockito.mock(GUI.class);
     }

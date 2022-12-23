@@ -12,7 +12,7 @@ import com.ldts.frogger.model.game.elements.SmallLog;
 
 import java.io.IOException;
 
-public class SmallLogController extends GameController{
+public class SmallLogController extends GameController {
     private long lastMovement;
 
     public SmallLogController(Arena arena) {
@@ -24,25 +24,24 @@ public class SmallLogController extends GameController{
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (time - lastMovement > 300) {
             for (SmallLog smallLog : getModel().getSmallLogs()) {
-                if(smallLog.getDirection() == 1){
+                if (smallLog.getDirection() == 1) {
                     moveSmallLog(smallLog, new MoveRight());
-                }
-                else {
+                } else {
                     moveSmallLog(smallLog, new MoveLeft());
                 }
             }
             this.lastMovement = time;
         }
     }
+
     private void moveSmallLog(SmallLog smallLog, Command command) {
         Position oldPosition = smallLog.getPosition();
-        Position newPosition = command.execute(oldPosition,getModel());
+        Position newPosition = command.execute(oldPosition, getModel());
         Frog frog = getModel().getFrog();
 
-        if(frog.getPosition().equals(oldPosition)){
+        if (frog.getPosition().equals(oldPosition)) {
             frog.setPosition(newPosition);
-        }
-        else if(frog.getPosition().equals(oldPosition.getRight())){
+        } else if (frog.getPosition().equals(oldPosition.getRight())) {
             frog.setPosition(newPosition.getRight());
         }
 

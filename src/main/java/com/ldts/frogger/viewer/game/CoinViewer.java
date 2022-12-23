@@ -7,6 +7,6 @@ public class CoinViewer implements ElementViewer<Coin> {
 
     @Override
     public void draw(Coin coin, GUI gui) {
-        gui.drawText(coin.getPosition(),"p", "#daac34", coin.getBackGroundColor());
+        gui.drawText(coin.getPosition(), "p", "#daac34", coin.getBackGroundColor());
     }
 }

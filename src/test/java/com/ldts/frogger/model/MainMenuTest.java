@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MainMenuTest {
     private Menu menu;
+
     @BeforeEach
     public void setUp() {
         menu = new Menu();

@@ -13,9 +13,9 @@ public class LeaderboardViewer extends Viewer<Leaderboard> {
     @Override
     public void drawElements(GUI gui) {
 
-        for(int i = 0; i < 20; i++){
-            for(int j = 0; j< 20; j++){
-                gui.drawBackground(new Position(i,j),"#32a852");
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 20; j++) {
+                gui.drawBackground(new Position(i, j), "#32a852");
             }
         }
 

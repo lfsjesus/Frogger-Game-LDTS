@@ -14,8 +14,7 @@ import org.mockito.Mockito;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LeaderboardControllerTest {
     private Game game;
@@ -23,7 +22,7 @@ public class LeaderboardControllerTest {
     private LeaderboardController controller;
 
     @BeforeEach
-    void setUp() throws IOException{
+    void setUp() throws IOException {
         game = new Game(Mockito.mock(LanternaGUI.class));
         lb = Mockito.mock(Leaderboard.class);
         State state = Mockito.mock(LeaderboardState.class);
@@ -39,7 +38,7 @@ public class LeaderboardControllerTest {
     }
 
     @Test
-    void checkStateNotNull()  {
+    void checkStateNotNull() {
         assertTrue(game.getState() instanceof LeaderboardState);
     }
 

@@ -52,8 +52,8 @@ public class OverallViewertest {
     void drawCars() throws IOException {
         viewer.draw(gui);
 
-        Mockito.verify(gui, Mockito.times(1)).drawCar(new Position(4, 5),"#ffffff",0);
-        Mockito.verify(gui, Mockito.times(1)).drawCar(new Position(5, 6),"#000000", 1);
+        Mockito.verify(gui, Mockito.times(1)).drawCar(new Position(4, 5), "#ffffff", 0);
+        Mockito.verify(gui, Mockito.times(1)).drawCar(new Position(5, 6), "#000000", 1);
         Mockito.verify(gui, Mockito.times(2)).drawCar(Mockito.any(Position.class), Mockito.anyString(), Mockito.anyInt());
     }
 
@@ -61,7 +61,7 @@ public class OverallViewertest {
     void drawVans() throws IOException {
         viewer.draw(gui);
 
-        Mockito.verify(gui, Mockito.times(2)).drawVan(new Position(10, 7),"#ffffff",0);
+        Mockito.verify(gui, Mockito.times(2)).drawVan(new Position(10, 7), "#ffffff", 0);
         Mockito.verify(gui, Mockito.times(2)).drawVan(Mockito.any(Position.class), Mockito.anyString(), Mockito.anyInt());
     }
 
@@ -69,7 +69,7 @@ public class OverallViewertest {
     void drawTrucks() throws IOException {
         viewer.draw(gui);
 
-        Mockito.verify(gui, Mockito.times(1)).drawTruck(new Position(9, 6),"#ffffff",1);
+        Mockito.verify(gui, Mockito.times(1)).drawTruck(new Position(9, 6), "#ffffff", 1);
         Mockito.verify(gui, Mockito.times(1)).drawTruck(Mockito.any(Position.class), Mockito.anyString(), Mockito.anyInt());
     }
 
@@ -77,7 +77,7 @@ public class OverallViewertest {
     void drawMotorbikes() throws IOException {
         viewer.draw(gui);
 
-        Mockito.verify(gui, Mockito.times(1)).drawMotorbike(new Position(1, 2),"#ffffff",0);
+        Mockito.verify(gui, Mockito.times(1)).drawMotorbike(new Position(1, 2), "#ffffff", 0);
         Mockito.verify(gui, Mockito.times(1)).drawMotorbike(Mockito.any(Position.class), Mockito.anyString(), Mockito.anyInt());
     }
 
@@ -100,7 +100,7 @@ public class OverallViewertest {
         viewer.drawLives(gui);
         Mockito.verify(gui, Mockito.times(1)).drawText(new Position(0, 0), "LIVES:", "#FFFFFF");
         for (int i = 0; i < 3; i++) {
-            Mockito.verify(gui, Mockito.times(1)).drawText(new Position(i+6,0), "$", "#ff0000");
+            Mockito.verify(gui, Mockito.times(1)).drawText(new Position(i + 6, 0), "$", "#ff0000");
         }
 
     }

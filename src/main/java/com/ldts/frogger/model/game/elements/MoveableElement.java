@@ -2,12 +2,14 @@ package com.ldts.frogger.model.game.elements;
 
 import com.ldts.frogger.model.Position;
 
-public class MoveableElement extends Element{
+public class MoveableElement extends Element {
     private int direction;
     private String color;
+
     public MoveableElement(int x, int y) {
         super(x, y);
     }
+
     public MoveableElement(Position position, int direction, String color) {
         super(position.x(), position.y());
         this.direction = direction;

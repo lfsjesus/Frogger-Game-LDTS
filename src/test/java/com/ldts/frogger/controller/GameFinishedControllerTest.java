@@ -18,7 +18,6 @@ import org.mockito.Mockito;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GameFinishedControllerTest {
     private Game game;
@@ -39,8 +38,8 @@ public class GameFinishedControllerTest {
 
     @Test
     void checkArrowDown() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             controller1.step(game, GUI.ACTION.DOWN, 500);
             assertEquals(controller1.getModel().getEntry(controller1.getModel().getCurrentEntry()), controller1.getModel().getEntry(1));
@@ -51,8 +50,8 @@ public class GameFinishedControllerTest {
 
     @Test
     void checkArrowUp() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             controller1.step(game, GUI.ACTION.DOWN, 500);
             controller2.step(game, GUI.ACTION.DOWN, 500);
@@ -67,8 +66,8 @@ public class GameFinishedControllerTest {
 
     @Test
     void checkIsSelectedExit() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             controller1.step(game, GUI.ACTION.DOWN, 500);
             controller1.step(game, GUI.ACTION.DOWN, 500);
@@ -85,8 +84,8 @@ public class GameFinishedControllerTest {
     void checkGameStart() throws IOException {
         Arena.setPoints(2);
         Frog.setLives(2);
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             controller1.step(game, GUI.ACTION.SELECT, 500);
             assertTrue(game.getState() instanceof GameState);
@@ -97,8 +96,8 @@ public class GameFinishedControllerTest {
 
     @Test
     void checkQuit() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             controller1.step(game, GUI.ACTION.QUIT, 500);
             assertTrue(game.getState() instanceof MenuState);

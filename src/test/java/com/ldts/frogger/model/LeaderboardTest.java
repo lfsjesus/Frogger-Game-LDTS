@@ -3,7 +3,6 @@ package com.ldts.frogger.model;
 import com.ldts.frogger.model.menu.Leaderboard;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ public class LeaderboardTest {
     }
 
     @Test
-    public void addRecord() throws IOException{
+    public void addRecord() throws IOException {
         List<String> list = leaderboard.readLeaderboard();
         leaderboard.addRecord(200, "test");
         List<String> updatedList = leaderboard.readLeaderboard();
@@ -43,7 +42,7 @@ public class LeaderboardTest {
     }
 
     @Test
-    public void getEntry() throws IOException{
+    public void getEntry() throws IOException {
         List<String> list = leaderboard.readLeaderboard();
         leaderboard.addRecord(0, "zzz");
         List<String> updatedList = leaderboard.readLeaderboard();
@@ -53,7 +52,7 @@ public class LeaderboardTest {
     }
 
     @Test
-    public void getLines() throws IOException{
+    public void getLines() throws IOException {
         List<String> list = leaderboard.readLeaderboard();
         List<String> updatedList = List.of("00000 test");
         leaderboard.setEntries(updatedList);
@@ -64,7 +63,7 @@ public class LeaderboardTest {
     }
 
     @Test
-    public void order() throws IOException{
+    public void order() throws IOException {
         List<String> list = leaderboard.readLeaderboard();
         leaderboard.setEntries(new ArrayList<>());
         leaderboard.writeToFile();

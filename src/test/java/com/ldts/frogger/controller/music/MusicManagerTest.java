@@ -1,6 +1,5 @@
 package com.ldts.frogger.controller.music;
 
-import com.ldts.frogger.Game;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -150,6 +149,7 @@ public class MusicManagerTest {
         boolean playing = musicManagerTest.isPlaying(Sounds.WIN);
         assertFalse(playing);
     }
+
     @Test
     void stopAll() {
         musicManagerTest.stopAll();

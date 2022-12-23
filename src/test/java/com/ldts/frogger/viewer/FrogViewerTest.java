@@ -1,7 +1,6 @@
 package com.ldts.frogger.viewer;
 
 import com.ldts.frogger.gui.GUI;
-import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.elements.Frog;
 import com.ldts.frogger.viewer.game.FrogViewer;
 import org.junit.jupiter.api.BeforeEach;

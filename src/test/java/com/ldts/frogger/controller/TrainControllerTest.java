@@ -3,12 +3,12 @@ package com.ldts.frogger.controller;
 import com.ldts.frogger.Game;
 import com.ldts.frogger.controller.game.FrogController;
 import com.ldts.frogger.controller.game.TrainController;
-import com.ldts.frogger.controller.game.TruckController;
 import com.ldts.frogger.controller.music.MusicManager;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
-import com.ldts.frogger.model.game.elements.*;
+import com.ldts.frogger.model.game.elements.Frog;
+import com.ldts.frogger.model.game.elements.Train;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
@@ -39,8 +39,8 @@ public class TrainControllerTest {
 
     @Test
     void moveTrains() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Train t1 = new Train(new Position(5, 5), 1);
             Train t2 = new Train(new Position(9, 6), 0);
@@ -53,8 +53,8 @@ public class TrainControllerTest {
 
     @Test
     void moveTrainsAgainstWall() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Train t1 = new Train(new Position(19, 5), 1);
             Train t2 = new Train(new Position(-17, 6), 0);
@@ -67,8 +67,8 @@ public class TrainControllerTest {
 
     @Test
     void checkCrashWithFrogNotMoving() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Train t = new Train(new Position(4, 5), 1);
             arena.setTrains(List.of(t));
@@ -79,8 +79,8 @@ public class TrainControllerTest {
 
     @Test
     void checkCrashWithFrogMovingRight() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Train t = new Train(new Position(6, 5), 1);
             arena.setTrains(List.of(t));
@@ -90,10 +90,11 @@ public class TrainControllerTest {
             assertTrue(Frog.getLives() < 3);
         }
     }
+
     @Test
     void checkCrashWithFrogMovingLeft() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Train t = new Train(new Position(2, 5), 1);
             arena.setTrains(List.of(t));
@@ -106,8 +107,8 @@ public class TrainControllerTest {
 
     @Test
     void checkCrashWithFrogMovingUp() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Train t = new Train(new Position(3, 3), 1);
             arena.setTrains(List.of(t));
@@ -122,8 +123,8 @@ public class TrainControllerTest {
 
     @Test
     void checkCrashWithFrogMovingDown() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Train t = new Train(new Position(5, 6), 1);
             arena.setTrains(List.of(t));
@@ -137,8 +138,8 @@ public class TrainControllerTest {
 
     @Test
     void frogDidNotCrash() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Train t = new Train(new Position(3, 6), 1);
             arena.setTrains(List.of(t));

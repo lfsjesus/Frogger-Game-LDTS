@@ -40,6 +40,7 @@ public class MusicManager {
     public void setCrash(Music crash) {
         this.crash = crash;
     }
+
     public void setWin(Music win) {
         this.win = win;
     }
@@ -49,9 +50,9 @@ public class MusicManager {
     }
 
     public void start(Sounds sound) {
-        switch(sound) {
+        switch (sound) {
             case SOUNDTRACK -> backgroundMusic.startLoop();
-            case FROG ->  frog.start();
+            case FROG -> frog.start();
             case COIN -> coin.start();
             case CRASH -> crash.start();
             case GAMEOVER -> gameOver.start();
@@ -60,7 +61,7 @@ public class MusicManager {
     }
 
     public void stop(Sounds sound) {
-        switch(sound) {
+        switch (sound) {
             case SOUNDTRACK -> backgroundMusic.stop();
             case FROG -> frog.stop();
             case COIN -> coin.stop();

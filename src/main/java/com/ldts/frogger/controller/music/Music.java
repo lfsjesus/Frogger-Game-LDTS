@@ -1,4 +1,5 @@
 package com.ldts.frogger.controller.music;
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -13,7 +14,9 @@ public class Music {
         this.sound = loadSound(sound);
     }
 
-    public boolean isPlaying(){return sound.isRunning();}
+    public boolean isPlaying() {
+        return sound.isRunning();
+    }
 
     public Clip getSound() {
         return sound;
@@ -24,10 +27,10 @@ public class Music {
     }
 
 
-    private Clip loadSound(String sound) throws NullPointerException{
+    private Clip loadSound(String sound) throws NullPointerException {
         try {
             String rootPath = new File(System.getProperty("user.dir")).getPath();
-            File musicFile = new File(rootPath+sound);
+            File musicFile = new File(rootPath + sound);
             AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicFile);
             Clip musicClip = AudioSystem.getClip();
             musicClip.open(audioInput);
@@ -35,7 +38,7 @@ public class Music {
             gainControl.setValue(-15.0f);
             return musicClip;
         } catch (Exception e) {
-            System.out.println("Musica " + sound );
+            System.out.println("Musica " + sound);
         }
         return null;
     }
@@ -53,7 +56,7 @@ public class Music {
         sleep();
     }
 
-    private void sleep(){
+    private void sleep() {
         try {
             Thread.sleep(5);
         } catch (InterruptedException e) {
@@ -61,5 +64,7 @@ public class Music {
         }
     }
 
-    public void stop() {sound.stop();}
+    public void stop() {
+        sound.stop();
+    }
 }

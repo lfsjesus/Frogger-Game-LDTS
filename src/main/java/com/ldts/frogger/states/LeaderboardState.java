@@ -6,7 +6,7 @@ import com.ldts.frogger.model.menu.Leaderboard;
 import com.ldts.frogger.viewer.Viewer;
 import com.ldts.frogger.viewer.menu.LeaderboardViewer;
 
-public class LeaderboardState extends State<Leaderboard>{
+public class LeaderboardState extends State<Leaderboard> {
 
     public LeaderboardState(Leaderboard lb) {
         super(lb);

@@ -2,13 +2,13 @@ package com.ldts.frogger.controller;
 
 import com.ldts.frogger.Game;
 import com.ldts.frogger.controller.game.FrogController;
-import com.ldts.frogger.controller.game.TruckController;
 import com.ldts.frogger.controller.game.VanController;
 import com.ldts.frogger.controller.music.MusicManager;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
-import com.ldts.frogger.model.game.elements.*;
+import com.ldts.frogger.model.game.elements.Frog;
+import com.ldts.frogger.model.game.elements.Van;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
@@ -39,8 +39,8 @@ public class VanControllerTest {
 
     @Test
     void moveVans() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Van v1 = new Van(new Position(5, 5), 1);
             Van v2 = new Van(new Position(9, 6), 0);
@@ -53,8 +53,8 @@ public class VanControllerTest {
 
     @Test
     void moveVansAgainstWall() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Van v1 = new Van(new Position(9, 5), 1);
             Van v2 = new Van(new Position(-1, 6), 0);
@@ -67,8 +67,8 @@ public class VanControllerTest {
 
     @Test
     void checkCrashWithFrogNotMoving() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Van v = new Van(new Position(4, 5), 1);
             arena.setVans(List.of(v));
@@ -79,8 +79,8 @@ public class VanControllerTest {
 
     @Test
     void checkCrashWithFrogMovingRight() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Van v = new Van(new Position(6, 5), 1);
             arena.setVans(List.of(v));
@@ -90,10 +90,11 @@ public class VanControllerTest {
             assertTrue(Frog.getLives() < 3);
         }
     }
+
     @Test
     void checkCrashWithFrogMovingLeft() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Van v = new Van(new Position(2, 5), 1);
             arena.setVans(List.of(v));
@@ -106,8 +107,8 @@ public class VanControllerTest {
 
     @Test
     void checkCrashWithFrogMovingUp() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Van v = new Van(new Position(3, 4), 1);
             arena.setVans(List.of(v));
@@ -120,8 +121,8 @@ public class VanControllerTest {
 
     @Test
     void checkCrashWithFrogMovingDown() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Van v = new Van(new Position(3, 6), 1);
             arena.setVans(List.of(v));
@@ -134,8 +135,8 @@ public class VanControllerTest {
 
     @Test
     void frogDidNotCrash() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Van v = new Van(new Position(3, 6), 1);
             arena.setVans(List.of(v));

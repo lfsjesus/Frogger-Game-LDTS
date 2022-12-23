@@ -16,6 +16,6 @@ public class LeaderboardController extends Controller<Leaderboard> {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (action == GUI.ACTION.QUIT)  game.setState(new MenuState(new Menu()));
+        if (action == GUI.ACTION.QUIT) game.setState(new MenuState(new Menu()));
     }
 }

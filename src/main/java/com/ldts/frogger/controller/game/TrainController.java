@@ -9,16 +9,17 @@ import com.ldts.frogger.model.game.elements.Train;
 
 import java.io.IOException;
 
-public class TrainController extends GameController{
+public class TrainController extends GameController {
     private long lastMovement;
 
     public TrainController(Arena arena) {
         super(arena);
         this.lastMovement = 0;
     }
-    public void checkCrash(Train train){
+
+    public void checkCrash(Train train) {
         Frog frog = getModel().getFrog();
-        if (frog.getPosition().greaterOrEqual(train.getPosition()) && frog.getPosition().lessOrEqual(train.getPosition().add(new Position(15,0)))){
+        if (frog.getPosition().greaterOrEqual(train.getPosition()) && frog.getPosition().lessOrEqual(train.getPosition().add(new Position(15, 0)))) {
             frog.decreaseLives();
             frog.resetPosition();
         }
@@ -26,8 +27,8 @@ public class TrainController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if(time - lastMovement > 100){
-            for(Train train : getModel().getTrains()){
+        if (time - lastMovement > 100) {
+            for (Train train : getModel().getTrains()) {
                 checkCrash(train);
                 moveTrain(train);
                 checkCrash(train);
@@ -35,18 +36,16 @@ public class TrainController extends GameController{
             this.lastMovement = time;
         }
     }
+
     private void moveTrain(Train train) {
         if (train.getDirection() == 1) {
-            if(train.getPosition().x() == getModel().getWidth() - 1){
-                train.setPosition(new Position(-30,train.getPosition().y()));
-            }
-            else train.setPosition(train.getPosition().getRight());
-        }
-        else if (train.getDirection() == 0) {
-            if(train.getPosition().x() == -17){
-                train.setPosition(new Position(getModel().getWidth() + 10,train.getPosition().y()));
-            }
-            else train.setPosition(train.getPosition().getLeft());
+            if (train.getPosition().x() == getModel().getWidth() - 1) {
+                train.setPosition(new Position(-30, train.getPosition().y()));
+            } else train.setPosition(train.getPosition().getRight());
+        } else if (train.getDirection() == 0) {
+            if (train.getPosition().x() == -17) {
+                train.setPosition(new Position(getModel().getWidth() + 10, train.getPosition().y()));
+            } else train.setPosition(train.getPosition().getLeft());
         }
     }
 }

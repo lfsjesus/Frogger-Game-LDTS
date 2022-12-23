@@ -15,7 +15,7 @@ public class VanViewerTest {
 
     @BeforeEach
     void setUp() {
-        van = new Van(new Position(10,10),1);
+        van = new Van(new Position(10, 10), 1);
         viewer = new VanViewer();
         gui = Mockito.mock(GUI.class);
     }

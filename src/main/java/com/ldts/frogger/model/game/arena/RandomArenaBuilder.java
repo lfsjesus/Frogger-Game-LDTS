@@ -34,7 +34,7 @@ public class RandomArenaBuilder extends ArenaBuilder {
         this.width = width;
         this.height = height;
         this.numberOfCars = rng.nextInt(10) + 1;
-        this.numberOfTrucks =  rng.nextInt(10) + 1;
+        this.numberOfTrucks = rng.nextInt(10) + 1;
         this.numberOfMotorbikes = rng.nextInt(10) + 1;
         this.numberOfVans = rng.nextInt(10) + 1;
         this.numberOfWaters = rng.nextInt(10) + 1;
@@ -64,6 +64,7 @@ public class RandomArenaBuilder extends ArenaBuilder {
 
         return cars;
     }
+
     @Override
     protected List<Truck> createTrucks() {
         List<Truck> trucks = new ArrayList<>();
@@ -73,6 +74,7 @@ public class RandomArenaBuilder extends ArenaBuilder {
 
         return trucks;
     }
+
     @Override
     protected List<Van> createVans() {
         List<Van> vans = new ArrayList<>();
@@ -82,8 +84,9 @@ public class RandomArenaBuilder extends ArenaBuilder {
 
         return vans;
     }
+
     @Override
-    protected List<Train> createTrains(){
+    protected List<Train> createTrains() {
         List<Train> trains = new ArrayList<>();
 
         while (trains.size() < numberOfTrains)
@@ -91,6 +94,7 @@ public class RandomArenaBuilder extends ArenaBuilder {
 
         return trains;
     }
+
     @Override
     protected List<Motorbike> createMotorbikes() {
         List<Motorbike> motorbikes = new ArrayList<>();
@@ -100,6 +104,7 @@ public class RandomArenaBuilder extends ArenaBuilder {
 
         return motorbikes;
     }
+
     @Override
     protected List<Sidewalk> createSidewalks() {
         List<Sidewalk> sidewalks = new ArrayList<>();
@@ -139,8 +144,9 @@ public class RandomArenaBuilder extends ArenaBuilder {
 
         return waters;
     }
+
     @Override
-    protected List<Lava> createLavas(){
+    protected List<Lava> createLavas() {
         List<Lava> lavas = new ArrayList<>();
 
         while (lavas.size() < numberOfLavas)
@@ -182,7 +188,7 @@ public class RandomArenaBuilder extends ArenaBuilder {
 
     @Override
     protected Frog createFrog() {
-        return new Frog(width / 2 - 1, height -2);
+        return new Frog(width / 2 - 1, height - 2);
     }
 
 

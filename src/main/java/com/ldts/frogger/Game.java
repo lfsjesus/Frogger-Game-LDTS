@@ -1,14 +1,15 @@
 package com.ldts.frogger;
 
 import com.ldts.frogger.gui.LanternaGUI;
-import com.ldts.frogger.states.MenuState;
 import com.ldts.frogger.model.menu.Menu;
+import com.ldts.frogger.states.MenuState;
 import com.ldts.frogger.states.State;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.logging.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Game {
     private final LanternaGUI gui;

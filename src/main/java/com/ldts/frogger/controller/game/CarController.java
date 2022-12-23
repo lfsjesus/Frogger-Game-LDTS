@@ -18,7 +18,8 @@ public class CarController extends GameController {
         super(arena);
         this.lastMovement = 0;
     }
-    public void checkCrash(Car car){
+
+    public void checkCrash(Car car) {
         Frog frog = getModel().getFrog();
         if (frog.getPosition().equals(car.getPosition()) || frog.getPosition().equals(car.getPosition().getRight())) {
             getModel().getFrog().decreaseLives();
@@ -31,10 +32,9 @@ public class CarController extends GameController {
         if (time - lastMovement > 200) {
             for (Car car : getModel().getCars()) {
                 checkCrash(car);
-                if(car.getDirection() == 1){
+                if (car.getDirection() == 1) {
                     moveCar(car, new MoveRight());
-                }
-                else {
+                } else {
                     moveCar(car, new MoveLeft());
                 }
                 checkCrash(car);
@@ -42,8 +42,9 @@ public class CarController extends GameController {
             this.lastMovement = time;
         }
     }
+
     private void moveCar(Car car, Command command) {
-        car.setPosition(command.execute(car.getPosition(),getModel()));
+        car.setPosition(command.execute(car.getPosition(), getModel()));
     }
 
 }

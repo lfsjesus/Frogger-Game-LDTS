@@ -3,7 +3,6 @@ package com.ldts.frogger.controller;
 import com.ldts.frogger.Game;
 import com.ldts.frogger.controller.game.ArenaController;
 import com.ldts.frogger.controller.music.MusicManager;
-import com.ldts.frogger.controller.music.Sounds;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.gui.LanternaGUI;
 import com.ldts.frogger.model.Position;
@@ -12,7 +11,6 @@ import com.ldts.frogger.model.game.arena.RandomArenaBuilder;
 import com.ldts.frogger.model.game.elements.Frog;
 import com.ldts.frogger.states.GameFinishedState;
 import com.ldts.frogger.states.GameState;
-import com.ldts.frogger.states.MenuState;
 import net.jqwik.api.*;
 import net.jqwik.api.constraints.IntRange;
 import org.junit.jupiter.api.Test;
@@ -34,8 +32,8 @@ public class ArenaControllerTest {
         ArenaController controller = new ArenaController(arena);
         Game game = new Game(Mockito.mock(LanternaGUI.class));
 
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             for (GUI.ACTION action : actions) {
                 if (controller.getModel().getFrog().getPosition().y() == 2)
@@ -56,8 +54,8 @@ public class ArenaControllerTest {
 
     @Test
     void endOfGame() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Game game = new Game(Mockito.mock(LanternaGUI.class));
             Arena arena = new Arena(10, 10);
@@ -67,14 +65,14 @@ public class ArenaControllerTest {
             Arena.setLevel(5);
             ArenaController controller = new ArenaController(arena);
             controller.step(game, GUI.ACTION.UP, 100);
-            assertTrue (game.getState() instanceof GameFinishedState);
+            assertTrue(game.getState() instanceof GameFinishedState);
         }
     }
 
     @Test
     void endOfLevel() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             int lev = Arena.getLevel();
             Game game = new Game(Mockito.mock(LanternaGUI.class));
@@ -91,8 +89,8 @@ public class ArenaControllerTest {
 
     @Test
     void frogDied() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Game game = new Game(Mockito.mock(LanternaGUI.class));
             Arena arena = new Arena(10, 10);
@@ -103,14 +101,14 @@ public class ArenaControllerTest {
             ArenaController controller = new ArenaController(arena);
             controller.step(game, GUI.ACTION.UP, 100);
             assertEquals(1, Arena.getLevel());
-            assertTrue (game.getState() instanceof GameFinishedState);
+            assertTrue(game.getState() instanceof GameFinishedState);
         }
     }
 
     @Test
     void gameContinuesNormally() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Game game = new Game(Mockito.mock(LanternaGUI.class));
             Arena arena = new Arena(10, 10);
@@ -122,7 +120,7 @@ public class ArenaControllerTest {
             ArenaController controller = new ArenaController(arena);
             controller.step(game, GUI.ACTION.UP, 100);
             assertEquals(1, Arena.getLevel());
-            assertTrue (game.getState() instanceof GameState);
+            assertTrue(game.getState() instanceof GameState);
         }
     }
 }

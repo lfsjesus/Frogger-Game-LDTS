@@ -13,7 +13,6 @@ import com.ldts.frogger.model.menu.Menu;
 import com.ldts.frogger.states.GameState;
 import com.ldts.frogger.states.MenuState;
 
-
 import java.io.IOException;
 import java.util.Locale;
 import java.util.logging.Level;
@@ -50,7 +49,8 @@ public class GameFinishedController extends Controller<GameFinished> {
                     Frog.setLives(3);
                 }
             }
-            default -> {}
+            default -> {
+            }
         }
     }
 }

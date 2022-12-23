@@ -5,12 +5,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Leaderboard extends Menu{
+public class Leaderboard extends Menu {
     private List<String> lines;
 
-    public Leaderboard() throws IOException{
+    public Leaderboard() throws IOException {
         this.lines = readLeaderboard();
     }
+
     public List<String> readLeaderboard() throws IOException {
         List<String> lead = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader("src/main/resources/leaderboard.txt"));
@@ -23,7 +24,7 @@ public class Leaderboard extends Menu{
     }
 
     public void addRecord(int score, String name) throws IOException {
-        lines.add(String.format("%05d" , score) + " " + name);
+        lines.add(String.format("%05d", score) + " " + name);
         lines.sort(Collections.reverseOrder());
         writeToFile();
     }

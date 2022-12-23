@@ -22,6 +22,6 @@ public class GrassViewerTest {
     @Test
     void drawElement() {
         viewer.draw(grass, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawText(grass.getPosition(),  " ","#488f17","#41a000");
+        Mockito.verify(gui, Mockito.times(1)).drawText(grass.getPosition(), " ", "#488f17", "#41a000");
     }
 }

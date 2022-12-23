@@ -1,10 +1,12 @@
 package com.ldts.frogger.gui;
 
 import com.ldts.frogger.model.Position;
+
 import java.io.IOException;
 
 public interface GUI {
     ACTION getNextAction() throws IOException;
+
     void drawFrog(Position position, int direction, String backgroundColor);
 
     void drawBackground(Position position, String color);

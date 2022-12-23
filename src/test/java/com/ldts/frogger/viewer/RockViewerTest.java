@@ -22,6 +22,6 @@ public class RockViewerTest {
     @Test
     void drawElement() {
         viewer.draw(rock, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawText(rock.getPosition(), "@","#4e535a","#2d2d36");
+        Mockito.verify(gui, Mockito.times(1)).drawText(rock.getPosition(), "@", "#4e535a", "#2d2d36");
     }
 }

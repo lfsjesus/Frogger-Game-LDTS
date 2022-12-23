@@ -15,7 +15,7 @@ public class TruckViewerTest {
 
     @BeforeEach
     void setUp() {
-        truck = new Truck(new Position(10,10),1);
+        truck = new Truck(new Position(10, 10), 1);
         viewer = new TruckViewer();
         gui = Mockito.mock(GUI.class);
     }

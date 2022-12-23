@@ -7,7 +7,8 @@ import com.ldts.frogger.controller.music.MusicManager;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
-import com.ldts.frogger.model.game.elements.*;
+import com.ldts.frogger.model.game.elements.Car;
+import com.ldts.frogger.model.game.elements.Frog;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
@@ -17,7 +18,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CarControllerTest {
     private CarController controller;
@@ -38,8 +40,8 @@ public class CarControllerTest {
 
     @Test
     void moveCars() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Car car1 = new Car(new Position(5, 5), 1);
             Car car2 = new Car(new Position(9, 6), 0);
@@ -52,8 +54,8 @@ public class CarControllerTest {
 
     @Test
     void moveCarAgainstWall() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Car car1 = new Car(new Position(9, 5), 1);
             Car car2 = new Car(new Position(-1, 5), 0);
@@ -66,8 +68,8 @@ public class CarControllerTest {
 
     @Test
     void checkCrashWithFrogNotMoving() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Car car = new Car(new Position(4, 5), 1);
             arena.setCars(List.of(car));
@@ -78,8 +80,8 @@ public class CarControllerTest {
 
     @Test
     void checkCrashWithFrogMovingRight() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Car car = new Car(new Position(6, 5), 1);
             arena.setCars(List.of(car));
@@ -89,10 +91,11 @@ public class CarControllerTest {
             assertTrue(Frog.getLives() < 3);
         }
     }
+
     @Test
     void checkCrashWithFrogMovingLeft() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Car car = new Car(new Position(2, 5), 1);
             arena.setCars(List.of(car));
@@ -105,8 +108,8 @@ public class CarControllerTest {
 
     @Test
     void checkCrashWithFrogMovingUp() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Car car = new Car(new Position(3, 4), 1);
             arena.setCars(List.of(car));
@@ -119,8 +122,8 @@ public class CarControllerTest {
 
     @Test
     void checkCrashWithFrogMovingDown() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Car car = new Car(new Position(3, 6), 1);
             arena.setCars(List.of(car));
@@ -133,8 +136,8 @@ public class CarControllerTest {
 
     @Test
     void checkFrogDidNotCrash() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             Car car = new Car(new Position(2, 6), 1);
             arena.setCars(List.of(car));

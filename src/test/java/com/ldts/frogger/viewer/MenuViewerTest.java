@@ -2,13 +2,10 @@ package com.ldts.frogger.viewer;
 
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
-import com.ldts.frogger.model.game.elements.Car;
 import com.ldts.frogger.model.menu.Menu;
-import com.ldts.frogger.viewer.game.CarViewer;
 import com.ldts.frogger.viewer.menu.MenuViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 public class MenuViewerTest {
@@ -26,7 +23,7 @@ public class MenuViewerTest {
     @Test
     void drawMenuBorder() {
         viewer.drawMenuBorder(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(3,2),"&","#47ed74", "#000000");
+        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(3, 2), "&", "#47ed74", "#000000");
     }
 
     @Test

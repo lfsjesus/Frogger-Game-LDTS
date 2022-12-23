@@ -8,9 +8,9 @@ public class MoveRight extends Command {
 
     @Override
     public Position execute(Position position, Arena arena) {
-        if(position.x() == arena.getWidth() - 1){
-            return new Position(-1,position.y());
+        if (position.x() == arena.getWidth() - 1) {
+            return new Position(-1, position.y());
         }
-       return position.getRight();
+        return position.getRight();
     }
 }

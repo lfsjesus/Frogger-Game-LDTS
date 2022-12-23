@@ -11,14 +11,15 @@ import com.ldts.frogger.model.game.elements.Van;
 
 import java.io.IOException;
 
-public class VanController extends GameController{
+public class VanController extends GameController {
     private long lastMovement;
 
     public VanController(Arena arena) {
         super(arena);
         this.lastMovement = 0;
     }
-    public void checkCrash(Van van){
+
+    public void checkCrash(Van van) {
         Frog frog = getModel().getFrog();
         if (frog.getPosition().equals(van.getPosition()) || frog.getPosition().equals(van.getPosition().getRight())) {
             frog.decreaseLives();
@@ -31,10 +32,9 @@ public class VanController extends GameController{
         if (time - lastMovement > 400) {
             for (Van van : getModel().getVans()) {
                 checkCrash(van);
-                if(van.getDirection() == 1){
+                if (van.getDirection() == 1) {
                     moveVan(van, new MoveRight());
-                }
-                else {
+                } else {
                     moveVan(van, new MoveLeft());
                 }
                 checkCrash(van);
@@ -42,8 +42,9 @@ public class VanController extends GameController{
             this.lastMovement = time;
         }
     }
+
     private void moveVan(Van van, Command command) {
-        van.setPosition(command.execute(van.getPosition(),getModel()));
+        van.setPosition(command.execute(van.getPosition(), getModel()));
 
     }
 }

@@ -11,14 +11,15 @@ import com.ldts.frogger.model.game.elements.Truck;
 
 import java.io.IOException;
 
-public class TruckController extends GameController{
+public class TruckController extends GameController {
     private long lastMovement;
 
     public TruckController(Arena arena) {
         super(arena);
         this.lastMovement = 0;
     }
-    public void checkCrash(Truck truck){
+
+    public void checkCrash(Truck truck) {
         Frog frog = getModel().getFrog();
         if (frog.getPosition().equals(truck.getPosition()) || frog.getPosition().equals(truck.getPosition().getRight())) {
             frog.decreaseLives();
@@ -31,10 +32,9 @@ public class TruckController extends GameController{
         if (time - lastMovement > 400) {
             for (Truck truck : getModel().getTrucks()) {
                 checkCrash(truck);
-                if(truck.getDirection() == 1){
+                if (truck.getDirection() == 1) {
                     moveTruck(truck, new MoveRight());
-                }
-                else {
+                } else {
                     moveTruck(truck, new MoveLeft());
                 }
                 checkCrash(truck);
@@ -42,8 +42,9 @@ public class TruckController extends GameController{
             this.lastMovement = time;
         }
     }
+
     private void moveTruck(Truck truck, Command command) {
-        truck.setPosition(command.execute(truck.getPosition(),getModel()));
+        truck.setPosition(command.execute(truck.getPosition(), getModel()));
 
     }
 }

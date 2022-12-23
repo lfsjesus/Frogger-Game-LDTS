@@ -1,13 +1,14 @@
 package com.ldts.frogger.controller;
 
 import com.ldts.frogger.Game;
-import com.ldts.frogger.controller.game.BigLogController;
 import com.ldts.frogger.controller.game.SmallLogController;
 import com.ldts.frogger.controller.music.MusicManager;
 import com.ldts.frogger.gui.GUI;
 import com.ldts.frogger.model.Position;
 import com.ldts.frogger.model.game.arena.Arena;
-import com.ldts.frogger.model.game.elements.*;
+import com.ldts.frogger.model.game.elements.Frog;
+import com.ldts.frogger.model.game.elements.SmallLog;
+import com.ldts.frogger.model.game.elements.Water;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
@@ -24,18 +25,19 @@ public class SmallLogControllerTest {
     private Frog frog;
     private Arena arena;
     private Game game;
+
     @BeforeEach
     void setUp() {
         arena = new Arena(10, 10);
-        arena.setWaters(Arrays.asList(new Water(5,5), new Water(6,5), new Water(7,5), new Water(8,5), new Water(9,5)));
+        arena.setWaters(Arrays.asList(new Water(5, 5), new Water(6, 5), new Water(7, 5), new Water(8, 5), new Water(9, 5)));
         controller = new SmallLogController(arena);
         game = Mockito.mock(Game.class);
     }
 
     @Test
     void FrogLeftLog1() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             SmallLog smallLog = new SmallLog(new Position(5, 5), 1);
             arena.setSmallLogs(List.of(smallLog));
@@ -49,8 +51,8 @@ public class SmallLogControllerTest {
 
     @Test
     void FrogEndLog1() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             SmallLog smallLog = new SmallLog(new Position(5, 5), 1);
             arena.setSmallLogs(List.of(smallLog));
@@ -64,8 +66,8 @@ public class SmallLogControllerTest {
 
     @Test
     void FrogLeftLog0() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             SmallLog smallLog = new SmallLog(new Position(5, 5), 0);
             arena.setSmallLogs(List.of(smallLog));
@@ -79,8 +81,8 @@ public class SmallLogControllerTest {
 
     @Test
     void FrogEndLog0() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             SmallLog smallLog = new SmallLog(new Position(5, 5), 0);
             arena.setSmallLogs(List.of(smallLog));
@@ -94,8 +96,8 @@ public class SmallLogControllerTest {
 
     @Test
     void LogReset0() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             SmallLog smallLog = new SmallLog(new Position(-1, 5), 0);
             arena.setSmallLogs(List.of(smallLog));
@@ -108,8 +110,8 @@ public class SmallLogControllerTest {
 
     @Test
     void LogReset1() throws IOException {
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             SmallLog smallLog = new SmallLog(new Position(9, 5), 1);
             arena.setSmallLogs(List.of(smallLog));

@@ -15,7 +15,7 @@ public class TrainViewerTest {
 
     @BeforeEach
     void setUp() {
-        train = new Train(new Position(10,10),1);
+        train = new Train(new Position(10, 10), 1);
         viewer = new TrainViewer();
         gui = Mockito.mock(GUI.class);
     }

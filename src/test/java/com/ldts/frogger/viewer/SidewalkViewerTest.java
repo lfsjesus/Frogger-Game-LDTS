@@ -22,6 +22,6 @@ public class SidewalkViewerTest {
     @Test
     void drawElement() {
         viewer.draw(sidewalk, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawText(sidewalk.getPosition(), " ","#acacac","#acacac");
+        Mockito.verify(gui, Mockito.times(1)).drawText(sidewalk.getPosition(), " ", "#acacac", "#acacac");
     }
 }

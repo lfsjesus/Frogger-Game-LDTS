@@ -65,8 +65,8 @@ public class MenuControllerTest {
     void checkGameStart() throws IOException {
         Arena.setPoints(2);
         Frog.setLives(2);
-        MusicManager manager= Mockito.mock(MusicManager .class);
-        try(MockedStatic<MusicManager > configurationMockedStatic=Mockito.mockStatic(MusicManager.class)) {
+        MusicManager manager = Mockito.mock(MusicManager.class);
+        try (MockedStatic<MusicManager> configurationMockedStatic = Mockito.mockStatic(MusicManager.class)) {
             configurationMockedStatic.when(MusicManager::getInstance).thenReturn(manager);
             controller.step(game, GUI.ACTION.SELECT, 500);
             assertTrue(game.getState() instanceof GameState);

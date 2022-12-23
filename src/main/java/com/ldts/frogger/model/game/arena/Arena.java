@@ -50,10 +50,12 @@ public class Arena {
     public void setFrog(Frog frog) {
         this.frog = frog;
     }
+
     public boolean isEmpty(Position position) {
         return !(position.y() < 1 || position.y() > height - 1) && !(position.x() < 0 || position.x() > width - 1) && !isTree(position);
     }
-    public boolean isLog(Position position){
+
+    public boolean isLog(Position position) {
         for (BigLog bigLog : bigLogs) {
             if (bigLog.getPosition().equals(position) || bigLog.getPosition().getRight().equals(position) || bigLog.getPosition().getRight().getRight().equals(position)) {
                 return true;
@@ -66,7 +68,8 @@ public class Arena {
         }
         return false;
     }
-    public boolean isRock(Position position){
+
+    public boolean isRock(Position position) {
         for (Rock rock : rocks) {
             if (rock.getPosition().equals(position)) {
                 return true;
@@ -74,89 +77,92 @@ public class Arena {
         }
         return false;
     }
-    public boolean canPlaceCoin(Position position){
+
+    public boolean canPlaceCoin(Position position) {
         return isEmpty(position) && !isWater(position) && !isLog(position) && !isLava(position) && !isRock(position) && position.y() != 1;
     }
+
     public boolean isMoveableObstacle(Position position) {
         return isCar(position) || isTruck(position) || isVan(position) || isMotorbike(position) || isTrain(position);
     }
+
     public boolean isNonMoveableObstacle(Position frogPosition) {
-        return (isLava(frogPosition)  && !isRock(frogPosition)) || (isWater(frogPosition) && !isLog(frogPosition));
+        return (isLava(frogPosition) && !isRock(frogPosition)) || (isWater(frogPosition) && !isLog(frogPosition));
 
     }
+
     public boolean isCar(Position position) {
-        for (Car car : cars){
-            if (car.getPosition().equals(position) || car.getPosition().getRight().equals(position)){
+        for (Car car : cars) {
+            if (car.getPosition().equals(position) || car.getPosition().getRight().equals(position)) {
                 return true;
             }
         }
         return false;
     }
-    public boolean isTrain(Position position){
-        for (Train train : trains){
-            if(position.greaterOrEqual(train.getPosition()) && position.lessOrEqual(train.getPosition().add(new Position(15,0)))){
+
+    public boolean isTrain(Position position) {
+        for (Train train : trains) {
+            if (position.greaterOrEqual(train.getPosition()) && position.lessOrEqual(train.getPosition().add(new Position(15, 0)))) {
                 return true;
             }
         }
         return false;
     }
-    public boolean isVan(Position position){
-        for (Van van : vans){
-            if (van.getPosition().equals(position) || van.getPosition().getRight().equals(position)){
+
+    public boolean isVan(Position position) {
+        for (Van van : vans) {
+            if (van.getPosition().equals(position) || van.getPosition().getRight().equals(position)) {
                 return true;
             }
         }
         return false;
     }
-    public boolean isMotorbike(Position position){
-        for (Motorbike motorbike : motorbikes){
-            if (motorbike.getPosition().equals(position) || motorbike.getPosition().getRight().equals(position)){
+
+    public boolean isMotorbike(Position position) {
+        for (Motorbike motorbike : motorbikes) {
+            if (motorbike.getPosition().equals(position) || motorbike.getPosition().getRight().equals(position)) {
                 return true;
             }
         }
         return false;
     }
+
     public boolean isTruck(Position position) {
-        for (Truck truck : trucks){
-            if (truck.getPosition().equals(position) || truck.getPosition().getRight().equals(position)){
+        for (Truck truck : trucks) {
+            if (truck.getPosition().equals(position) || truck.getPosition().getRight().equals(position)) {
                 return true;
             }
         }
         return false;
     }
-    public void setFrogBackgroundColor(Position position){
-        if (isSidewalk(position)){
+
+    public void setFrogBackgroundColor(Position position) {
+        if (isSidewalk(position)) {
             getFrog().setBackgroundColor("#acacac");
-        }
-        else if(isGrass(position)){
+        } else if (isGrass(position)) {
             getFrog().setBackgroundColor("#41a000");
-        }
-        else if(isLog(position)){
+        } else if (isLog(position)) {
             getFrog().setBackgroundColor("#624219");
-        }
-        else if(isRock(position)){
+        } else if (isRock(position)) {
             getFrog().setBackgroundColor("#4e535a");
-        }
-        else if(isWater(position)){
+        } else if (isWater(position)) {
             getFrog().setBackgroundColor("#1651b3");
-        }
-        else if(isLava(position)){
+        } else if (isLava(position)) {
             getFrog().setBackgroundColor("#ff2500");
-        }
-        else getFrog().setBackgroundColor("#000000");
+        } else getFrog().setBackgroundColor("#000000");
     }
-    public String getCoinBackgroundColor(Position position){
-        if (isSidewalk(position)){
+
+    public String getCoinBackgroundColor(Position position) {
+        if (isSidewalk(position)) {
             return "#acacac";
-        }
-        else if(isGrass(position)){
+        } else if (isGrass(position)) {
             return "#41a000";
-        }
-        else return "#000000";
+        } else return "#000000";
     }
+
     public boolean isSidewalk(Position position) {
-        for (Sidewalk sidewalk : sidewalks){
-            if (sidewalk.getPosition().equals(position)){
+        for (Sidewalk sidewalk : sidewalks) {
+            if (sidewalk.getPosition().equals(position)) {
                 return true;
             }
         }
@@ -164,73 +170,78 @@ public class Arena {
     }
 
     public boolean isGrass(Position position) {
-        for (Grass grass : grasses){
-            if (grass.getPosition().equals(position)){
-                return true;
-            }
-        }
-        return false;
-    }
-    public boolean isWater(Position frogPosition) {
-        for (Water water : waters){
-            if (water.getPosition().equals(frogPosition)){
+        for (Grass grass : grasses) {
+            if (grass.getPosition().equals(position)) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean isLava(Position position){
-        for (Lava lava : lavas){
-            if (lava.getPosition().equals(position)){
+    public boolean isWater(Position frogPosition) {
+        for (Water water : waters) {
+            if (water.getPosition().equals(frogPosition)) {
                 return true;
             }
         }
         return false;
     }
+
+    public boolean isLava(Position position) {
+        for (Lava lava : lavas) {
+            if (lava.getPosition().equals(position)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean isTree(Position position) {
-        for (Tree tree : trees){
-            if (tree.getPosition().equals(position)){
+        for (Tree tree : trees) {
+            if (tree.getPosition().equals(position)) {
                 return true;
             }
         }
         return false;
     }
+
     public boolean isCoin(Position position) {
-        for (Coin coin : coins){
-            if (coin.getPosition().equals(position)){
+        for (Coin coin : coins) {
+            if (coin.getPosition().equals(position)) {
                 return true;
             }
         }
         return false;
     }
-    public void catchCoin(Position position){
+
+    public void catchCoin(Position position) {
         ListIterator<Coin> iterator = coins.listIterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             Coin coin = iterator.next();
-            if (coin.getPosition().equals(position)){
+            if (coin.getPosition().equals(position)) {
                 iterator.remove();
-                points+=5;
+                points += 5;
                 MusicManager.getInstance().start(Sounds.COIN);
                 break;
             }
         }
 
     }
-    public List<Coin> createCoins(){
+
+    public List<Coin> createCoins() {
         List<Coin> coins = new ArrayList<>();
 
-        do{
+        do {
             //create random position for coin
-            int x = (int)(Math.random()*getWidth());
-            int y = (int)(Math.random()*getHeight());
+            int x = (int) (Math.random() * getWidth());
+            int y = (int) (Math.random() * getHeight());
             //check if the position is valid
-            Position position = new Position(x,y);
-            if (canPlaceCoin(position)){
+            Position position = new Position(x, y);
+            if (canPlaceCoin(position)) {
                 coins.add(new Coin(position, getCoinBackgroundColor(position)));
             }
 
-        } while(coins.size() < 10);
+        } while (coins.size() < 10);
 
         return coins;
     }
@@ -242,6 +253,7 @@ public class Arena {
     public void setSidewalks(List<Sidewalk> sidewalks) {
         this.sidewalks = sidewalks;
     }
+
     public List<Truck> getTrucks() {
         return trucks;
     }
@@ -314,13 +326,21 @@ public class Arena {
         this.coins = coins;
     }
 
-    public List<BigLog> getBigLogs() {return bigLogs;}
+    public List<BigLog> getBigLogs() {
+        return bigLogs;
+    }
 
-    public void setBigLogs(List<BigLog> bigLogs) {this.bigLogs = bigLogs;}
+    public void setBigLogs(List<BigLog> bigLogs) {
+        this.bigLogs = bigLogs;
+    }
 
-    public List<SmallLog> getSmallLogs() {return smallLogs;}
+    public List<SmallLog> getSmallLogs() {
+        return smallLogs;
+    }
 
-    public void setSmallLogs(List<SmallLog> smallLogs) {this.smallLogs = smallLogs;}
+    public void setSmallLogs(List<SmallLog> smallLogs) {
+        this.smallLogs = smallLogs;
+    }
 
     public static int getLevel() {
         return level;

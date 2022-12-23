@@ -4,7 +4,7 @@ import com.ldts.frogger.gui.GUI;
 
 import java.io.IOException;
 
-public abstract class  Viewer<T> {
+public abstract class Viewer<T> {
     private final T model;
 
     public Viewer(T model) {

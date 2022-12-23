@@ -18,17 +18,20 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-public class LanternaGUI implements GUI{
+public class LanternaGUI implements GUI {
 
     private final Screen screen;
 
-    public LanternaGUI(Screen screen) {this.screen = screen;}
+    public LanternaGUI(Screen screen) {
+        this.screen = screen;
+    }
 
     public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont();
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
+
     private Screen createScreen(Terminal terminal) throws IOException {
         final Screen screen;
         screen = new TerminalScreen(terminal);
@@ -38,6 +41,7 @@ public class LanternaGUI implements GUI{
         screen.doResizeIfNecessary();
         return screen;
     }
+
     private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory()
@@ -92,18 +96,21 @@ public class LanternaGUI implements GUI{
             case 7 -> drawText(position, "c", "#507436", backgroundColor);
         }
     }
+
     @Override
     public void drawBackground(Position position, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setBackgroundColor(TextColor.Factory.fromString(color));
         tg.putString(position.x(), position.y(), " ");
     }
+
     @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(position.x(), position.y(), text);
     }
+
     @Override
     public void drawText(Position position, String text, String foregroundColor, String backgroundColor) {
         TextGraphics tg = screen.newTextGraphics();
@@ -114,10 +121,9 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawTruck(Position position, String color, int direction) {
-        if(direction == 1){
+        if (direction == 1) {
             drawText(position, "z{", color);
-        }
-        else {
+        } else {
             drawText(position, "|}", color);
         }
     }
@@ -125,39 +131,37 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawMotorbike(Position position, String color, int direction) {
-        if(direction == 1){
+        if (direction == 1) {
             drawText(position, "rs", color);
-        }
-        else {
+        } else {
             drawText(position, "tu", color);
         }
     }
 
     @Override
     public void drawVan(Position position, String color, int direction) {
-        if(direction == 1){
+        if (direction == 1) {
             drawText(position, "xy", color);
-        }
-        else {
+        } else {
             drawText(position, "vw", color);
         }
     }
+
     @Override
     public void drawCar(Position position, String color, int direction) {
-        if(direction == 1){
+        if (direction == 1) {
             drawText(position, "gh", color);
-        }
-        else {
+        } else {
             drawText(position, "ij", color);
         }
 
     }
+
     @Override
-    public void drawTrain(Position position, String color, int direction){
-        if(direction == 1){
+    public void drawTrain(Position position, String color, int direction) {
+        if (direction == 1) {
             drawText(position, "[~[~[~[~[~[~[~]%", color);
-        }
-        else {
+        } else {
             drawText(position, "()()()()()()()*+", color);
         }
 

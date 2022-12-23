@@ -32,10 +32,10 @@ public class FrogController extends GameController {
         moveFrog(getModel().getFrog().getPosition().getDown());
     }
 
-    public void checkCollisions(){
+    public void checkCollisions() {
         Position frogPosition = getModel().getFrog().getPosition();
         getModel().catchCoin(frogPosition);
-        if(getModel().isMoveableObstacle(frogPosition) || getModel().isNonMoveableObstacle(frogPosition)){
+        if (getModel().isMoveableObstacle(frogPosition) || getModel().isNonMoveableObstacle(frogPosition)) {
             getModel().getFrog().resetPosition();
             getModel().getFrog().decreaseLives();
         }
@@ -58,7 +58,7 @@ public class FrogController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) {
-        if(time - lastMovement > 7000){
+        if (time - lastMovement > 7000) {
             getModel().getFrog().decreaseLives();
             lastMovement = time;
         }
@@ -69,47 +69,37 @@ public class FrogController extends GameController {
             if (changeDir) {
                 getModel().getFrog().setDirection(1);
                 changeDir = false;
-            }
-            else {
+            } else {
                 getModel().getFrog().setDirection(0);
                 changeDir = true;
             }
             this.lastMovement = time;
-        }
-
-        else if (action == GUI.ACTION.RIGHT){
+        } else if (action == GUI.ACTION.RIGHT) {
             moveFrogRight();
             if (changeDir) {
                 getModel().getFrog().setDirection(2);
                 changeDir = false;
-            }
-            else {
+            } else {
                 getModel().getFrog().setDirection(3);
                 changeDir = true;
             }
             this.lastMovement = time;
-        }
-
-        else if (action == GUI.ACTION.DOWN){
+        } else if (action == GUI.ACTION.DOWN) {
             moveFrogDown();
             if (changeDir) {
                 getModel().getFrog().setDirection(4);
                 changeDir = false;
-            }
-            else {
+            } else {
                 getModel().getFrog().setDirection(5);
                 changeDir = true;
             }
             this.lastMovement = time;
-        }
-
-        else if (action == GUI.ACTION.LEFT){
+        } else if (action == GUI.ACTION.LEFT) {
             moveFrogLeft();
             if (changeDir) {
                 getModel().getFrog().setDirection(6);
                 changeDir = false;
-            }
-            else {
+            } else {
                 getModel().getFrog().setDirection(7);
                 changeDir = true;
             }

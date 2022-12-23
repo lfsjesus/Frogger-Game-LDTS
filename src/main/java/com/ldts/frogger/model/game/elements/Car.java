@@ -2,7 +2,7 @@ package com.ldts.frogger.model.game.elements;
 
 import com.ldts.frogger.model.Position;
 
-public class Car extends MoveableElement{
+public class Car extends MoveableElement {
     public Car(int x, int y) {
         super(x, y);
     }

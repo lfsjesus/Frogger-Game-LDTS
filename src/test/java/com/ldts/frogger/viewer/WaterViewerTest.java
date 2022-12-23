@@ -23,6 +23,6 @@ public class WaterViewerTest {
     @Test
     void drawElement() {
         viewer.draw(water, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawText(water.getPosition(), " ","#1651b3","#1651b3");
+        Mockito.verify(gui, Mockito.times(1)).drawText(water.getPosition(), " ", "#1651b3", "#1651b3");
     }
 }

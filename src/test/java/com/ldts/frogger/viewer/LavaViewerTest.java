@@ -23,6 +23,6 @@ public class LavaViewerTest {
     @Test
     void drawElement() {
         viewer.draw(lava, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawText(lava.getPosition(), "o","#ff6600","#ff2500");
+        Mockito.verify(gui, Mockito.times(1)).drawText(lava.getPosition(), "o", "#ff6600", "#ff2500");
     }
 }
