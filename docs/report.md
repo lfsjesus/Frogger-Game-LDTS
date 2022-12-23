@@ -150,6 +150,19 @@ Analysis' result: 7/10
 ![UML](/docs/UML_Frogger.jpg)
 
 ------
+### LIST OF REFACTORINGS
+
+During the development of this project, we tried to write the cleanest code possible since the beginning. However, we still had to apply some changes in the code, in order to improve its design. 
+Here are some of them:
+
+- **Removed unnecessary comments:** this was an existing code smell, even though there was not a valid justification for it to exist (the code was readable). Considering this, we removed the unneeded comments from the code.
+- **Using Polymorphism correctly:** Some classes derived from MoveableElement superclass were sharing common methods (general methods, such as getDirection(), setDirection(), etc). Considering this, we moved those methods to the superclass (pull up), so that they could be used by all the subclasses. There were also constructors that were being used by all the subclasses, so we moved them to the superclass as well.
+- **Merged Two State Classes:** There were two classes that were responsible for the same thing: the state of the game (GameWinState and GameOverState). Considering this, we merged them into one class, using a boolean variable to differentiate between the two states. Both classes were also using the exact same methods in the controller (for example, the method that handles the input from the user), so we were able to remove repeated code.
+- **Removed some unused code:** There were some methods and class attributes that were not being used in the code, so we removed them.
+- **Extract Variable:** There were some methods that had very long bodies because of the many operations that were being performed. Considering this, we extracted some variables from the methods, so that the code would be more readable (Controller classes that perform action in the frog had long lines of code, so we extracted the frog to a variable of type Frog and used it in the method so we didn't need to call the method getModel().getFrog().getPosition() every time we know its position, only doing frog.getPosition() instead).
+- **Used Enhanced Switch:** we replaced the "typical" switch statement with the enhanced switch statement, which is more readable and easier to understand and also makes the code shorter.
+
+------
 
 ### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
