@@ -232,10 +232,9 @@ public class Arena {
         List<Coin> coins = new ArrayList<>();
 
         do {
-            //create random position for coin
             int x = (int) (Math.random() * getWidth());
             int y = (int) (Math.random() * getHeight());
-            //check if the position is valid
+
             Position position = new Position(x, y);
             if (canPlaceCoin(position)) {
                 coins.add(new Coin(position, getCoinBackgroundColor(position)));
