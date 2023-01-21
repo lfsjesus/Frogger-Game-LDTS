@@ -1,5 +1,14 @@
-## LDTS_GR04 - Frogger
-[![BCH compliance](https://bettercodehub.com/edge/badge/lfsjesus/Frogger-Game-LDTS?branch=main)](https://bettercodehub.com/)
+>**Project**
+><br />
+>Course Unit: [Laboratório de Desenho e Teste de Software](https://sigarra.up.pt/feup/pt/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=501676 "Software Design and Testing Laboratory"), 2nd year 
+><br />
+>Course: **Informatics and Computer Engineering** 
+><br />
+> Faculty: **FEUP** (Faculty of Engineering of the University of Porto)
+><br/>
+> Report: [Report.md](./docs/report.md)
+><br/>
+> Evaluation: **182**/200
 
 The objective of this game is to move the frog through a path of static and moving obstacles, reaching the end of
 the levels without dying with the highest score possible. 
