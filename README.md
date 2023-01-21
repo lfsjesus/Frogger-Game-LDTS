@@ -1,4 +1,4 @@
->**Project**
+>**PROJECT**
 ><br />
 >Course Unit: [Laboratório de Desenho e Teste de Software](https://sigarra.up.pt/feup/pt/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=501676 "Software Design and Testing Laboratory"), 2nd year 
 ><br />
